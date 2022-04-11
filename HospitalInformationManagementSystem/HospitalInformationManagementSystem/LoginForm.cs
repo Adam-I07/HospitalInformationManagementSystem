@@ -18,7 +18,7 @@ namespace HospitalInformationManagementSystem
             InitializeComponent();
             textBoxPassword.UseSystemPasswordChar = true;
         }
-        SqlConnection SqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string windowToLoad = comboBoxRole.Text;
@@ -31,7 +31,7 @@ namespace HospitalInformationManagementSystem
                 try
                 {
                     string query = "SELECT * FROM LogInDetails WHERE Role = '" + comboBoxRole.Text + "' AND Username = '" + textBoxUsername.Text + "' AND Password = '" + textBoxPassword.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(query, SqlConnection);
+                    SqlDataAdapter sda = new SqlDataAdapter(query, sqlConnection);
                     DataTable dataTable = new DataTable();
                     sda.Fill(dataTable);
 
@@ -69,7 +69,7 @@ namespace HospitalInformationManagementSystem
                 }
                 finally
                 {
-                    SqlConnection.Close();
+                    sqlConnection.Close();
                 }
             }
 

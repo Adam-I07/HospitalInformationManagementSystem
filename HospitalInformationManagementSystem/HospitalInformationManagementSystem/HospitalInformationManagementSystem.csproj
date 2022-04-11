@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddNewUser.Designer.cs">
+      <DependentUpon>AdminAddNewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,8 +90,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminAddNewUser.resx">
+      <DependentUpon>AdminAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminMainMenu.resx">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPasswordManagement.resx">
+      <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctosMainMenu.resx">
       <DependentUpon>DoctosMainMenu.cs</DependentUpon>
