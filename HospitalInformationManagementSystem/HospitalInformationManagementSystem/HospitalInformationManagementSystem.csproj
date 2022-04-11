@@ -52,6 +52,12 @@
     <Compile Include="AdminMainMenu.Designer.cs">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminPasswordManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPasswordManagement.Designer.cs">
+      <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctosMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

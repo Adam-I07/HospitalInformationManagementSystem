@@ -30,26 +30,21 @@ namespace HospitalInformationManagementSystem
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminMainMenu));
-            this.button1 = new System.Windows.Forms.Button();
             this.panelWhiteBottom = new System.Windows.Forms.Panel();
             this.labelHospitalName = new System.Windows.Forms.Label();
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labelAdminMenu = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxLogOutLogo = new System.Windows.Forms.PictureBox();
+            this.labelLogOut = new System.Windows.Forms.Label();
+            this.pictureBoxLoginDetails = new System.Windows.Forms.PictureBox();
+            this.labelLoginDetails = new System.Windows.Forms.Label();
             this.panelWhiteBottom.SuspendLayout();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOutLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoginDetails)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(341, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelWhiteBottom
             // 
@@ -86,7 +81,7 @@ namespace HospitalInformationManagementSystem
             this.labelAdminMenu.AutoSize = true;
             this.labelAdminMenu.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAdminMenu.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelAdminMenu.Location = new System.Drawing.Point(45, 27);
+            this.labelAdminMenu.Location = new System.Drawing.Point(80, 24);
             this.labelAdminMenu.Name = "labelAdminMenu";
             this.labelAdminMenu.Size = new System.Drawing.Size(229, 42);
             this.labelAdminMenu.TabIndex = 5;
@@ -95,12 +90,58 @@ namespace HospitalInformationManagementSystem
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(253, -12);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(288, -12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(131, 116);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxLogo.TabIndex = 4;
             this.pictureBoxLogo.TabStop = false;
+            // 
+            // pictureBoxLogOutLogo
+            // 
+            this.pictureBoxLogOutLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogOutLogo.Image")));
+            this.pictureBoxLogOutLogo.Location = new System.Drawing.Point(261, 93);
+            this.pictureBoxLogOutLogo.Name = "pictureBoxLogOutLogo";
+            this.pictureBoxLogOutLogo.Size = new System.Drawing.Size(130, 133);
+            this.pictureBoxLogOutLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogOutLogo.TabIndex = 4;
+            this.pictureBoxLogOutLogo.TabStop = false;
+            this.pictureBoxLogOutLogo.Click += new System.EventHandler(this.pictureBoxLogOutLogo_Click);
+            // 
+            // labelLogOut
+            // 
+            this.labelLogOut.AutoSize = true;
+            this.labelLogOut.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogOut.ForeColor = System.Drawing.Color.White;
+            this.labelLogOut.Location = new System.Drawing.Point(280, 221);
+            this.labelLogOut.Name = "labelLogOut";
+            this.labelLogOut.Size = new System.Drawing.Size(85, 24);
+            this.labelLogOut.TabIndex = 5;
+            this.labelLogOut.Text = "Log Out";
+            this.labelLogOut.Click += new System.EventHandler(this.labelLogOut_Click);
+            // 
+            // pictureBoxLoginDetails
+            // 
+            this.pictureBoxLoginDetails.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLoginDetails.Image")));
+            this.pictureBoxLoginDetails.Location = new System.Drawing.Point(64, 93);
+            this.pictureBoxLoginDetails.Name = "pictureBoxLoginDetails";
+            this.pictureBoxLoginDetails.Size = new System.Drawing.Size(124, 133);
+            this.pictureBoxLoginDetails.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLoginDetails.TabIndex = 6;
+            this.pictureBoxLoginDetails.TabStop = false;
+            this.pictureBoxLoginDetails.Click += new System.EventHandler(this.pictureBoxLoginDetails_Click);
+            // 
+            // labelLoginDetails
+            // 
+            this.labelLoginDetails.AutoSize = true;
+            this.labelLoginDetails.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginDetails.ForeColor = System.Drawing.Color.White;
+            this.labelLoginDetails.Location = new System.Drawing.Point(60, 221);
+            this.labelLoginDetails.Name = "labelLoginDetails";
+            this.labelLoginDetails.Size = new System.Drawing.Size(128, 24);
+            this.labelLoginDetails.TabIndex = 7;
+            this.labelLoginDetails.Text = "Login Details";
+            this.labelLoginDetails.Click += new System.EventHandler(this.labelLoginDetails_Click);
             // 
             // AdminMainMenu
             // 
@@ -108,9 +149,12 @@ namespace HospitalInformationManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(460, 288);
+            this.Controls.Add(this.labelLoginDetails);
+            this.Controls.Add(this.pictureBoxLoginDetails);
+            this.Controls.Add(this.labelLogOut);
+            this.Controls.Add(this.pictureBoxLogOutLogo);
             this.Controls.Add(this.panelWhiteTop);
             this.Controls.Add(this.panelWhiteBottom);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -120,16 +164,22 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.ResumeLayout(false);
             this.panelWhiteTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOutLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoginDetails)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelWhiteBottom;
         private System.Windows.Forms.Panel panelWhiteTop;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label labelAdminMenu;
         private System.Windows.Forms.Label labelHospitalName;
+        private System.Windows.Forms.PictureBox pictureBoxLogOutLogo;
+        private System.Windows.Forms.Label labelLogOut;
+        private System.Windows.Forms.PictureBox pictureBoxLoginDetails;
+        private System.Windows.Forms.Label labelLoginDetails;
     }
 }
