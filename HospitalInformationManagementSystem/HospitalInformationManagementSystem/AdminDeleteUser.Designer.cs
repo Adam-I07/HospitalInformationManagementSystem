@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalInformationManagementSystem
 {
-    partial class AdminPasswordManagement
+    partial class AdminDeleteUser
     {
         /// <summary>
         /// Required designer variable.
@@ -29,51 +29,40 @@ namespace HospitalInformationManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPasswordManagement));
-            this.dataGridViewLoginDetails = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDeleteUser));
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labelGoBack = new System.Windows.Forms.Label();
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
-            this.labelLoginManagement = new System.Windows.Forms.Label();
+            this.labelDeleteUser = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
-            this.buttonAddNewUser = new System.Windows.Forms.Button();
-            this.buttonEditUser = new System.Windows.Forms.Button();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoginDetails)).BeginInit();
+            this.labelUserID = new System.Windows.Forms.Label();
+            this.dataGridViewShowUserDetail = new System.Windows.Forms.DataGridView();
+            this.textBoxUserID = new System.Windows.Forms.MaskedTextBox();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowUserDetail)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewLoginDetails
-            // 
-            this.dataGridViewLoginDetails.AllowUserToAddRows = false;
-            this.dataGridViewLoginDetails.AllowUserToDeleteRows = false;
-            this.dataGridViewLoginDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLoginDetails.Location = new System.Drawing.Point(349, 131);
-            this.dataGridViewLoginDetails.Name = "dataGridViewLoginDetails";
-            this.dataGridViewLoginDetails.ReadOnly = true;
-            this.dataGridViewLoginDetails.Size = new System.Drawing.Size(439, 354);
-            this.dataGridViewLoginDetails.TabIndex = 0;
             // 
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
-            this.panelWhiteTop.Controls.Add(this.labelLoginManagement);
+            this.panelWhiteTop.Controls.Add(this.labelDeleteUser);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
-            this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
+            this.panelWhiteTop.Location = new System.Drawing.Point(-2, -1);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(804, 125);
-            this.panelWhiteTop.TabIndex = 8;
+            this.panelWhiteTop.Size = new System.Drawing.Size(455, 117);
+            this.panelWhiteTop.TabIndex = 10;
             // 
             // labelGoBack
             // 
             this.labelGoBack.AutoSize = true;
             this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGoBack.Location = new System.Drawing.Point(754, 18);
+            this.labelGoBack.Location = new System.Drawing.Point(412, 18);
             this.labelGoBack.Name = "labelGoBack";
             this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelGoBack.Size = new System.Drawing.Size(36, 15);
@@ -84,7 +73,7 @@ namespace HospitalInformationManagementSystem
             // pictureBoxGoBack
             // 
             this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
-            this.pictureBoxGoBack.Location = new System.Drawing.Point(732, 3);
+            this.pictureBoxGoBack.Location = new System.Drawing.Point(392, 3);
             this.pictureBoxGoBack.Name = "pictureBoxGoBack";
             this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
             this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -92,92 +81,105 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxGoBack.TabStop = false;
             this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
             // 
-            // labelLoginManagement
+            // labelDeleteUser
             // 
-            this.labelLoginManagement.AutoSize = true;
-            this.labelLoginManagement.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginManagement.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelLoginManagement.Location = new System.Drawing.Point(113, 45);
-            this.labelLoginManagement.Name = "labelLoginManagement";
-            this.labelLoginManagement.Size = new System.Drawing.Size(512, 42);
-            this.labelLoginManagement.TabIndex = 5;
-            this.labelLoginManagement.Text = "User Login Detail Management";
+            this.labelDeleteUser.AutoSize = true;
+            this.labelDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.labelDeleteUser.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDeleteUser.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelDeleteUser.Location = new System.Drawing.Point(149, 29);
+            this.labelDeleteUser.Name = "labelDeleteUser";
+            this.labelDeleteUser.Size = new System.Drawing.Size(197, 42);
+            this.labelDeleteUser.TabIndex = 5;
+            this.labelDeleteUser.Text = "Delete User";
             // 
             // pictureBoxHospitalLogo
             // 
             this.pictureBoxHospitalLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHospitalLogo.Image")));
-            this.pictureBoxHospitalLogo.Location = new System.Drawing.Point(0, 6);
+            this.pictureBoxHospitalLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxHospitalLogo.Name = "pictureBoxHospitalLogo";
             this.pictureBoxHospitalLogo.Size = new System.Drawing.Size(131, 116);
             this.pictureBoxHospitalLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxHospitalLogo.TabIndex = 4;
             this.pictureBoxHospitalLogo.TabStop = false;
             // 
-            // buttonAddNewUser
-            // 
-            this.buttonAddNewUser.Location = new System.Drawing.Point(12, 152);
-            this.buttonAddNewUser.Name = "buttonAddNewUser";
-            this.buttonAddNewUser.Size = new System.Drawing.Size(331, 55);
-            this.buttonAddNewUser.TabIndex = 9;
-            this.buttonAddNewUser.Text = "Add New User";
-            this.buttonAddNewUser.UseVisualStyleBackColor = true;
-            this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddNewUser_Click);
-            // 
-            // buttonEditUser
-            // 
-            this.buttonEditUser.Location = new System.Drawing.Point(12, 222);
-            this.buttonEditUser.Name = "buttonEditUser";
-            this.buttonEditUser.Size = new System.Drawing.Size(331, 55);
-            this.buttonEditUser.TabIndex = 10;
-            this.buttonEditUser.Text = "Edit User";
-            this.buttonEditUser.UseVisualStyleBackColor = true;
-            this.buttonEditUser.Click += new System.EventHandler(this.buttonEditUser_Click);
-            // 
             // buttonDeleteUser
             // 
-            this.buttonDeleteUser.Location = new System.Drawing.Point(12, 293);
+            this.buttonDeleteUser.Location = new System.Drawing.Point(244, 191);
             this.buttonDeleteUser.Name = "buttonDeleteUser";
-            this.buttonDeleteUser.Size = new System.Drawing.Size(331, 55);
-            this.buttonDeleteUser.TabIndex = 11;
-            this.buttonDeleteUser.Text = "Delete User";
+            this.buttonDeleteUser.Size = new System.Drawing.Size(70, 26);
+            this.buttonDeleteUser.TabIndex = 33;
+            this.buttonDeleteUser.Text = "Delete";
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
             this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
             // 
-            // AdminPasswordManagement
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserID.ForeColor = System.Drawing.Color.White;
+            this.labelUserID.Location = new System.Drawing.Point(178, 132);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(85, 24);
+            this.labelUserID.TabIndex = 32;
+            this.labelUserID.Text = "User ID:";
+            // 
+            // dataGridViewShowUserDetail
+            // 
+            this.dataGridViewShowUserDetail.AllowUserToAddRows = false;
+            this.dataGridViewShowUserDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShowUserDetail.Location = new System.Drawing.Point(4, 237);
+            this.dataGridViewShowUserDetail.Name = "dataGridViewShowUserDetail";
+            this.dataGridViewShowUserDetail.ReadOnly = true;
+            this.dataGridViewShowUserDetail.Size = new System.Drawing.Size(441, 201);
+            this.dataGridViewShowUserDetail.TabIndex = 35;
+            // 
+            // textBoxUserID
+            // 
+            this.textBoxUserID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserID.Location = new System.Drawing.Point(182, 159);
+            this.textBoxUserID.Mask = "00000";
+            this.textBoxUserID.Name = "textBoxUserID";
+            this.textBoxUserID.Size = new System.Drawing.Size(132, 26);
+            this.textBoxUserID.TabIndex = 36;
+            this.textBoxUserID.ValidatingType = typeof(int);
+            // 
+            // AdminDeleteUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(800, 497);
+            this.ClientSize = new System.Drawing.Size(449, 450);
+            this.Controls.Add(this.textBoxUserID);
+            this.Controls.Add(this.dataGridViewShowUserDetail);
             this.Controls.Add(this.buttonDeleteUser);
-            this.Controls.Add(this.buttonEditUser);
-            this.Controls.Add(this.buttonAddNewUser);
+            this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.panelWhiteTop);
-            this.Controls.Add(this.dataGridViewLoginDetails);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "AdminPasswordManagement";
+            this.Name = "AdminDeleteUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminPasswordManagement";
-            this.Load += new System.EventHandler(this.AdminPasswordManagement_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoginDetails)).EndInit();
+            this.Text = "AdminDeleteUser";
+            this.Load += new System.EventHandler(this.AdminDeleteUser_Load);
             this.panelWhiteTop.ResumeLayout(false);
             this.panelWhiteTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowUserDetail)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewLoginDetails;
         private System.Windows.Forms.Panel panelWhiteTop;
-        private System.Windows.Forms.Label labelLoginManagement;
-        private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
-        private System.Windows.Forms.PictureBox pictureBoxGoBack;
         private System.Windows.Forms.Label labelGoBack;
-        private System.Windows.Forms.Button buttonAddNewUser;
-        private System.Windows.Forms.Button buttonEditUser;
+        private System.Windows.Forms.PictureBox pictureBoxGoBack;
+        private System.Windows.Forms.Label labelDeleteUser;
+        private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
         private System.Windows.Forms.Button buttonDeleteUser;
+        private System.Windows.Forms.Label labelUserID;
+        private System.Windows.Forms.DataGridView dataGridViewShowUserDetail;
+        private System.Windows.Forms.MaskedTextBox textBoxUserID;
     }
 }

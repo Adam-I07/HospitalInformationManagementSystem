@@ -52,6 +52,18 @@
     <Compile Include="AdminAddNewUser.Designer.cs">
       <DependentUpon>AdminAddNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDeleteUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDeleteUser.Designer.cs">
+      <DependentUpon>AdminDeleteUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEditUser.Designer.cs">
+      <DependentUpon>AdminEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AdminAddNewUser.resx">
       <DependentUpon>AdminAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDeleteUser.resx">
+      <DependentUpon>AdminDeleteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEditUser.resx">
+      <DependentUpon>AdminEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMainMenu.resx">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>

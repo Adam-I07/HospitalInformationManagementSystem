@@ -99,6 +99,7 @@ namespace HospitalInformationManagementSystem
 
             Int64 idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
             labelUserIDCurrent.Text = (idNumber+1).ToString();
+            sqlConnection.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

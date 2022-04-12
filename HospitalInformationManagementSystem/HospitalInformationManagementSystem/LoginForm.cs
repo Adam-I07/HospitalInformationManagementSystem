@@ -37,6 +37,7 @@ namespace HospitalInformationManagementSystem
 
                     if (dataTable.Rows.Count > 0)
                     {
+                        sqlConnection.Close();
                         if (windowToLoad == "Admin")
                         {
                             AdminMainMenu adminMainMenu = new AdminMainMenu();

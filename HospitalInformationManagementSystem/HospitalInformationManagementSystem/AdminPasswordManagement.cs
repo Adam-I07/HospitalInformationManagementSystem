@@ -30,6 +30,7 @@ namespace HospitalInformationManagementSystem
             sda.Fill(dataSet);
 
             dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+            sqlConnection.Close();
         }
 
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
@@ -68,6 +69,20 @@ namespace HospitalInformationManagementSystem
         {
             AdminAddNewUser adminAddNewUser = new AdminAddNewUser();
             adminAddNewUser.Show();
+            this.Close();
+        }
+
+        private void buttonEditUser_Click(object sender, EventArgs e)
+        {
+            AdminEditUser adminEditUser = new AdminEditUser();
+            adminEditUser.Show();
+            this.Close();
+        }
+
+        private void buttonDeleteUser_Click(object sender, EventArgs e)
+        {
+            AdminDeleteUser adminDeleteUser = new AdminDeleteUser();
+            adminDeleteUser.Show();
             this.Close();
         }
     }
