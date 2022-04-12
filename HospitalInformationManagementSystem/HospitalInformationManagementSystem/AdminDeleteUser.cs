@@ -44,20 +44,22 @@ namespace HospitalInformationManagementSystem
 
 
             String userIDInputted = textBoxUserID.Text.ToString();
-            bool numberExits = false;
+            bool isValidUserID = false;
             for (int i = 0; i < idAvailable.Count(); i++)
             {
                 if(idAvailable[i] == userIDInputted)
                 {
-                    numberExits = true;
+                    isValidUserID = true;
                     break;
                 }
             }
+
+
             if (textBoxUserID.Text == "")
             {
                 MessageBox.Show("Please enter a User ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (numberExits == false)
+            else if (isValidUserID == false)
             {
                 MessageBox.Show("The ID entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
