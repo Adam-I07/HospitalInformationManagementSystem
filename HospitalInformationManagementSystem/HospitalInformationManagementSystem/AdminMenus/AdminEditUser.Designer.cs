@@ -33,7 +33,7 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labelGoBack = new System.Windows.Forms.Label();
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
-            this.labelEditUser = new System.Windows.Forms.Label();
+            this.labelEditUserText = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
             this.labelUserID = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
-            this.panelWhiteTop.Controls.Add(this.labelEditUser);
+            this.panelWhiteTop.Controls.Add(this.labelEditUserText);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-1, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
@@ -87,16 +87,16 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxGoBack.TabStop = false;
             this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
             // 
-            // labelEditUser
+            // labelEditUserText
             // 
-            this.labelEditUser.AutoSize = true;
-            this.labelEditUser.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEditUser.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelEditUser.Location = new System.Drawing.Point(123, 32);
-            this.labelEditUser.Name = "labelEditUser";
-            this.labelEditUser.Size = new System.Drawing.Size(284, 42);
-            this.labelEditUser.TabIndex = 5;
-            this.labelEditUser.Text = "Edit User Details";
+            this.labelEditUserText.AutoSize = true;
+            this.labelEditUserText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEditUserText.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelEditUserText.Location = new System.Drawing.Point(123, 32);
+            this.labelEditUserText.Name = "labelEditUserText";
+            this.labelEditUserText.Size = new System.Drawing.Size(284, 42);
+            this.labelEditUserText.TabIndex = 5;
+            this.labelEditUserText.Text = "Edit User Details";
             // 
             // pictureBoxHospitalLogo
             // 
@@ -259,7 +259,7 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.Panel panelWhiteTop;
         private System.Windows.Forms.Label labelGoBack;
         private System.Windows.Forms.PictureBox pictureBoxGoBack;
-        private System.Windows.Forms.Label labelEditUser;
+        private System.Windows.Forms.Label labelEditUserText;
         private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
         private System.Windows.Forms.Label labelUserID;
         private System.Windows.Forms.Label labelUsername;

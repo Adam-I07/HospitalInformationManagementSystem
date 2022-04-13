@@ -18,7 +18,7 @@ namespace HospitalInformationManagementSystem
         }
 
 
-        private void labelLogOut_Click(object sender, EventArgs e)
+        private void labelLogOutText_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
             dialogResult = MessageBox.Show("Are you sure you would like to Logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -50,14 +50,14 @@ namespace HospitalInformationManagementSystem
             }
         }
 
-        private void pictureBoxLoginDetails_Click(object sender, EventArgs e)
+        private void pictureBoxLoginDetailsLogo_Click(object sender, EventArgs e)
         {
             this.Hide();
             AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
             adminPasswordManagement.Show();
         }
 
-        private void labelLoginDetails_Click(object sender, EventArgs e)
+        private void labelLoginDetailsText_Click(object sender, EventArgs e)
         {
             this.Hide();
             AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();

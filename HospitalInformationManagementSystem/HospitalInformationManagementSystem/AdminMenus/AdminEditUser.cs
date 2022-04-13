@@ -71,7 +71,7 @@ namespace HospitalInformationManagementSystem
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
 
-            Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
+
             if (textBoxUserID.Text == "" || comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Make sure that all fields are filled in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,23 +80,27 @@ namespace HospitalInformationManagementSystem
             {
                 MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
-            {
-                MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             else
             {
-                SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-                sqlConnection.Open();
-                string query = "UPDATE LogInDetails SET Role = '"+comboBoxRole.Text+"', Username = '"+textBoxUsername.Text+"', Password = '"+textBoxPassword.Text+"' where LogInID = '"+textBoxUserID.Text+"'";
-                SqlCommand command = new SqlCommand(query, sqlConnection);
-                command.ExecuteNonQuery();
-                sqlConnection.Close();
-                MessageBox.Show("User details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
-                textBoxUserID.Text = "";
-                comboBoxRole.Text = "Select Role";
-                textBoxUsername.Text = "";
-                textBoxPassword.Text = "";
+                Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
+                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                {
+                    MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+                    sqlConnection.Open();
+                    string query = "UPDATE LogInDetails SET Role = '" + comboBoxRole.Text + "', Username = '" + textBoxUsername.Text + "', Password = '" + textBoxPassword.Text + "' where LogInID = '" + textBoxUserID.Text + "'";
+                    SqlCommand command = new SqlCommand(query, sqlConnection);
+                    command.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    MessageBox.Show("User details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    textBoxUserID.Text = "";
+                    comboBoxRole.ResetText();
+                    textBoxUsername.Text = "";
+                    textBoxPassword.Text = "";
+                }
             }
         }
 

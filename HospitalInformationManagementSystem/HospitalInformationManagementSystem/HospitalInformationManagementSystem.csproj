@@ -76,17 +76,29 @@
     <Compile Include="AdminMenus\AdminPasswordManagement.Designer.cs">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctosMainMenu.cs">
+    <Compile Include="DoctorsMenus\DoctorAddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctosMainMenu.Designer.cs">
-      <DependentUpon>DoctosMainMenu.cs</DependentUpon>
+    <Compile Include="DoctorsMenus\DoctorAddPatient.Designer.cs">
+      <DependentUpon>DoctorAddPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="FirstLoadingWindow.cs">
+    <Compile Include="DoctorsMenus\DoctorEditPatientDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstLoadingWindow.Designer.cs">
-      <DependentUpon>FirstLoadingWindow.cs</DependentUpon>
+    <Compile Include="DoctorsMenus\DoctorEditPatientDetails.Designer.cs">
+      <DependentUpon>DoctorEditPatientDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.Designer.cs">
+      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsMainMenu.Designer.cs">
+      <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -117,11 +129,17 @@
     <EmbeddedResource Include="AdminMenus\AdminPasswordManagement.resx">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctosMainMenu.resx">
-      <DependentUpon>DoctosMainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="DoctorsMenus\DoctorAddPatient.resx">
+      <DependentUpon>DoctorAddPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstLoadingWindow.resx">
-      <DependentUpon>FirstLoadingWindow.cs</DependentUpon>
+    <EmbeddedResource Include="DoctorsMenus\DoctorEditPatientDetails.resx">
+      <DependentUpon>DoctorEditPatientDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.resx">
+      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorsMainMenu.resx">
+      <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -151,5 +169,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

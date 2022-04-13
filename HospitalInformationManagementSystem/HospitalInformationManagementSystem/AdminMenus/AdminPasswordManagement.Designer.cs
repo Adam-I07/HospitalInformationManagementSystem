@@ -34,7 +34,7 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labelGoBack = new System.Windows.Forms.Label();
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
-            this.labelLoginManagement = new System.Windows.Forms.Label();
+            this.labelLoginManagementText = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
             this.buttonAddNewUser = new System.Windows.Forms.Button();
             this.buttonEditUser = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
-            this.panelWhiteTop.Controls.Add(this.labelLoginManagement);
+            this.panelWhiteTop.Controls.Add(this.labelLoginManagementText);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
@@ -92,16 +92,16 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxGoBack.TabStop = false;
             this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
             // 
-            // labelLoginManagement
+            // labelLoginManagementText
             // 
-            this.labelLoginManagement.AutoSize = true;
-            this.labelLoginManagement.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLoginManagement.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelLoginManagement.Location = new System.Drawing.Point(113, 45);
-            this.labelLoginManagement.Name = "labelLoginManagement";
-            this.labelLoginManagement.Size = new System.Drawing.Size(512, 42);
-            this.labelLoginManagement.TabIndex = 5;
-            this.labelLoginManagement.Text = "User Login Detail Management";
+            this.labelLoginManagementText.AutoSize = true;
+            this.labelLoginManagementText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginManagementText.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelLoginManagementText.Location = new System.Drawing.Point(113, 45);
+            this.labelLoginManagementText.Name = "labelLoginManagementText";
+            this.labelLoginManagementText.Size = new System.Drawing.Size(512, 42);
+            this.labelLoginManagementText.TabIndex = 5;
+            this.labelLoginManagementText.Text = "User Login Detail Management";
             // 
             // pictureBoxHospitalLogo
             // 
@@ -172,7 +172,7 @@ namespace HospitalInformationManagementSystem
 
         private System.Windows.Forms.DataGridView dataGridViewLoginDetails;
         private System.Windows.Forms.Panel panelWhiteTop;
-        private System.Windows.Forms.Label labelLoginManagement;
+        private System.Windows.Forms.Label labelLoginManagementText;
         private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
         private System.Windows.Forms.PictureBox pictureBoxGoBack;
         private System.Windows.Forms.Label labelGoBack;
