@@ -22,7 +22,7 @@ namespace HospitalInformationManagementSystem
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string windowToLoad = comboBoxRole.Text;
-            if(comboBoxRole.Text == "Select Role" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
+            if(comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", ("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

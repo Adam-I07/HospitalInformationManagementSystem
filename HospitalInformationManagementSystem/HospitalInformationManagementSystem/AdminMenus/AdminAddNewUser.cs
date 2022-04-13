@@ -13,6 +13,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminAddNewUser : Form
     {
+        public Int64 idNumber;
         public AdminAddNewUser()
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace HospitalInformationManagementSystem
         {
 
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-            if (comboBoxRole.Text == "Select Role" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
+            if (comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -64,7 +65,7 @@ namespace HospitalInformationManagementSystem
                 {
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
-                    command.CommandText = "insert into LogInDetails (Role,Username,Password) values ('" + comboBoxRole.Text + "','" + textBoxUsername.Text + "','" + textBoxPassword.Text + "')";
+                    command.CommandText = "insert into LogInDetails (LogInID,Role,Username,Password) values ('" + idNumber + "', '" + comboBoxRole.Text + "','" + textBoxUsername.Text + "','" + textBoxPassword.Text + "')";
 
                     SqlDataAdapter sda = new SqlDataAdapter(command);
                     DataSet dataSet = new DataSet();
@@ -97,8 +98,9 @@ namespace HospitalInformationManagementSystem
             DataSet dataSet = new DataSet();
             sda.Fill(dataSet);
 
-            Int64 idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-            labelUserIDCurrent.Text = (idNumber+1).ToString();
+            idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
+            idNumber = idNumber + 1;
+            labelUserIDCurrent.Text = idNumber.ToString();
             sqlConnection.Close();
         }
 

@@ -46,34 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminAddNewUser.cs">
+    <Compile Include="AdminMenus\AdminAddNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminAddNewUser.Designer.cs">
+    <Compile Include="AdminMenus\AdminAddNewUser.Designer.cs">
       <DependentUpon>AdminAddNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDeleteUser.cs">
+    <Compile Include="AdminMenus\AdminDeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminDeleteUser.Designer.cs">
+    <Compile Include="AdminMenus\AdminDeleteUser.Designer.cs">
       <DependentUpon>AdminDeleteUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminEditUser.cs">
+    <Compile Include="AdminMenus\AdminEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminEditUser.Designer.cs">
+    <Compile Include="AdminMenus\AdminEditUser.Designer.cs">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminMainMenu.cs">
+    <Compile Include="AdminMenus\AdminMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminMainMenu.Designer.cs">
+    <Compile Include="AdminMenus\AdminMainMenu.Designer.cs">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminPasswordManagement.cs">
+    <Compile Include="AdminMenus\AdminPasswordManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPasswordManagement.Designer.cs">
+    <Compile Include="AdminMenus\AdminPasswordManagement.Designer.cs">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctosMainMenu.cs">
@@ -102,19 +102,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AdminAddNewUser.resx">
+    <EmbeddedResource Include="AdminMenus\AdminAddNewUser.resx">
       <DependentUpon>AdminAddNewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDeleteUser.resx">
+    <EmbeddedResource Include="AdminMenus\AdminDeleteUser.resx">
       <DependentUpon>AdminDeleteUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminEditUser.resx">
+    <EmbeddedResource Include="AdminMenus\AdminEditUser.resx">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminMainMenu.resx">
+    <EmbeddedResource Include="AdminMenus\AdminMainMenu.resx">
       <DependentUpon>AdminMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminPasswordManagement.resx">
+    <EmbeddedResource Include="AdminMenus\AdminPasswordManagement.resx">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctosMainMenu.resx">

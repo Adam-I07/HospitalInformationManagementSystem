@@ -39,6 +39,9 @@ namespace HospitalInformationManagementSystem
             this.labelUserID = new System.Windows.Forms.Label();
             this.dataGridViewShowUserDetail = new System.Windows.Forms.DataGridView();
             this.textBoxUserID = new System.Windows.Forms.MaskedTextBox();
+            this.labelErrorDisclaimerPart1 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerPart3 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -48,13 +51,16 @@ namespace HospitalInformationManagementSystem
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerPart3);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerPart2);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerPart1);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelDeleteUser);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-2, -1);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(455, 117);
+            this.panelWhiteTop.Size = new System.Drawing.Size(455, 118);
             this.panelWhiteTop.TabIndex = 10;
             // 
             // labelGoBack
@@ -105,7 +111,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonDeleteUser
             // 
-            this.buttonDeleteUser.Location = new System.Drawing.Point(244, 191);
+            this.buttonDeleteUser.Location = new System.Drawing.Point(232, 192);
             this.buttonDeleteUser.Name = "buttonDeleteUser";
             this.buttonDeleteUser.Size = new System.Drawing.Size(70, 26);
             this.buttonDeleteUser.TabIndex = 33;
@@ -118,7 +124,7 @@ namespace HospitalInformationManagementSystem
             this.labelUserID.AutoSize = true;
             this.labelUserID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserID.ForeColor = System.Drawing.Color.White;
-            this.labelUserID.Location = new System.Drawing.Point(178, 132);
+            this.labelUserID.Location = new System.Drawing.Point(166, 133);
             this.labelUserID.Name = "labelUserID";
             this.labelUserID.Size = new System.Drawing.Size(85, 24);
             this.labelUserID.TabIndex = 32;
@@ -137,12 +143,45 @@ namespace HospitalInformationManagementSystem
             // textBoxUserID
             // 
             this.textBoxUserID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserID.Location = new System.Drawing.Point(182, 159);
+            this.textBoxUserID.Location = new System.Drawing.Point(170, 160);
             this.textBoxUserID.Mask = "00000";
             this.textBoxUserID.Name = "textBoxUserID";
             this.textBoxUserID.Size = new System.Drawing.Size(132, 26);
             this.textBoxUserID.TabIndex = 36;
             this.textBoxUserID.ValidatingType = typeof(int);
+            // 
+            // labelErrorDisclaimerPart1
+            // 
+            this.labelErrorDisclaimerPart1.AutoSize = true;
+            this.labelErrorDisclaimerPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerPart1.Location = new System.Drawing.Point(133, 71);
+            this.labelErrorDisclaimerPart1.Name = "labelErrorDisclaimerPart1";
+            this.labelErrorDisclaimerPart1.Size = new System.Drawing.Size(319, 15);
+            this.labelErrorDisclaimerPart1.TabIndex = 8;
+            this.labelErrorDisclaimerPart1.Text = "Note: Enter ID from the first available point in the textbox.";
+            // 
+            // labelErrorDisclaimerPart2
+            // 
+            this.labelErrorDisclaimerPart2.AutoSize = true;
+            this.labelErrorDisclaimerPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerPart2.Location = new System.Drawing.Point(133, 86);
+            this.labelErrorDisclaimerPart2.Name = "labelErrorDisclaimerPart2";
+            this.labelErrorDisclaimerPart2.Size = new System.Drawing.Size(310, 15);
+            this.labelErrorDisclaimerPart2.TabIndex = 9;
+            this.labelErrorDisclaimerPart2.Text = "If you enter a number in the middle of the textbox it will  ";
+            // 
+            // labelErrorDisclaimerPart3
+            // 
+            this.labelErrorDisclaimerPart3.AutoSize = true;
+            this.labelErrorDisclaimerPart3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerPart3.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerPart3.Location = new System.Drawing.Point(133, 101);
+            this.labelErrorDisclaimerPart3.Name = "labelErrorDisclaimerPart3";
+            this.labelErrorDisclaimerPart3.Size = new System.Drawing.Size(143, 15);
+            this.labelErrorDisclaimerPart3.TabIndex = 10;
+            this.labelErrorDisclaimerPart3.Text = "comeback as an ERROR!";
             // 
             // AdminDeleteUser
             // 
@@ -181,5 +220,8 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.Label labelUserID;
         private System.Windows.Forms.DataGridView dataGridViewShowUserDetail;
         private System.Windows.Forms.MaskedTextBox textBoxUserID;
+        private System.Windows.Forms.Label labelErrorDisclaimerPart3;
+        private System.Windows.Forms.Label labelErrorDisclaimerPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerPart1;
     }
 }

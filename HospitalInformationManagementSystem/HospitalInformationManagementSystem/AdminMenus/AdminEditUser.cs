@@ -26,14 +26,14 @@ namespace HospitalInformationManagementSystem
             {
                 MessageBox.Show("Please enter a User ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (textBoxUserID.Text == "1" || textBoxUserID.Text == " 1" || textBoxUserID.Text == "  1" || textBoxUserID.Text == "   1" || textBoxUserID.Text == "    1" || textBoxUserID.Text == "     1")
+            {
+                MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
             else if(userIDInputted > maximumIDNumber || userIDInputted <= 0)
             {
                 MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (textBoxUserID.Text == "1")
-            {
-                MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
             }
             else
             {
@@ -72,7 +72,7 @@ namespace HospitalInformationManagementSystem
         {
 
             Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
-            if (textBoxUserID.Text == "" || comboBoxRole.Text == "Select Role" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
+            if (textBoxUserID.Text == "" || comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Make sure that all fields are filled in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

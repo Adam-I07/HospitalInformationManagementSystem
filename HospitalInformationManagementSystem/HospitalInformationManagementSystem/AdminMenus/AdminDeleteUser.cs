@@ -59,29 +59,33 @@ namespace HospitalInformationManagementSystem
             {
                 MessageBox.Show("Please enter a User ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (isValidUserID == false)
-            {
-                MessageBox.Show("The ID entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (textBoxUserID.Text == "1")
+            else if (textBoxUserID.Text == "1" || textBoxUserID.Text == " 1" || textBoxUserID.Text == "  1" || textBoxUserID.Text == "   1" || textBoxUserID.Text == "    1" || textBoxUserID.Text == "     1")
             {
                 MessageBox.Show("You Cannot Delete The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            else if (isValidUserID == false)
+            {
+                MessageBox.Show("The ID entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
-                SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
+                if (MessageBox.Show("Are you sure you would like to delete UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlConnection;
 
-                command.CommandText = "delete from LogInDetails where LogInID = '" + textBoxUserID.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-                sqlConnection.Close();
-                this.Close();
-                AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
-                adminPasswordManagement.Show();
+                    command.CommandText = "delete from LogInDetails where LogInID = '" + textBoxUserID.Text + "'";
+                    SqlDataAdapter sda = new SqlDataAdapter(command);
+                    DataSet dataSet = new DataSet();
+                    sda.Fill(dataSet);
+                    sqlConnection.Close();
+                    this.Close();
+                    AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
+                    adminPasswordManagement.Show();
+                    MessageBox.Show("User Deleted Successfully", "User Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

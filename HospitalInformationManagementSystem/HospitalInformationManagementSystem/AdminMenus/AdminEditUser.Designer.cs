@@ -170,6 +170,7 @@ namespace HospitalInformationManagementSystem
             // 
             // comboBoxRole
             // 
+            this.comboBoxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRole.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
@@ -179,7 +180,6 @@ namespace HospitalInformationManagementSystem
             this.comboBoxRole.Name = "comboBoxRole";
             this.comboBoxRole.Size = new System.Drawing.Size(118, 28);
             this.comboBoxRole.TabIndex = 26;
-            this.comboBoxRole.Text = "Select Role";
             // 
             // buttonUpdate
             // 
