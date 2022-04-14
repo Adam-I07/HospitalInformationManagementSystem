@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
@@ -75,6 +76,8 @@ namespace HospitalInformationManagementSystem
         private void buttonEditPatient_Click(object sender, EventArgs e)
         {
             this.Hide();
+            DoctorEditPatientDetails doctorEditPatientDetails = new DoctorEditPatientDetails();
+            doctorEditPatientDetails.Show();
         }
     }
 }

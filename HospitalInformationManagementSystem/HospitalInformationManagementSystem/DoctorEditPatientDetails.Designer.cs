@@ -111,6 +111,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxBloodType.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxBloodType.FormattingEnabled = true;
             this.comboBoxBloodType.Items.AddRange(new object[] {
+            "",
             "0-",
             "0+",
             "A-",
@@ -163,6 +164,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxGender.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGender.FormattingEnabled = true;
             this.comboBoxGender.Items.AddRange(new object[] {
+            "",
             "Male",
             "Female",
             "Other"});
@@ -208,6 +210,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxCity.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCity.FormattingEnabled = true;
             this.comboBoxCity.Items.AddRange(new object[] {
+            "",
             "Aberdeen",
             "Armagh",
             "Bangor",
@@ -288,6 +291,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxCountry.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCountry.FormattingEnabled = true;
             this.comboBoxCountry.Items.AddRange(new object[] {
+            "",
             "Afghanistan",
             "Albania",
             "Algeria",
@@ -705,22 +709,24 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelGoBack.AutoSize = true;
             this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGoBack.Location = new System.Drawing.Point(525, 18);
+            this.labelGoBack.Location = new System.Drawing.Point(525, 20);
             this.labelGoBack.Name = "labelGoBack";
             this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelGoBack.Size = new System.Drawing.Size(36, 15);
             this.labelGoBack.TabIndex = 7;
             this.labelGoBack.Text = "Back";
+            this.labelGoBack.Click += new System.EventHandler(this.labelGoBack_Click);
             // 
             // pictureBoxGoBack
             // 
             this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
-            this.pictureBoxGoBack.Location = new System.Drawing.Point(503, 3);
+            this.pictureBoxGoBack.Location = new System.Drawing.Point(503, 5);
             this.pictureBoxGoBack.Name = "pictureBoxGoBack";
             this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
             this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxGoBack.TabIndex = 6;
             this.pictureBoxGoBack.TabStop = false;
+            this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
             // 
             // labelEditPatientDetailsText
             // 
@@ -771,6 +777,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonCancel.TabIndex = 91;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonUpdate
             // 

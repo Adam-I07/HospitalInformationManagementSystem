@@ -54,5 +54,6 @@ namespace HospitalInformationManagementSystem
             DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfo = new DoctorsPatientPersonalInfoMenu();
             doctorsPatientPersonalInfo.Show();
         }
+
     }
 }

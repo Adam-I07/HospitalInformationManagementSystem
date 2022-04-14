@@ -174,6 +174,7 @@ namespace HospitalInformationManagementSystem
             this.comboBoxRole.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
+            "",
             "Doctor",
             "Nurse"});
             this.comboBoxRole.Location = new System.Drawing.Point(184, 179);

@@ -45,12 +45,12 @@ namespace HospitalInformationManagementSystem
             string middleName = textBoxMiddleName.Text;
             if (string.IsNullOrEmpty(textBoxMiddleName.Text))
             {
-                middleName = "NULL";
+                middleName = "NO DATA";
             }
 
             if (string.IsNullOrEmpty(textBoxHomeNumber.Text))
             {
-                homeNumber = "NULL";
+                homeNumber = "NO DATA";
             }
 
 

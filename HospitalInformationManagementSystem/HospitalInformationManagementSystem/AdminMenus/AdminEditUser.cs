@@ -89,17 +89,20 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-                    sqlConnection.Open();
-                    string query = "UPDATE LogInDetails SET Role = '" + comboBoxRole.Text + "', Username = '" + textBoxUsername.Text + "', Password = '" + textBoxPassword.Text + "' where LogInID = '" + textBoxUserID.Text + "'";
-                    SqlCommand command = new SqlCommand(query, sqlConnection);
-                    command.ExecuteNonQuery();
-                    sqlConnection.Close();
-                    MessageBox.Show("User details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    textBoxUserID.Text = "";
-                    comboBoxRole.ResetText();
-                    textBoxUsername.Text = "";
-                    textBoxPassword.Text = "";
+                    if (MessageBox.Show("Are you sure you would like to Edit UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+                        sqlConnection.Open();
+                        string query = "UPDATE LogInDetails SET Role = '" + comboBoxRole.Text + "', Username = '" + textBoxUsername.Text + "', Password = '" + textBoxPassword.Text + "' where LogInID = '" + textBoxUserID.Text + "'";
+                        SqlCommand command = new SqlCommand(query, sqlConnection);
+                        command.ExecuteNonQuery();
+                        sqlConnection.Close();
+                        MessageBox.Show("User details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        textBoxUserID.Text = "";
+                        comboBoxRole.ResetText();
+                        textBoxUsername.Text = "";
+                        textBoxPassword.Text = "";
+                    }
                 }
             }
         }
