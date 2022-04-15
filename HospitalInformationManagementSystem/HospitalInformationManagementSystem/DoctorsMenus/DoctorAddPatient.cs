@@ -41,26 +41,16 @@ namespace HospitalInformationManagementSystem
             SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             string nhsNumber = textBoxNHSNumber.Text;
             string dateOfBirth = textBoxDateOfBirth.Text;
-            string homeNumber = textBoxPhoneNumber.Text;
-            string middleName = textBoxMiddleName.Text;
-            if (string.IsNullOrEmpty(textBoxMiddleName.Text))
-            {
-                middleName = "NO DATA";
-            }
-
-            if (string.IsNullOrEmpty(textBoxHomeNumber.Text))
-            {
-                homeNumber = "NO DATA";
-            }
+            string phoneNumber = textBoxPhoneNumber.Text;
 
 
             if (textBoxNHSNumber.Text == "" || textBoxFirstName.Text == "" || textBoxLastName.Text == "" || textBoxAge.Text == "" || comboBoxGender.Text == "" || textBoxAge.Text == "" || textBoxDateOfBirth.Text == "" || comboBoxCountry.Text == "" || textBoxEmail.Text == "" || textBoxPhoneNumber.Text == "" || textBoxAddress.Text == "" || comboBoxCity.Text == "" || textBoxPostcode.Text == "" || comboBoxBloodType.Text == "" )
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(nhsNumber.Length != 12 || dateOfBirth.Length != 10)
+            else if(nhsNumber.Length != 12 || dateOfBirth.Length != 10 || phoneNumber.Length != 11 )
             { 
-                MessageBox.Show("Make sure NHS Number, Date of Birth are filled in correctly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Make sure the NHS Number, Date of Birth and Phone Number are filled in correctly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -68,14 +58,14 @@ namespace HospitalInformationManagementSystem
                 {
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
-                    command.CommandText = "insert into PatientPersonalInformation(PatientID,NHSNumber,FirstName,MiddleName,LastName,Age,Gender,DateOfBirth,CountryOfBirth,Email,PhoneNumber,HomeNumber,Address,City,Postcode,BloodType) values ('" + idNumber + "', '" + textBoxNHSNumber.Text + "','" + textBoxFirstName.Text + "','" + middleName + "','" + textBoxLastName.Text + "','" + textBoxAge.Text + "','" + comboBoxGender.Text + "','" + textBoxDateOfBirth.Text + "','" + comboBoxCountry.Text + "','" + textBoxEmail.Text + "','" + textBoxPhoneNumber.Text + "','" + homeNumber + "','" + textBoxAddress.Text + "','" + comboBoxCity.Text + "', '" +textBoxPostcode.Text+ "','" + comboBoxBloodType.Text + "')";
+                    command.CommandText = "insert into PatientPersonalInformation(PatientID,NHSNumber,FirstName,MiddleName,LastName,Age,Gender,DateOfBirth,CountryOfBirth,Email,PhoneNumber,HomeNumber,Address,City,Postcode,BloodType) values ('" + idNumber + "', '" + textBoxNHSNumber.Text + "','" + textBoxFirstName.Text + "','" + textBoxMiddleName.Text + "','" + textBoxLastName.Text + "','" + textBoxAge.Text + "','" + comboBoxGender.Text + "','" + textBoxDateOfBirth.Text + "','" + comboBoxCountry.Text + "','" + textBoxEmail.Text + "','" + textBoxPhoneNumber.Text + "','" + textBoxHomeNumber.Text + "','" + textBoxAddress.Text + "','" + comboBoxCity.Text + "', '" +textBoxPostcode.Text+ "','" + comboBoxBloodType.Text + "')";
 
 
                     SqlDataAdapter sda = new SqlDataAdapter(command);
                     DataSet dataSet = new DataSet();
                     sda.Fill(dataSet);
                     sqlConnection.Close();
-                    sqlConnection.Close();
+
                     MessageBox.Show("The Patient has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
                     DoctorsPatientPersonalInfoMenu doctorsPatientPersonalMenu = new DoctorsPatientPersonalInfoMenu();
                     doctorsPatientPersonalMenu.Show();

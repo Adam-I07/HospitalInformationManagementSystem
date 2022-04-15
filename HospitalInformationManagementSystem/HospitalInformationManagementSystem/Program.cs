@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalInformationManagementSystem.DoctorsMenus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace HospitalInformationManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DoctorsPatientPersonalInfoMenu()); 
+            Application.Run(new DoctorIllnessMenu()); 
         }
     }
 }

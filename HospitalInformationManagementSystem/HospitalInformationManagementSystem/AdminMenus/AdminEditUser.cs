@@ -21,35 +21,39 @@ namespace HospitalInformationManagementSystem
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
-            Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
+            
             if (textBoxUserID.Text == "")
             {
                 MessageBox.Show("Please enter a User ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBoxUserID.Text == "1" || textBoxUserID.Text == " 1" || textBoxUserID.Text == "  1" || textBoxUserID.Text == "   1" || textBoxUserID.Text == "    1" || textBoxUserID.Text == "     1")
-            {
-                MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            else if(userIDInputted > maximumIDNumber || userIDInputted <= 0)
-            {
-                MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             else
             {
-                SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = "select * from LogInDetails where LogInID = " + textBoxUserID.Text + "";
+                Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
+                if (textBoxUserID.Text == "1" || textBoxUserID.Text == " 1" || textBoxUserID.Text == "  1" || textBoxUserID.Text == "   1" || textBoxUserID.Text == "    1" || textBoxUserID.Text == "     1")
+                {
+                    MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-                sqlConnection.Close();
+                }
+                else if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                {
+                    MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = sqlConnection;
+                    command.CommandText = "select * from LogInDetails where LogInID = " + textBoxUserID.Text + "";
 
-                comboBoxRole.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                textBoxUsername.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                textBoxPassword.Text = dataSet.Tables[0].Rows[0][3].ToString();
+                    SqlDataAdapter sda = new SqlDataAdapter(command);
+                    DataSet dataSet = new DataSet();
+                    sda.Fill(dataSet);
+                    sqlConnection.Close();
+
+                    comboBoxRole.Text = dataSet.Tables[0].Rows[0][1].ToString();
+                    textBoxUsername.Text = dataSet.Tables[0].Rows[0][2].ToString();
+                    textBoxPassword.Text = dataSet.Tables[0].Rows[0][3].ToString();
+                }
             }
         }
 

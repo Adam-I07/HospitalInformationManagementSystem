@@ -111,7 +111,7 @@ namespace HospitalInformationManagementSystem
             this.dataGridViewLoginDetails.Location = new System.Drawing.Point(199, 162);
             this.dataGridViewLoginDetails.Name = "dataGridViewLoginDetails";
             this.dataGridViewLoginDetails.ReadOnly = true;
-            this.dataGridViewLoginDetails.Size = new System.Drawing.Size(1537, 428);
+            this.dataGridViewLoginDetails.Size = new System.Drawing.Size(1537, 460);
             this.dataGridViewLoginDetails.TabIndex = 11;
             // 
             // buttonAddNewPatient
@@ -142,6 +142,7 @@ namespace HospitalInformationManagementSystem
             this.buttonViewPatient.TabIndex = 14;
             this.buttonViewPatient.Text = "View Specific Patient";
             this.buttonViewPatient.UseVisualStyleBackColor = true;
+            this.buttonViewPatient.Click += new System.EventHandler(this.buttonViewPatient_Click);
             // 
             // buttonDeletePatient
             // 
@@ -151,13 +152,14 @@ namespace HospitalInformationManagementSystem
             this.buttonDeletePatient.TabIndex = 15;
             this.buttonDeletePatient.Text = "Delete Patient";
             this.buttonDeletePatient.UseVisualStyleBackColor = true;
+            this.buttonDeletePatient.Click += new System.EventHandler(this.buttonDeletePatient_Click);
             // 
             // DoctorsPatientPersonalInfoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1748, 602);
+            this.ClientSize = new System.Drawing.Size(1748, 634);
             this.Controls.Add(this.buttonDeletePatient);
             this.Controls.Add(this.buttonViewPatient);
             this.Controls.Add(this.buttonEditPatient);

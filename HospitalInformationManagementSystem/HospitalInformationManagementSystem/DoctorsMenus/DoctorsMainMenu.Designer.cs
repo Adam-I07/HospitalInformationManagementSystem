@@ -40,7 +40,7 @@ namespace HospitalInformationManagementSystem
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelPatientDetailsTextPart1 = new System.Windows.Forms.Label();
-            this.labelIIlnessTextPart2 = new System.Windows.Forms.Label();
+            this.labelIIlnessTextPart1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelIllnessTextPart2 = new System.Windows.Forms.Label();
             this.labelPatientInteractionTextPart1 = new System.Windows.Forms.Label();
@@ -139,6 +139,7 @@ namespace HospitalInformationManagementSystem
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
@@ -162,16 +163,17 @@ namespace HospitalInformationManagementSystem
             this.labelPatientDetailsTextPart1.Text = "Patient Personal";
             this.labelPatientDetailsTextPart1.Click += new System.EventHandler(this.labelPatientDetailsTextPart1_Click);
             // 
-            // labelIIlnessTextPart2
+            // labelIIlnessTextPart1
             // 
-            this.labelIIlnessTextPart2.AutoSize = true;
-            this.labelIIlnessTextPart2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIIlnessTextPart2.ForeColor = System.Drawing.Color.White;
-            this.labelIIlnessTextPart2.Location = new System.Drawing.Point(14, 375);
-            this.labelIIlnessTextPart2.Name = "labelIIlnessTextPart2";
-            this.labelIIlnessTextPart2.Size = new System.Drawing.Size(64, 24);
-            this.labelIIlnessTextPart2.TabIndex = 11;
-            this.labelIIlnessTextPart2.Text = "Illness";
+            this.labelIIlnessTextPart1.AutoSize = true;
+            this.labelIIlnessTextPart1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIIlnessTextPart1.ForeColor = System.Drawing.Color.White;
+            this.labelIIlnessTextPart1.Location = new System.Drawing.Point(14, 375);
+            this.labelIIlnessTextPart1.Name = "labelIIlnessTextPart1";
+            this.labelIIlnessTextPart1.Size = new System.Drawing.Size(64, 24);
+            this.labelIIlnessTextPart1.TabIndex = 11;
+            this.labelIIlnessTextPart1.Text = "Illness";
+            this.labelIIlnessTextPart1.Click += new System.EventHandler(this.labelIIlnessTextPart1_Click);
             // 
             // pictureBox3
             // 
@@ -193,6 +195,7 @@ namespace HospitalInformationManagementSystem
             this.labelIllnessTextPart2.Size = new System.Drawing.Size(116, 24);
             this.labelIllnessTextPart2.TabIndex = 13;
             this.labelIllnessTextPart2.Text = "Information";
+            this.labelIllnessTextPart2.Click += new System.EventHandler(this.labelIllnessTextPart2_Click);
             // 
             // labelPatientInteractionTextPart1
             // 
@@ -239,7 +242,7 @@ namespace HospitalInformationManagementSystem
             this.Controls.Add(this.labelPatientInteractionTextPart1);
             this.Controls.Add(this.labelIllnessTextPart2);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.labelIIlnessTextPart2);
+            this.Controls.Add(this.labelIIlnessTextPart1);
             this.Controls.Add(this.labelPatientDetailsTextPart1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -276,7 +279,7 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelPatientDetailsTextPart1;
-        private System.Windows.Forms.Label labelIIlnessTextPart2;
+        private System.Windows.Forms.Label labelIIlnessTextPart1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labelIllnessTextPart2;
         private System.Windows.Forms.Label labelPatientInteractionTextPart1;

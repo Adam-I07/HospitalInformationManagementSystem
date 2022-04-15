@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalInformationManagementSystem.DoctorsMenus;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,5 +56,25 @@ namespace HospitalInformationManagementSystem
             doctorsPatientPersonalInfo.Show();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
+            doctorIllnessMenu.Show();
+        }
+
+        private void labelIIlnessTextPart1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
+            doctorIllnessMenu.Show();
+        }
+
+        private void labelIllnessTextPart2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
+            doctorIllnessMenu.Show();
+        }
     }
 }

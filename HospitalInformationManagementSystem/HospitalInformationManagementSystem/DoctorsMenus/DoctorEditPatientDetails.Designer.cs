@@ -835,6 +835,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.Controls.Add(this.panelWhiteTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DoctorEditPatientDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorEditPatientDetails";
             this.Load += new System.EventHandler(this.DoctorEditPatientDetails_Load);
             this.panelWhiteTop.ResumeLayout(false);
