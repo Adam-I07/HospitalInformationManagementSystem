@@ -41,10 +41,10 @@ namespace HospitalInformationManagementSystem
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelPatientDetailsTextPart1 = new System.Windows.Forms.Label();
             this.labelIIlnessTextPart1 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxInteractionLog = new System.Windows.Forms.PictureBox();
             this.labelIllnessTextPart2 = new System.Windows.Forms.Label();
-            this.labelPatientInteractionTextPart1 = new System.Windows.Forms.Label();
-            this.labelPatientInteractionTextPart2 = new System.Windows.Forms.Label();
+            this.labelInteractionLogTextPart1 = new System.Windows.Forms.Label();
+            this.labelInteractionLogTextPart2 = new System.Windows.Forms.Label();
             this.labelPatientDetailsTextPart2 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -53,7 +53,7 @@ namespace HospitalInformationManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).BeginInit();
             this.SuspendLayout();
             // 
             // panelWhiteTop
@@ -175,15 +175,16 @@ namespace HospitalInformationManagementSystem
             this.labelIIlnessTextPart1.Text = "Illness";
             this.labelIIlnessTextPart1.Click += new System.EventHandler(this.labelIIlnessTextPart1_Click);
             // 
-            // pictureBox3
+            // pictureBoxInteractionLog
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(205, 386);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(124, 133);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.pictureBoxInteractionLog.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInteractionLog.Image")));
+            this.pictureBoxInteractionLog.Location = new System.Drawing.Point(218, 386);
+            this.pictureBoxInteractionLog.Name = "pictureBoxInteractionLog";
+            this.pictureBoxInteractionLog.Size = new System.Drawing.Size(124, 133);
+            this.pictureBoxInteractionLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxInteractionLog.TabIndex = 12;
+            this.pictureBoxInteractionLog.TabStop = false;
+            this.pictureBoxInteractionLog.Click += new System.EventHandler(this.pictureBoxInteractionLog_Click);
             // 
             // labelIllnessTextPart2
             // 
@@ -197,27 +198,29 @@ namespace HospitalInformationManagementSystem
             this.labelIllnessTextPart2.Text = "Information";
             this.labelIllnessTextPart2.Click += new System.EventHandler(this.labelIllnessTextPart2_Click);
             // 
-            // labelPatientInteractionTextPart1
+            // labelInteractionLogTextPart1
             // 
-            this.labelPatientInteractionTextPart1.AutoSize = true;
-            this.labelPatientInteractionTextPart1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatientInteractionTextPart1.ForeColor = System.Drawing.Color.White;
-            this.labelPatientInteractionTextPart1.Location = new System.Drawing.Point(177, 522);
-            this.labelPatientInteractionTextPart1.Name = "labelPatientInteractionTextPart1";
-            this.labelPatientInteractionTextPart1.Size = new System.Drawing.Size(178, 24);
-            this.labelPatientInteractionTextPart1.TabIndex = 14;
-            this.labelPatientInteractionTextPart1.Text = "Patient Interaction";
+            this.labelInteractionLogTextPart1.AutoSize = true;
+            this.labelInteractionLogTextPart1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInteractionLogTextPart1.ForeColor = System.Drawing.Color.White;
+            this.labelInteractionLogTextPart1.Location = new System.Drawing.Point(184, 522);
+            this.labelInteractionLogTextPart1.Name = "labelInteractionLogTextPart1";
+            this.labelInteractionLogTextPart1.Size = new System.Drawing.Size(178, 24);
+            this.labelInteractionLogTextPart1.TabIndex = 14;
+            this.labelInteractionLogTextPart1.Text = "Patient Interaction";
+            this.labelInteractionLogTextPart1.Click += new System.EventHandler(this.labelInteractionLogTextPart1_Click);
             // 
-            // labelPatientInteractionTextPart2
+            // labelInteractionLogTextPart2
             // 
-            this.labelPatientInteractionTextPart2.AutoSize = true;
-            this.labelPatientInteractionTextPart2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatientInteractionTextPart2.ForeColor = System.Drawing.Color.White;
-            this.labelPatientInteractionTextPart2.Location = new System.Drawing.Point(236, 544);
-            this.labelPatientInteractionTextPart2.Name = "labelPatientInteractionTextPart2";
-            this.labelPatientInteractionTextPart2.Size = new System.Drawing.Size(46, 24);
-            this.labelPatientInteractionTextPart2.TabIndex = 15;
-            this.labelPatientInteractionTextPart2.Text = "Log";
+            this.labelInteractionLogTextPart2.AutoSize = true;
+            this.labelInteractionLogTextPart2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInteractionLogTextPart2.ForeColor = System.Drawing.Color.White;
+            this.labelInteractionLogTextPart2.Location = new System.Drawing.Point(246, 544);
+            this.labelInteractionLogTextPart2.Name = "labelInteractionLogTextPart2";
+            this.labelInteractionLogTextPart2.Size = new System.Drawing.Size(46, 24);
+            this.labelInteractionLogTextPart2.TabIndex = 15;
+            this.labelInteractionLogTextPart2.Text = "Log";
+            this.labelInteractionLogTextPart2.Click += new System.EventHandler(this.labelInteractionLogTextPart2_Click);
             // 
             // labelPatientDetailsTextPart2
             // 
@@ -238,10 +241,10 @@ namespace HospitalInformationManagementSystem
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(517, 613);
             this.Controls.Add(this.labelPatientDetailsTextPart2);
-            this.Controls.Add(this.labelPatientInteractionTextPart2);
-            this.Controls.Add(this.labelPatientInteractionTextPart1);
+            this.Controls.Add(this.labelInteractionLogTextPart2);
+            this.Controls.Add(this.labelInteractionLogTextPart1);
             this.Controls.Add(this.labelIllnessTextPart2);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBoxInteractionLog);
             this.Controls.Add(this.labelIIlnessTextPart1);
             this.Controls.Add(this.labelPatientDetailsTextPart1);
             this.Controls.Add(this.pictureBox2);
@@ -262,7 +265,7 @@ namespace HospitalInformationManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,10 +283,10 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelPatientDetailsTextPart1;
         private System.Windows.Forms.Label labelIIlnessTextPart1;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBoxInteractionLog;
         private System.Windows.Forms.Label labelIllnessTextPart2;
-        private System.Windows.Forms.Label labelPatientInteractionTextPart1;
-        private System.Windows.Forms.Label labelPatientInteractionTextPart2;
+        private System.Windows.Forms.Label labelInteractionLogTextPart1;
+        private System.Windows.Forms.Label labelInteractionLogTextPart2;
         private System.Windows.Forms.PictureBox pictureBoxLogOut;
         private System.Windows.Forms.Label labelPatientDetailsTextPart2;
     }

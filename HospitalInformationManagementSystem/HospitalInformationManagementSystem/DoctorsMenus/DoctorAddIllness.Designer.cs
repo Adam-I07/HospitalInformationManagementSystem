@@ -305,7 +305,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(440, 397);
+            this.buttonCancel.Location = new System.Drawing.Point(424, 397);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(117, 43);
             this.buttonCancel.TabIndex = 53;
@@ -315,7 +315,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(317, 397);
+            this.buttonAdd.Location = new System.Drawing.Point(301, 397);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(117, 43);
             this.buttonAdd.TabIndex = 52;
@@ -343,7 +343,7 @@ namespace HospitalInformationManagementSystem
             "",
             "Yet To Start",
             "On Going",
-            "Finished"});
+            "Discharged"});
             this.comboBoxTreatmentStage.Location = new System.Drawing.Point(317, 284);
             this.comboBoxTreatmentStage.Name = "comboBoxTreatmentStage";
             this.comboBoxTreatmentStage.Size = new System.Drawing.Size(126, 28);

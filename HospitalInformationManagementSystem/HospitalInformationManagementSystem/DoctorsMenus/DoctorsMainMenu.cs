@@ -76,5 +76,26 @@ namespace HospitalInformationManagementSystem
             DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
             doctorIllnessMenu.Show();
         }
+
+        private void pictureBoxInteractionLog_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
+            doctorInteractionLogMenu.Show();
+        }
+
+        private void labelInteractionLogTextPart1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
+            doctorInteractionLogMenu.Show();
+        }
+
+        private void labelInteractionLogTextPart2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
+            doctorInteractionLogMenu.Show();
+        }
     }
 }

@@ -129,7 +129,7 @@ namespace HospitalInformationManagementSystem
             "",
             "Yet To Start",
             "On Going",
-            "Finished"});
+            "Discharged"});
             this.comboBoxTreatmentStage.Location = new System.Drawing.Point(317, 276);
             this.comboBoxTreatmentStage.Name = "comboBoxTreatmentStage";
             this.comboBoxTreatmentStage.Size = new System.Drawing.Size(126, 28);

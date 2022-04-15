@@ -45,8 +45,8 @@ namespace HospitalInformationManagementSystem
             else
             {
 
-                Double userIDInputted = Convert.ToDouble(textBoxTreatmentID.Text);
-                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                Double illnessIDInputted = Convert.ToDouble(textBoxTreatmentID.Text);
+                if (illnessIDInputted > maximumIDNumber || illnessIDInputted <= 0)
                 {
                     MessageBox.Show("The Patient ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -99,7 +99,7 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                if (MessageBox.Show("Are you sure you would like to Edit PatientID = " + labelPatientIDInsert.Text + "'s Illness Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you would like to Edit Treatment = " + textBoxTreatmentID.Text + "'s Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     sqlConnection.Open();

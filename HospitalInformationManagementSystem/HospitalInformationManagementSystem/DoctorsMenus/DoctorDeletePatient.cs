@@ -53,7 +53,7 @@ namespace HospitalInformationManagementSystem
 
             if (textBoxPatientID.Text == "")
             {
-                MessageBox.Show("Please enter a User ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Patient ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (isValidPatientID == false)
             {
@@ -61,7 +61,7 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                if (MessageBox.Show("Are you sure you would like to delete UserID = " + textBoxPatientID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you would like to delete PatientID = " + textBoxPatientID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();

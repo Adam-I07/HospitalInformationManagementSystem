@@ -76,11 +76,29 @@
     <Compile Include="AdminMenus\AdminPasswordManagement.Designer.cs">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoctorsMenus\DoctorDeleteInteractionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorDeleteInteractionLog.Designer.cs">
+      <DependentUpon>DoctorDeleteInteractionLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorEditInteractionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorEditInteractionLog.Designer.cs">
+      <DependentUpon>DoctorEditInteractionLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorsMenus\DoctorAddIllness.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorAddIllness.Designer.cs">
       <DependentUpon>DoctorAddIllness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorAddInteractionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorAddInteractionLog.Designer.cs">
+      <DependentUpon>DoctorAddInteractionLog.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorDeleteIllness.cs">
       <SubType>Form</SubType>
@@ -118,6 +136,12 @@
     <Compile Include="DoctorsMenus\DoctorIllnessMenu.Designer.cs">
       <DependentUpon>DoctorIllnessMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoctorsMenus\DoctorInteractionLogMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorInteractionLogMenu.Designer.cs">
+      <DependentUpon>DoctorInteractionLogMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,16 +154,22 @@
     <Compile Include="DoctorsMenus\DoctorsMainMenu.Designer.cs">
       <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoctorsMenus\DoctorViewSpecificInformationLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorViewSpecificInformationLog.Designer.cs">
+      <DependentUpon>DoctorViewSpecificInformationLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="DoctorsMenus\DoctorViewSpecificPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorViewSpecificPatient.Designer.cs">
       <DependentUpon>DoctorViewSpecificPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorViewSpecificIllness.cs">
+    <Compile Include="DoctorsMenus\DoctorViewSpecificIllness.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctorViewSpecificIllness.Designer.cs">
+    <Compile Include="DoctorsMenus\DoctorViewSpecificIllness.Designer.cs">
       <DependentUpon>DoctorViewSpecificIllness.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -171,8 +201,17 @@
     <EmbeddedResource Include="AdminMenus\AdminPasswordManagement.resx">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorDeleteInteractionLog.resx">
+      <DependentUpon>DoctorDeleteInteractionLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorEditInteractionLog.resx">
+      <DependentUpon>DoctorEditInteractionLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorAddIllness.resx">
       <DependentUpon>DoctorAddIllness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorAddInteractionLog.resx">
+      <DependentUpon>DoctorAddInteractionLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorDeleteIllness.resx">
       <DependentUpon>DoctorDeleteIllness.cs</DependentUpon>
@@ -192,16 +231,22 @@
     <EmbeddedResource Include="DoctorsMenus\DoctorIllnessMenu.resx">
       <DependentUpon>DoctorIllnessMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorInteractionLogMenu.resx">
+      <DependentUpon>DoctorInteractionLogMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.resx">
       <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorsMainMenu.resx">
       <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificInformationLog.resx">
+      <DependentUpon>DoctorViewSpecificInformationLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificPatient.resx">
       <DependentUpon>DoctorViewSpecificPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorViewSpecificIllness.resx">
+    <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificIllness.resx">
       <DependentUpon>DoctorViewSpecificIllness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
