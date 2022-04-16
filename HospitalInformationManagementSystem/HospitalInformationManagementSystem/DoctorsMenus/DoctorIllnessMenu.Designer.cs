@@ -48,6 +48,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.ColumnPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTreatmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewDisplayIllnessInfo = new System.Windows.Forms.DataGridView();
+            this.textBoxSearchPatient = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.labelEnterPatientID = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -113,7 +117,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonAddNewIllness
             // 
-            this.buttonAddNewIllness.Location = new System.Drawing.Point(12, 180);
+            this.buttonAddNewIllness.Location = new System.Drawing.Point(12, 144);
             this.buttonAddNewIllness.Name = "buttonAddNewIllness";
             this.buttonAddNewIllness.Size = new System.Drawing.Size(181, 55);
             this.buttonAddNewIllness.TabIndex = 13;
@@ -123,7 +127,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonEditIllnessInformation
             // 
-            this.buttonEditIllnessInformation.Location = new System.Drawing.Point(12, 253);
+            this.buttonEditIllnessInformation.Location = new System.Drawing.Point(12, 215);
             this.buttonEditIllnessInformation.Name = "buttonEditIllnessInformation";
             this.buttonEditIllnessInformation.Size = new System.Drawing.Size(181, 55);
             this.buttonEditIllnessInformation.TabIndex = 14;
@@ -133,7 +137,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonDeleteIllnessInformation
             // 
-            this.buttonDeleteIllnessInformation.Location = new System.Drawing.Point(12, 328);
+            this.buttonDeleteIllnessInformation.Location = new System.Drawing.Point(12, 290);
             this.buttonDeleteIllnessInformation.Name = "buttonDeleteIllnessInformation";
             this.buttonDeleteIllnessInformation.Size = new System.Drawing.Size(181, 55);
             this.buttonDeleteIllnessInformation.TabIndex = 15;
@@ -143,7 +147,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonSpecificIllnessInformation
             // 
-            this.buttonSpecificIllnessInformation.Location = new System.Drawing.Point(12, 402);
+            this.buttonSpecificIllnessInformation.Location = new System.Drawing.Point(12, 360);
             this.buttonSpecificIllnessInformation.Name = "buttonSpecificIllnessInformation";
             this.buttonSpecificIllnessInformation.Size = new System.Drawing.Size(181, 55);
             this.buttonSpecificIllnessInformation.TabIndex = 16;
@@ -226,18 +230,61 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.ColumnDateCheckedIn,
             this.ColumnDateCheckedOut,
             this.ColumnNotes});
-            this.dataGridViewDisplayIllnessInfo.Location = new System.Drawing.Point(199, 180);
+            this.dataGridViewDisplayIllnessInfo.Location = new System.Drawing.Point(194, 144);
             this.dataGridViewDisplayIllnessInfo.Name = "dataGridViewDisplayIllnessInfo";
             this.dataGridViewDisplayIllnessInfo.ReadOnly = true;
-            this.dataGridViewDisplayIllnessInfo.Size = new System.Drawing.Size(877, 372);
+            this.dataGridViewDisplayIllnessInfo.Size = new System.Drawing.Size(877, 381);
             this.dataGridViewDisplayIllnessInfo.TabIndex = 12;
+            // 
+            // textBoxSearchPatient
+            // 
+            this.textBoxSearchPatient.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchPatient.Location = new System.Drawing.Point(500, 113);
+            this.textBoxSearchPatient.Name = "textBoxSearchPatient";
+            this.textBoxSearchPatient.Size = new System.Drawing.Size(126, 25);
+            this.textBoxSearchPatient.TabIndex = 48;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(632, 113);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(71, 25);
+            this.buttonSearch.TabIndex = 49;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(709, 113);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(71, 25);
+            this.buttonReset.TabIndex = 50;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // labelEnterPatientID
+            // 
+            this.labelEnterPatientID.AutoSize = true;
+            this.labelEnterPatientID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterPatientID.ForeColor = System.Drawing.Color.White;
+            this.labelEnterPatientID.Location = new System.Drawing.Point(228, 113);
+            this.labelEnterPatientID.Name = "labelEnterPatientID";
+            this.labelEnterPatientID.Size = new System.Drawing.Size(266, 24);
+            this.labelEnterPatientID.TabIndex = 51;
+            this.labelEnterPatientID.Text = "Enter a Patient ID to search:";
             // 
             // DoctorIllnessMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1083, 564);
+            this.ClientSize = new System.Drawing.Size(1083, 539);
+            this.Controls.Add(this.labelEnterPatientID);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxSearchPatient);
             this.Controls.Add(this.buttonSpecificIllnessInformation);
             this.Controls.Add(this.buttonDeleteIllnessInformation);
             this.Controls.Add(this.buttonEditIllnessInformation);
@@ -255,6 +302,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplayIllnessInfo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -278,5 +326,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTreatmentID;
         private System.Windows.Forms.DataGridView dataGridViewDisplayIllnessInfo;
+        private System.Windows.Forms.TextBox textBoxSearchPatient;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label labelEnterPatientID;
     }
 }

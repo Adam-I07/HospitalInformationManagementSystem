@@ -47,6 +47,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonEditInteractionLog = new System.Windows.Forms.Button();
             this.buttonDeleteInteractionLog = new System.Windows.Forms.Button();
             this.buttonViewSpecificInteractionLog = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxSearchPatient = new System.Windows.Forms.TextBox();
+            this.labelEnterPatientID = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -123,7 +127,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.ColumnDate,
             this.ColumnShift,
             this.ColumnInteractionNotes});
-            this.dataGridViewDisplayInteractionLoginfo.Location = new System.Drawing.Point(155, 174);
+            this.dataGridViewDisplayInteractionLoginfo.Location = new System.Drawing.Point(155, 162);
             this.dataGridViewDisplayInteractionLoginfo.Name = "dataGridViewDisplayInteractionLoginfo";
             this.dataGridViewDisplayInteractionLoginfo.ReadOnly = true;
             this.dataGridViewDisplayInteractionLoginfo.Size = new System.Drawing.Size(833, 319);
@@ -186,7 +190,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonAddInteractionLog
             // 
-            this.buttonAddInteractionLog.Location = new System.Drawing.Point(12, 174);
+            this.buttonAddInteractionLog.Location = new System.Drawing.Point(12, 162);
             this.buttonAddInteractionLog.Name = "buttonAddInteractionLog";
             this.buttonAddInteractionLog.Size = new System.Drawing.Size(137, 55);
             this.buttonAddInteractionLog.TabIndex = 14;
@@ -196,7 +200,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonEditInteractionLog
             // 
-            this.buttonEditInteractionLog.Location = new System.Drawing.Point(12, 244);
+            this.buttonEditInteractionLog.Location = new System.Drawing.Point(12, 232);
             this.buttonEditInteractionLog.Name = "buttonEditInteractionLog";
             this.buttonEditInteractionLog.Size = new System.Drawing.Size(137, 55);
             this.buttonEditInteractionLog.TabIndex = 15;
@@ -206,7 +210,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonDeleteInteractionLog
             // 
-            this.buttonDeleteInteractionLog.Location = new System.Drawing.Point(12, 314);
+            this.buttonDeleteInteractionLog.Location = new System.Drawing.Point(12, 305);
             this.buttonDeleteInteractionLog.Name = "buttonDeleteInteractionLog";
             this.buttonDeleteInteractionLog.Size = new System.Drawing.Size(137, 55);
             this.buttonDeleteInteractionLog.TabIndex = 16;
@@ -216,7 +220,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonViewSpecificInteractionLog
             // 
-            this.buttonViewSpecificInteractionLog.Location = new System.Drawing.Point(12, 385);
+            this.buttonViewSpecificInteractionLog.Location = new System.Drawing.Point(12, 375);
             this.buttonViewSpecificInteractionLog.Name = "buttonViewSpecificInteractionLog";
             this.buttonViewSpecificInteractionLog.Size = new System.Drawing.Size(137, 55);
             this.buttonViewSpecificInteractionLog.TabIndex = 17;
@@ -224,12 +228,55 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonViewSpecificInteractionLog.UseVisualStyleBackColor = true;
             this.buttonViewSpecificInteractionLog.Click += new System.EventHandler(this.buttonViewSpecificInteractionLog_Click);
             // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(680, 134);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(71, 25);
+            this.buttonReset.TabIndex = 53;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(603, 134);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(71, 25);
+            this.buttonSearch.TabIndex = 52;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxSearchPatient
+            // 
+            this.textBoxSearchPatient.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchPatient.Location = new System.Drawing.Point(471, 134);
+            this.textBoxSearchPatient.Name = "textBoxSearchPatient";
+            this.textBoxSearchPatient.Size = new System.Drawing.Size(126, 25);
+            this.textBoxSearchPatient.TabIndex = 51;
+            // 
+            // labelEnterPatientID
+            // 
+            this.labelEnterPatientID.AutoSize = true;
+            this.labelEnterPatientID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterPatientID.ForeColor = System.Drawing.Color.White;
+            this.labelEnterPatientID.Location = new System.Drawing.Point(199, 135);
+            this.labelEnterPatientID.Name = "labelEnterPatientID";
+            this.labelEnterPatientID.Size = new System.Drawing.Size(266, 24);
+            this.labelEnterPatientID.TabIndex = 54;
+            this.labelEnterPatientID.Text = "Enter a Patient ID to search:";
+            // 
             // DoctorInteractionLogMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1000, 505);
+            this.ClientSize = new System.Drawing.Size(1000, 495);
+            this.Controls.Add(this.labelEnterPatientID);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxSearchPatient);
             this.Controls.Add(this.buttonViewSpecificInteractionLog);
             this.Controls.Add(this.buttonDeleteInteractionLog);
             this.Controls.Add(this.buttonEditInteractionLog);
@@ -247,6 +294,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplayInteractionLoginfo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -269,5 +317,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Button buttonEditInteractionLog;
         private System.Windows.Forms.Button buttonDeleteInteractionLog;
         private System.Windows.Forms.Button buttonViewSpecificInteractionLog;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TextBox textBoxSearchPatient;
+        private System.Windows.Forms.Label labelEnterPatientID;
     }
 }

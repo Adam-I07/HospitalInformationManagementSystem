@@ -36,10 +36,6 @@ namespace HospitalInformationManagementSystem
             this.labelPatientPersonalInfoMenuText = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
             this.dataGridViewLoginDetails = new System.Windows.Forms.DataGridView();
-            this.buttonAddNewPatient = new System.Windows.Forms.Button();
-            this.buttonEditPatient = new System.Windows.Forms.Button();
-            this.buttonViewPatient = new System.Windows.Forms.Button();
-            this.buttonDeletePatient = new System.Windows.Forms.Button();
             this.ColumnPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNHSNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +52,14 @@ namespace HospitalInformationManagementSystem
             this.ColumnCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPostcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBloodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAddNewPatient = new System.Windows.Forms.Button();
+            this.buttonEditPatient = new System.Windows.Forms.Button();
+            this.buttonViewPatient = new System.Windows.Forms.Button();
+            this.buttonDeletePatient = new System.Windows.Forms.Button();
+            this.labelEnterFirstName = new System.Windows.Forms.Label();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxSearchFirstName = new System.Windows.Forms.TextBox();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -141,51 +145,11 @@ namespace HospitalInformationManagementSystem
             this.ColumnCity,
             this.ColumnPostcode,
             this.ColumnBloodType});
-            this.dataGridViewLoginDetails.Location = new System.Drawing.Point(199, 162);
+            this.dataGridViewLoginDetails.Location = new System.Drawing.Point(203, 144);
             this.dataGridViewLoginDetails.Name = "dataGridViewLoginDetails";
             this.dataGridViewLoginDetails.ReadOnly = true;
             this.dataGridViewLoginDetails.Size = new System.Drawing.Size(1313, 460);
             this.dataGridViewLoginDetails.TabIndex = 11;
-            // 
-            // buttonAddNewPatient
-            // 
-            this.buttonAddNewPatient.Location = new System.Drawing.Point(12, 162);
-            this.buttonAddNewPatient.Name = "buttonAddNewPatient";
-            this.buttonAddNewPatient.Size = new System.Drawing.Size(181, 55);
-            this.buttonAddNewPatient.TabIndex = 12;
-            this.buttonAddNewPatient.Text = "Add New Patient";
-            this.buttonAddNewPatient.UseVisualStyleBackColor = true;
-            this.buttonAddNewPatient.Click += new System.EventHandler(this.buttonAddNewPatient_Click);
-            // 
-            // buttonEditPatient
-            // 
-            this.buttonEditPatient.Location = new System.Drawing.Point(12, 234);
-            this.buttonEditPatient.Name = "buttonEditPatient";
-            this.buttonEditPatient.Size = new System.Drawing.Size(181, 55);
-            this.buttonEditPatient.TabIndex = 13;
-            this.buttonEditPatient.Text = "Edit Patient";
-            this.buttonEditPatient.UseVisualStyleBackColor = true;
-            this.buttonEditPatient.Click += new System.EventHandler(this.buttonEditPatient_Click);
-            // 
-            // buttonViewPatient
-            // 
-            this.buttonViewPatient.Location = new System.Drawing.Point(12, 377);
-            this.buttonViewPatient.Name = "buttonViewPatient";
-            this.buttonViewPatient.Size = new System.Drawing.Size(181, 55);
-            this.buttonViewPatient.TabIndex = 14;
-            this.buttonViewPatient.Text = "View Specific Patient";
-            this.buttonViewPatient.UseVisualStyleBackColor = true;
-            this.buttonViewPatient.Click += new System.EventHandler(this.buttonViewPatient_Click);
-            // 
-            // buttonDeletePatient
-            // 
-            this.buttonDeletePatient.Location = new System.Drawing.Point(12, 306);
-            this.buttonDeletePatient.Name = "buttonDeletePatient";
-            this.buttonDeletePatient.Size = new System.Drawing.Size(181, 55);
-            this.buttonDeletePatient.TabIndex = 15;
-            this.buttonDeletePatient.Text = "Delete Patient";
-            this.buttonDeletePatient.UseVisualStyleBackColor = true;
-            this.buttonDeletePatient.Click += new System.EventHandler(this.buttonDeletePatient_Click);
             // 
             // ColumnPatientID
             // 
@@ -314,12 +278,95 @@ namespace HospitalInformationManagementSystem
             this.ColumnBloodType.ReadOnly = true;
             this.ColumnBloodType.Width = 50;
             // 
+            // buttonAddNewPatient
+            // 
+            this.buttonAddNewPatient.Location = new System.Drawing.Point(16, 144);
+            this.buttonAddNewPatient.Name = "buttonAddNewPatient";
+            this.buttonAddNewPatient.Size = new System.Drawing.Size(181, 55);
+            this.buttonAddNewPatient.TabIndex = 12;
+            this.buttonAddNewPatient.Text = "Add New Patient";
+            this.buttonAddNewPatient.UseVisualStyleBackColor = true;
+            this.buttonAddNewPatient.Click += new System.EventHandler(this.buttonAddNewPatient_Click);
+            // 
+            // buttonEditPatient
+            // 
+            this.buttonEditPatient.Location = new System.Drawing.Point(16, 215);
+            this.buttonEditPatient.Name = "buttonEditPatient";
+            this.buttonEditPatient.Size = new System.Drawing.Size(181, 55);
+            this.buttonEditPatient.TabIndex = 13;
+            this.buttonEditPatient.Text = "Edit Patient";
+            this.buttonEditPatient.UseVisualStyleBackColor = true;
+            this.buttonEditPatient.Click += new System.EventHandler(this.buttonEditPatient_Click);
+            // 
+            // buttonViewPatient
+            // 
+            this.buttonViewPatient.Location = new System.Drawing.Point(16, 361);
+            this.buttonViewPatient.Name = "buttonViewPatient";
+            this.buttonViewPatient.Size = new System.Drawing.Size(181, 55);
+            this.buttonViewPatient.TabIndex = 14;
+            this.buttonViewPatient.Text = "View Specific Patient";
+            this.buttonViewPatient.UseVisualStyleBackColor = true;
+            this.buttonViewPatient.Click += new System.EventHandler(this.buttonViewPatient_Click);
+            // 
+            // buttonDeletePatient
+            // 
+            this.buttonDeletePatient.Location = new System.Drawing.Point(16, 290);
+            this.buttonDeletePatient.Name = "buttonDeletePatient";
+            this.buttonDeletePatient.Size = new System.Drawing.Size(181, 55);
+            this.buttonDeletePatient.TabIndex = 15;
+            this.buttonDeletePatient.Text = "Delete Patient";
+            this.buttonDeletePatient.UseVisualStyleBackColor = true;
+            this.buttonDeletePatient.Click += new System.EventHandler(this.buttonDeletePatient_Click);
+            // 
+            // labelEnterFirstName
+            // 
+            this.labelEnterFirstName.AutoSize = true;
+            this.labelEnterFirstName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterFirstName.ForeColor = System.Drawing.Color.White;
+            this.labelEnterFirstName.Location = new System.Drawing.Point(238, 111);
+            this.labelEnterFirstName.Name = "labelEnterFirstName";
+            this.labelEnterFirstName.Size = new System.Drawing.Size(344, 24);
+            this.labelEnterFirstName.TabIndex = 55;
+            this.labelEnterFirstName.Text = "Enter a Patient First Name to search:";
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(797, 110);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(71, 25);
+            this.buttonReset.TabIndex = 54;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(720, 110);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(71, 25);
+            this.buttonSearch.TabIndex = 53;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxSearchFirstName
+            // 
+            this.textBoxSearchFirstName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchFirstName.Location = new System.Drawing.Point(588, 110);
+            this.textBoxSearchFirstName.Name = "textBoxSearchFirstName";
+            this.textBoxSearchFirstName.Size = new System.Drawing.Size(126, 25);
+            this.textBoxSearchFirstName.TabIndex = 52;
+            // 
             // DoctorsPatientPersonalInfoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1528, 634);
+            this.ClientSize = new System.Drawing.Size(1528, 616);
+            this.Controls.Add(this.labelEnterFirstName);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxSearchFirstName);
             this.Controls.Add(this.buttonDeletePatient);
             this.Controls.Add(this.buttonViewPatient);
             this.Controls.Add(this.buttonEditPatient);
@@ -337,6 +384,7 @@ namespace HospitalInformationManagementSystem
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoginDetails)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -368,5 +416,9 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPostcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBloodType;
+        private System.Windows.Forms.Label labelEnterFirstName;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TextBox textBoxSearchFirstName;
     }
 }
