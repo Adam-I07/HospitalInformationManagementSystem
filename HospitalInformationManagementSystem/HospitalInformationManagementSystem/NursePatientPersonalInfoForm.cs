@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
-    public partial class DoctorsPatientPersonalInfoMenu : Form
+    public partial class NursePatientPersonalInfoForm : Form
     {
         public List<string> idAvailable = new List<string>();
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-        public DoctorsPatientPersonalInfoMenu()
+
+        public NursePatientPersonalInfoForm()
         {
             InitializeComponent();
         }
 
-        private void DoctorsPatientPersonalInfoMenu_Load(object sender, EventArgs e)
+        private void NursePatientPersonalInfoForm_Load(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
@@ -37,66 +37,6 @@ namespace HospitalInformationManagementSystem
             {
                 idAvailable.Add(item.Cells[2].Value.ToString());
             }
-        }
-
-        private void pictureBoxGoBack_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult;
-            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
-                DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
-                doctorsMainMenu.Show();
-            }
-            else
-            {
-                this.Show();
-            }
-        }
-
-        private void labelGoBack_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult;
-            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Close();
-                DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
-                doctorsMainMenu.Show();
-            }
-            else
-            {
-                this.Show();
-            }
-        }
-
-        private void buttonAddNewPatient_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DoctorAddPatient doctorAddPatient = new DoctorAddPatient();
-            doctorAddPatient.Show();
-        }
-
-        private void buttonEditPatient_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DoctorEditPatientDetails doctorEditPatientDetails = new DoctorEditPatientDetails();
-            doctorEditPatientDetails.Show();
-        }
-
-        private void buttonDeletePatient_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DoctorDeletePatientPersonalInfo doctorDeletePatientPersonalInfo = new DoctorDeletePatientPersonalInfo();
-            doctorDeletePatientPersonalInfo.Show();
-        }
-
-        private void buttonViewPatient_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DoctorViewSpecificPatient doctorViewSpecificPatient = new DoctorViewSpecificPatient();
-            doctorViewSpecificPatient.Show();
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -122,11 +62,11 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                
+
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlConnection;
 
-                command.CommandText = "select * from PatientPersonalInformation where [FirstName] = '"+textBoxSearchFirstName.Text+"'";
+                command.CommandText = "select * from PatientPersonalInformation where [FirstName] = '" + textBoxSearchFirstName.Text + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 sda.Fill(dataSet);
@@ -148,6 +88,46 @@ namespace HospitalInformationManagementSystem
 
             dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
             sqlConnection.Close();
+        }
+
+        private void buttonViewSpecificPatient_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NurseViewSpecificPatientInfo nurseViewSpecificPatientInfo = new NurseViewSpecificPatientInfo();
+            nurseViewSpecificPatientInfo.Show();
+        }
+
+        private void labeBackText_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                NurseMainMenu nurseMainMenu = new NurseMainMenu();
+                nurseMainMenu.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
+        }
+
+        private void pictureBoxGoBackArrow_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                NurseMainMenu nurseMainMenu = new NurseMainMenu();
+                nurseMainMenu.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
         }
     }
 }

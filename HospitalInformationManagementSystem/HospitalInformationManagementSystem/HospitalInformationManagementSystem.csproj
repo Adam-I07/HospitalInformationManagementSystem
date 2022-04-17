@@ -142,17 +142,17 @@
     <Compile Include="DoctorsMenus\DoctorInteractionLogMenu.Designer.cs">
       <DependentUpon>DoctorInteractionLogMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.Designer.cs">
-      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="DoctorsMenus\DoctorsMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorsMainMenu.Designer.cs">
       <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.Designer.cs">
+      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorViewSpecificInformationLog.cs">
       <SubType>Form</SubType>
@@ -183,6 +183,18 @@
     </Compile>
     <Compile Include="NurseMainMenu.Designer.cs">
       <DependentUpon>NurseMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NursePatientPersonalInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NursePatientPersonalInfoForm.Designer.cs">
+      <DependentUpon>NursePatientPersonalInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NurseViewSpecificPatientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseViewSpecificPatientInfo.Designer.cs">
+      <DependentUpon>NurseViewSpecificPatientInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -234,11 +246,11 @@
     <EmbeddedResource Include="DoctorsMenus\DoctorInteractionLogMenu.resx">
       <DependentUpon>DoctorInteractionLogMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.resx">
-      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorsMainMenu.resx">
       <DependentUpon>DoctorsMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.resx">
+      <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificInformationLog.resx">
       <DependentUpon>DoctorViewSpecificInformationLog.cs</DependentUpon>
@@ -254,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NurseMainMenu.resx">
       <DependentUpon>NurseMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NursePatientPersonalInfoForm.resx">
+      <DependentUpon>NursePatientPersonalInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseViewSpecificPatientInfo.resx">
+      <DependentUpon>NurseViewSpecificPatientInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -277,6 +295,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NursesMenus\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

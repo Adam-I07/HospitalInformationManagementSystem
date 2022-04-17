@@ -1,5 +1,4 @@
-﻿using HospitalInformationManagementSystem.DoctorsMenus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalInformationManagementSystem
+namespace HospitalInformationManagementSystem.DoctorsMenus
 {
-    public partial class DoctosMainMenu : Form
+    public partial class DoctorsMainMenu : Form
     {
-        public DoctosMainMenu()
+        public DoctorsMainMenu()
         {
             InitializeComponent();
         }
@@ -37,30 +36,22 @@ namespace HospitalInformationManagementSystem
         private void pictureBoxPatientPersonalDetailsLogo_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfo = new DoctorsPatientPersonalInfoMenu();
-            doctorsPatientPersonalInfo.Show();
+            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfoMenu = new DoctorsPatientPersonalInfoMenu();
+            doctorsPatientPersonalInfoMenu.Show();
         }
 
         private void labelPatientDetailsTextPart1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfo = new DoctorsPatientPersonalInfoMenu();
-            doctorsPatientPersonalInfo.Show();
-
+            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfoMenu = new DoctorsPatientPersonalInfoMenu();
+            doctorsPatientPersonalInfoMenu.Show();
         }
 
         private void labelPatientDetailsTextPart2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfo = new DoctorsPatientPersonalInfoMenu();
-            doctorsPatientPersonalInfo.Show();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
-            doctorIllnessMenu.Show();
+            DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfoMenu = new DoctorsPatientPersonalInfoMenu();
+            doctorsPatientPersonalInfoMenu.Show();
         }
 
         private void labelIIlnessTextPart1_Click(object sender, EventArgs e)
@@ -71,6 +62,13 @@ namespace HospitalInformationManagementSystem
         }
 
         private void labelIllnessTextPart2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
+            doctorIllnessMenu.Show();
+        }
+
+        private void pictureBoxIllnessInformationLogo_Click(object sender, EventArgs e)
         {
             this.Hide();
             DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();

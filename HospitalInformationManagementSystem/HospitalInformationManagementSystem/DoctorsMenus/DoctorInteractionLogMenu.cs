@@ -47,8 +47,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
-                DoctosMainMenu doctosMainMenu = new DoctosMainMenu();
-                doctosMainMenu.Show();
+                DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
+                doctorsMainMenu.Show();
             }
             else
             {
@@ -63,8 +63,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
-                DoctosMainMenu doctosMainMenu = new DoctosMainMenu();
-                doctosMainMenu.Show();
+                DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
+                doctorsMainMenu.Show();
             }
             else
             {

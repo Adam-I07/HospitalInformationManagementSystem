@@ -8,17 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class LoginForm : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public LoginForm()
         {
             InitializeComponent();
             textBoxPassword.UseSystemPasswordChar = true;
         }
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string windowToLoad = comboBoxRole.Text;
@@ -46,8 +47,8 @@ namespace HospitalInformationManagementSystem
                         }
                         else if(windowToLoad == "Doctor")
                         {
-                            DoctosMainMenu doctosMainMenu = new DoctosMainMenu();
-                            doctosMainMenu.Show();
+                            DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
+                            doctorsMainMenu.Show();
                             this.Hide();
                         }
                         else

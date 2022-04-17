@@ -85,7 +85,7 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(1, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(969, 107);
+            this.panelWhiteTop.Size = new System.Drawing.Size(1040, 107);
             this.panelWhiteTop.TabIndex = 54;
             // 
             // labelGoBack
@@ -93,7 +93,7 @@ namespace HospitalInformationManagementSystem
             this.labelGoBack.AutoSize = true;
             this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGoBack.Location = new System.Drawing.Point(926, 18);
+            this.labelGoBack.Location = new System.Drawing.Point(1003, 18);
             this.labelGoBack.Name = "labelGoBack";
             this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelGoBack.Size = new System.Drawing.Size(36, 15);
@@ -104,7 +104,7 @@ namespace HospitalInformationManagementSystem
             // pictureBoxGoBack
             // 
             this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
-            this.pictureBoxGoBack.Location = new System.Drawing.Point(904, 3);
+            this.pictureBoxGoBack.Location = new System.Drawing.Point(981, 3);
             this.pictureBoxGoBack.Name = "pictureBoxGoBack";
             this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
             this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -117,7 +117,7 @@ namespace HospitalInformationManagementSystem
             this.labelViewSpecificPatientText.AutoSize = true;
             this.labelViewSpecificPatientText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViewSpecificPatientText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelViewSpecificPatientText.Location = new System.Drawing.Point(321, 35);
+            this.labelViewSpecificPatientText.Location = new System.Drawing.Point(382, 36);
             this.labelViewSpecificPatientText.Name = "labelViewSpecificPatientText";
             this.labelViewSpecificPatientText.Size = new System.Drawing.Size(378, 42);
             this.labelViewSpecificPatientText.TabIndex = 5;
@@ -136,7 +136,7 @@ namespace HospitalInformationManagementSystem
             // textBoxPatientID
             // 
             this.textBoxPatientID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPatientID.Location = new System.Drawing.Point(402, 113);
+            this.textBoxPatientID.Location = new System.Drawing.Point(475, 109);
             this.textBoxPatientID.Mask = "00000";
             this.textBoxPatientID.Name = "textBoxPatientID";
             this.textBoxPatientID.Size = new System.Drawing.Size(43, 26);
@@ -145,7 +145,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonFindID
             // 
-            this.buttonFindID.Location = new System.Drawing.Point(454, 114);
+            this.buttonFindID.Location = new System.Drawing.Point(527, 110);
             this.buttonFindID.Name = "buttonFindID";
             this.buttonFindID.Size = new System.Drawing.Size(90, 26);
             this.buttonFindID.TabIndex = 91;
@@ -158,7 +158,7 @@ namespace HospitalInformationManagementSystem
             this.labelPatientID.AutoSize = true;
             this.labelPatientID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPatientID.ForeColor = System.Drawing.Color.White;
-            this.labelPatientID.Location = new System.Drawing.Point(287, 114);
+            this.labelPatientID.Location = new System.Drawing.Point(360, 110);
             this.labelPatientID.Name = "labelPatientID";
             this.labelPatientID.Size = new System.Drawing.Size(109, 24);
             this.labelPatientID.TabIndex = 90;
@@ -503,7 +503,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonNewSearch
             // 
-            this.buttonNewSearch.Location = new System.Drawing.Point(550, 113);
+            this.buttonNewSearch.Location = new System.Drawing.Point(623, 109);
             this.buttonNewSearch.Name = "buttonNewSearch";
             this.buttonNewSearch.Size = new System.Drawing.Size(90, 26);
             this.buttonNewSearch.TabIndex = 128;
@@ -516,7 +516,7 @@ namespace HospitalInformationManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(964, 430);
+            this.ClientSize = new System.Drawing.Size(1041, 430);
             this.Controls.Add(this.buttonNewSearch);
             this.Controls.Add(this.labelBloodTypeInput);
             this.Controls.Add(this.labelPostcodeInput);
