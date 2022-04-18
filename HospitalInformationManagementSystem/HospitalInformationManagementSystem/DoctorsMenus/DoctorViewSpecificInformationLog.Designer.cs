@@ -63,7 +63,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDateFormatPart2.AutoSize = true;
             this.labelDateFormatPart2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDateFormatPart2.ForeColor = System.Drawing.Color.White;
-            this.labelDateFormatPart2.Location = new System.Drawing.Point(99, 270);
+            this.labelDateFormatPart2.Location = new System.Drawing.Point(100, 277);
             this.labelDateFormatPart2.Name = "labelDateFormatPart2";
             this.labelDateFormatPart2.Size = new System.Drawing.Size(121, 17);
             this.labelDateFormatPart2.TabIndex = 65;
@@ -74,7 +74,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDateFormatPart1.AutoSize = true;
             this.labelDateFormatPart1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDateFormatPart1.ForeColor = System.Drawing.Color.White;
-            this.labelDateFormatPart1.Location = new System.Drawing.Point(99, 253);
+            this.labelDateFormatPart1.Location = new System.Drawing.Point(100, 260);
             this.labelDateFormatPart1.Name = "labelDateFormatPart1";
             this.labelDateFormatPart1.Size = new System.Drawing.Size(65, 17);
             this.labelDateFormatPart1.TabIndex = 64;
@@ -85,7 +85,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelShift.AutoSize = true;
             this.labelShift.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShift.ForeColor = System.Drawing.Color.White;
-            this.labelShift.Location = new System.Drawing.Point(34, 287);
+            this.labelShift.Location = new System.Drawing.Point(33, 299);
             this.labelShift.Name = "labelShift";
             this.labelShift.Size = new System.Drawing.Size(59, 24);
             this.labelShift.TabIndex = 63;
@@ -96,7 +96,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.White;
-            this.labelDate.Location = new System.Drawing.Point(33, 253);
+            this.labelDate.Location = new System.Drawing.Point(34, 260);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(60, 24);
             this.labelDate.TabIndex = 62;
@@ -107,7 +107,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelPatientID.AutoSize = true;
             this.labelPatientID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPatientID.ForeColor = System.Drawing.Color.White;
-            this.labelPatientID.Location = new System.Drawing.Point(33, 220);
+            this.labelPatientID.Location = new System.Drawing.Point(34, 226);
             this.labelPatientID.Name = "labelPatientID";
             this.labelPatientID.Size = new System.Drawing.Size(109, 24);
             this.labelPatientID.TabIndex = 61;
@@ -118,7 +118,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelStaffName.AutoSize = true;
             this.labelStaffName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStaffName.ForeColor = System.Drawing.Color.White;
-            this.labelStaffName.Location = new System.Drawing.Point(33, 186);
+            this.labelStaffName.Location = new System.Drawing.Point(33, 191);
             this.labelStaffName.Name = "labelStaffName";
             this.labelStaffName.Size = new System.Drawing.Size(119, 24);
             this.labelStaffName.TabIndex = 60;
@@ -155,7 +155,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(749, 107);
+            this.panelWhiteTop.Size = new System.Drawing.Size(718, 107);
             this.panelWhiteTop.TabIndex = 66;
             // 
             // labelGoBack
@@ -258,7 +258,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelPatientIDInsert.AutoSize = true;
             this.labelPatientIDInsert.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPatientIDInsert.ForeColor = System.Drawing.Color.White;
-            this.labelPatientIDInsert.Location = new System.Drawing.Point(226, 220);
+            this.labelPatientIDInsert.Location = new System.Drawing.Point(227, 226);
             this.labelPatientIDInsert.Name = "labelPatientIDInsert";
             this.labelPatientIDInsert.Size = new System.Drawing.Size(0, 24);
             this.labelPatientIDInsert.TabIndex = 135;
@@ -268,7 +268,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDateInsert.AutoSize = true;
             this.labelDateInsert.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDateInsert.ForeColor = System.Drawing.Color.White;
-            this.labelDateInsert.Location = new System.Drawing.Point(226, 253);
+            this.labelDateInsert.Location = new System.Drawing.Point(227, 260);
             this.labelDateInsert.Name = "labelDateInsert";
             this.labelDateInsert.Size = new System.Drawing.Size(0, 24);
             this.labelDateInsert.TabIndex = 136;
@@ -278,7 +278,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelShiftInsert.AutoSize = true;
             this.labelShiftInsert.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShiftInsert.ForeColor = System.Drawing.Color.White;
-            this.labelShiftInsert.Location = new System.Drawing.Point(226, 287);
+            this.labelShiftInsert.Location = new System.Drawing.Point(225, 299);
             this.labelShiftInsert.Name = "labelShiftInsert";
             this.labelShiftInsert.Size = new System.Drawing.Size(0, 24);
             this.labelShiftInsert.TabIndex = 137;
@@ -288,7 +288,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelStaffNameInsert.AutoSize = true;
             this.labelStaffNameInsert.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStaffNameInsert.ForeColor = System.Drawing.Color.White;
-            this.labelStaffNameInsert.Location = new System.Drawing.Point(226, 186);
+            this.labelStaffNameInsert.Location = new System.Drawing.Point(226, 191);
             this.labelStaffNameInsert.Name = "labelStaffNameInsert";
             this.labelStaffNameInsert.Size = new System.Drawing.Size(0, 24);
             this.labelStaffNameInsert.TabIndex = 138;

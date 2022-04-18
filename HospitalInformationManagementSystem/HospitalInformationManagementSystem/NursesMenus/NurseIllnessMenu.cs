@@ -11,67 +11,67 @@ using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
-    public partial class NursePatientPersonalInfoForm : Form
+    public partial class NurseIllnessMenu : Form
     {
         public List<string> idAvailable = new List<string>();
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
 
-        public NursePatientPersonalInfoForm()
+        public NurseIllnessMenu()
         {
             InitializeComponent();
         }
 
-        private void NursePatientPersonalInfoForm_Load(object sender, EventArgs e)
+        private void NurseIllnessMenu_Load(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
 
-            command.CommandText = "select * from PatientPersonalInformation";
+            command.CommandText = "select * from IllnessInformation";
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
             sda.Fill(dataSet);
 
-            dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+            dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
             sqlConnection.Close();
-            foreach (DataGridViewRow item in dataGridViewLoginDetails.Rows)
+
+            foreach (DataGridViewRow item in dataGridViewDisplayIllnessInfo.Rows)
             {
-                idAvailable.Add(item.Cells[2].Value.ToString());
+                idAvailable.Add(item.Cells[1].Value.ToString());
             }
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            String firstNameIDInputted = textBoxSearchFirstName.Text.ToString();
+            String patientIDInputted = textBoxSearchPatient.Text.ToString();
             bool isValidUserID = false;
             for (int i = 0; i < idAvailable.Count(); i++)
             {
-                if (idAvailable[i] == firstNameIDInputted)
+                if (idAvailable[i] == patientIDInputted)
                 {
                     isValidUserID = true;
                     break;
                 }
             }
 
-            if (textBoxSearchFirstName.Text == "")
+            if (textBoxSearchPatient.Text == "")
             {
-                MessageBox.Show("Please enter a First Name to search!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Patient ID to search!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (isValidUserID == false)
             {
-                MessageBox.Show("The First Name entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The ID entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlConnection;
 
-                command.CommandText = "select * from PatientPersonalInformation where [FirstName] = '" + textBoxSearchFirstName.Text + "'";
+                command.CommandText = "select * from IllnessInformation where PatientID = " + textBoxSearchPatient.Text + "";
                 SqlDataAdapter sda = new SqlDataAdapter(command);
                 DataSet dataSet = new DataSet();
                 sda.Fill(dataSet);
 
-                dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+                dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
                 sqlConnection.Close();
             }
         }
@@ -81,23 +81,23 @@ namespace HospitalInformationManagementSystem
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
 
-            command.CommandText = "select * from PatientPersonalInformation";
+            command.CommandText = "select * from IllnessInformation";
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
             sda.Fill(dataSet);
 
-            dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+            dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
             sqlConnection.Close();
         }
 
-        private void buttonViewSpecificPatient_Click(object sender, EventArgs e)
+        private void buttonViewSpecificIllnessInformation_Click(object sender, EventArgs e)
         {
             this.Hide();
-            NurseViewSpecificPatientInfo nurseViewSpecificPatientInfo = new NurseViewSpecificPatientInfo();
-            nurseViewSpecificPatientInfo.Show();
+            NurseViewSpecificIllness nurseViewSpecificIllness = new NurseViewSpecificIllness();
+            nurseViewSpecificIllness.Show();
         }
 
-        private void labeBackText_Click(object sender, EventArgs e)
+        private void pictureBoxGoBackArrow_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
             dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -113,9 +113,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
-        private void pictureBoxGoBackArrow_Click(object sender, EventArgs e)
+        private void labeBackText_Click(object sender, EventArgs e)
         {
-
             DialogResult dialogResult;
             dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)

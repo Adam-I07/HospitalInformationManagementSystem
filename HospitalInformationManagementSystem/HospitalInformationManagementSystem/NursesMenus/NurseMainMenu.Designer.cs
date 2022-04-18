@@ -71,7 +71,7 @@ namespace HospitalInformationManagementSystem
             this.labelDoctorsMenu.AutoSize = true;
             this.labelDoctorsMenu.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDoctorsMenu.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelDoctorsMenu.Location = new System.Drawing.Point(120, 29);
+            this.labelDoctorsMenu.Location = new System.Drawing.Point(130, 31);
             this.labelDoctorsMenu.Name = "labelDoctorsMenu";
             this.labelDoctorsMenu.Size = new System.Drawing.Size(229, 42);
             this.labelDoctorsMenu.TabIndex = 5;
@@ -141,6 +141,7 @@ namespace HospitalInformationManagementSystem
             this.labelInteractionLogTextPart2.Size = new System.Drawing.Size(46, 24);
             this.labelInteractionLogTextPart2.TabIndex = 25;
             this.labelInteractionLogTextPart2.Text = "Log";
+            this.labelInteractionLogTextPart2.Click += new System.EventHandler(this.labelInteractionLogTextPart2_Click);
             // 
             // labelInteractionLogTextPart1
             // 
@@ -152,6 +153,7 @@ namespace HospitalInformationManagementSystem
             this.labelInteractionLogTextPart1.Size = new System.Drawing.Size(178, 24);
             this.labelInteractionLogTextPart1.TabIndex = 24;
             this.labelInteractionLogTextPart1.Text = "Patient Interaction";
+            this.labelInteractionLogTextPart1.Click += new System.EventHandler(this.labelInteractionLogTextPart1_Click);
             // 
             // labelIllnessTextPart2
             // 
@@ -163,6 +165,7 @@ namespace HospitalInformationManagementSystem
             this.labelIllnessTextPart2.Size = new System.Drawing.Size(116, 24);
             this.labelIllnessTextPart2.TabIndex = 23;
             this.labelIllnessTextPart2.Text = "Information";
+            this.labelIllnessTextPart2.Click += new System.EventHandler(this.labelIllnessTextPart2_Click);
             // 
             // pictureBoxInteractionLog
             // 
@@ -173,6 +176,7 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxInteractionLog.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxInteractionLog.TabIndex = 22;
             this.pictureBoxInteractionLog.TabStop = false;
+            this.pictureBoxInteractionLog.Click += new System.EventHandler(this.pictureBoxInteractionLog_Click);
             // 
             // labelIIlnessTextPart1
             // 
@@ -184,6 +188,7 @@ namespace HospitalInformationManagementSystem
             this.labelIIlnessTextPart1.Size = new System.Drawing.Size(64, 24);
             this.labelIIlnessTextPart1.TabIndex = 21;
             this.labelIIlnessTextPart1.Text = "Illness";
+            this.labelIIlnessTextPart1.Click += new System.EventHandler(this.labelIIlnessTextPart1_Click);
             // 
             // labelPatientDetailsTextPart1
             // 
@@ -216,6 +221,7 @@ namespace HospitalInformationManagementSystem
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBoxPatientPersonalDetailsLogo
             // 

@@ -323,7 +323,7 @@ namespace HospitalInformationManagementSystem
             this.labelEnterFirstName.AutoSize = true;
             this.labelEnterFirstName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnterFirstName.ForeColor = System.Drawing.Color.White;
-            this.labelEnterFirstName.Location = new System.Drawing.Point(238, 111);
+            this.labelEnterFirstName.Location = new System.Drawing.Point(467, 114);
             this.labelEnterFirstName.Name = "labelEnterFirstName";
             this.labelEnterFirstName.Size = new System.Drawing.Size(344, 24);
             this.labelEnterFirstName.TabIndex = 55;
@@ -331,7 +331,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(797, 110);
+            this.buttonReset.Location = new System.Drawing.Point(1026, 113);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(71, 25);
             this.buttonReset.TabIndex = 54;
@@ -341,7 +341,7 @@ namespace HospitalInformationManagementSystem
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(720, 110);
+            this.buttonSearch.Location = new System.Drawing.Point(949, 113);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(71, 25);
             this.buttonSearch.TabIndex = 53;
@@ -352,7 +352,7 @@ namespace HospitalInformationManagementSystem
             // textBoxSearchFirstName
             // 
             this.textBoxSearchFirstName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchFirstName.Location = new System.Drawing.Point(588, 110);
+            this.textBoxSearchFirstName.Location = new System.Drawing.Point(817, 113);
             this.textBoxSearchFirstName.Name = "textBoxSearchFirstName";
             this.textBoxSearchFirstName.Size = new System.Drawing.Size(126, 25);
             this.textBoxSearchFirstName.TabIndex = 52;

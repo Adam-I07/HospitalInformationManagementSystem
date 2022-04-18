@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalInformationManagementSystem
 {
-    partial class NursePatientPersonalInfoForm
+    partial class NursePatientPersonalInfoMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace HospitalInformationManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NursePatientPersonalInfoForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NursePatientPersonalInfoMenu));
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labeBackText = new System.Windows.Forms.Label();
             this.pictureBoxGoBackArrow = new System.Windows.Forms.PictureBox();
@@ -37,6 +37,11 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
             this.labelPatientPersonalInfoMenuText = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
+            this.buttonViewSpecificPatient = new System.Windows.Forms.Button();
+            this.labelEnterFirstName = new System.Windows.Forms.Label();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxSearchFirstName = new System.Windows.Forms.TextBox();
             this.dataGridViewLoginDetails = new System.Windows.Forms.DataGridView();
             this.ColumnPatientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNHSNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +59,6 @@ namespace HospitalInformationManagementSystem
             this.ColumnCity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPostcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBloodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelEnterFirstName = new System.Windows.Forms.Label();
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBoxSearchFirstName = new System.Windows.Forms.TextBox();
-            this.buttonViewSpecificPatient = new System.Windows.Forms.Button();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBackArrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
@@ -75,17 +75,17 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelPatientPersonalInfoMenuText);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
-            this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
+            this.panelWhiteTop.Location = new System.Drawing.Point(-5, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(1345, 107);
-            this.panelWhiteTop.TabIndex = 11;
+            this.panelWhiteTop.Size = new System.Drawing.Size(1343, 107);
+            this.panelWhiteTop.TabIndex = 12;
             // 
             // labeBackText
             // 
             this.labeBackText.AutoSize = true;
             this.labeBackText.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labeBackText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labeBackText.Location = new System.Drawing.Point(1306, 18);
+            this.labeBackText.Location = new System.Drawing.Point(1304, 18);
             this.labeBackText.Name = "labeBackText";
             this.labeBackText.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labeBackText.Size = new System.Drawing.Size(36, 15);
@@ -96,7 +96,7 @@ namespace HospitalInformationManagementSystem
             // pictureBoxGoBackArrow
             // 
             this.pictureBoxGoBackArrow.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBackArrow.Image")));
-            this.pictureBoxGoBackArrow.Location = new System.Drawing.Point(1287, 3);
+            this.pictureBoxGoBackArrow.Location = new System.Drawing.Point(1285, 3);
             this.pictureBoxGoBackArrow.Name = "pictureBoxGoBackArrow";
             this.pictureBoxGoBackArrow.Size = new System.Drawing.Size(44, 48);
             this.pictureBoxGoBackArrow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -147,6 +147,55 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxHospitalLogo.TabIndex = 4;
             this.pictureBoxHospitalLogo.TabStop = false;
             // 
+            // buttonViewSpecificPatient
+            // 
+            this.buttonViewSpecificPatient.Location = new System.Drawing.Point(882, 113);
+            this.buttonViewSpecificPatient.Name = "buttonViewSpecificPatient";
+            this.buttonViewSpecificPatient.Size = new System.Drawing.Size(121, 25);
+            this.buttonViewSpecificPatient.TabIndex = 65;
+            this.buttonViewSpecificPatient.Text = "View Specific Patient";
+            this.buttonViewSpecificPatient.UseVisualStyleBackColor = true;
+            this.buttonViewSpecificPatient.Click += new System.EventHandler(this.buttonViewSpecificPatient_Click);
+            // 
+            // labelEnterFirstName
+            // 
+            this.labelEnterFirstName.AutoSize = true;
+            this.labelEnterFirstName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterFirstName.ForeColor = System.Drawing.Color.White;
+            this.labelEnterFirstName.Location = new System.Drawing.Point(246, 114);
+            this.labelEnterFirstName.Name = "labelEnterFirstName";
+            this.labelEnterFirstName.Size = new System.Drawing.Size(344, 24);
+            this.labelEnterFirstName.TabIndex = 64;
+            this.labelEnterFirstName.Text = "Enter a Patient First Name to search:";
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(805, 113);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(71, 25);
+            this.buttonReset.TabIndex = 63;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(728, 113);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(71, 25);
+            this.buttonSearch.TabIndex = 62;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxSearchFirstName
+            // 
+            this.textBoxSearchFirstName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchFirstName.Location = new System.Drawing.Point(596, 113);
+            this.textBoxSearchFirstName.Name = "textBoxSearchFirstName";
+            this.textBoxSearchFirstName.Size = new System.Drawing.Size(126, 25);
+            this.textBoxSearchFirstName.TabIndex = 61;
+            // 
             // dataGridViewLoginDetails
             // 
             this.dataGridViewLoginDetails.AllowUserToAddRows = false;
@@ -169,11 +218,11 @@ namespace HospitalInformationManagementSystem
             this.ColumnCity,
             this.ColumnPostcode,
             this.ColumnBloodType});
-            this.dataGridViewLoginDetails.Location = new System.Drawing.Point(12, 157);
+            this.dataGridViewLoginDetails.Location = new System.Drawing.Point(12, 144);
             this.dataGridViewLoginDetails.Name = "dataGridViewLoginDetails";
             this.dataGridViewLoginDetails.ReadOnly = true;
             this.dataGridViewLoginDetails.Size = new System.Drawing.Size(1313, 460);
-            this.dataGridViewLoginDetails.TabIndex = 12;
+            this.dataGridViewLoginDetails.TabIndex = 66;
             // 
             // ColumnPatientID
             // 
@@ -302,73 +351,24 @@ namespace HospitalInformationManagementSystem
             this.ColumnBloodType.ReadOnly = true;
             this.ColumnBloodType.Width = 50;
             // 
-            // labelEnterFirstName
-            // 
-            this.labelEnterFirstName.AutoSize = true;
-            this.labelEnterFirstName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnterFirstName.ForeColor = System.Drawing.Color.White;
-            this.labelEnterFirstName.Location = new System.Drawing.Point(252, 119);
-            this.labelEnterFirstName.Name = "labelEnterFirstName";
-            this.labelEnterFirstName.Size = new System.Drawing.Size(344, 24);
-            this.labelEnterFirstName.TabIndex = 59;
-            this.labelEnterFirstName.Text = "Enter a Patient First Name to search:";
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.Location = new System.Drawing.Point(811, 118);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(71, 25);
-            this.buttonReset.TabIndex = 58;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Location = new System.Drawing.Point(734, 118);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(71, 25);
-            this.buttonSearch.TabIndex = 57;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // textBoxSearchFirstName
-            // 
-            this.textBoxSearchFirstName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchFirstName.Location = new System.Drawing.Point(602, 118);
-            this.textBoxSearchFirstName.Name = "textBoxSearchFirstName";
-            this.textBoxSearchFirstName.Size = new System.Drawing.Size(126, 25);
-            this.textBoxSearchFirstName.TabIndex = 56;
-            // 
-            // buttonViewSpecificPatient
-            // 
-            this.buttonViewSpecificPatient.Location = new System.Drawing.Point(888, 118);
-            this.buttonViewSpecificPatient.Name = "buttonViewSpecificPatient";
-            this.buttonViewSpecificPatient.Size = new System.Drawing.Size(121, 25);
-            this.buttonViewSpecificPatient.TabIndex = 60;
-            this.buttonViewSpecificPatient.Text = "View Specific Patient";
-            this.buttonViewSpecificPatient.UseVisualStyleBackColor = true;
-            this.buttonViewSpecificPatient.Click += new System.EventHandler(this.buttonViewSpecificPatient_Click);
-            // 
-            // NursePatientPersonalInfoForm
+            // NursePatientPersonalInfoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(1338, 629);
+            this.ClientSize = new System.Drawing.Size(1336, 619);
+            this.Controls.Add(this.dataGridViewLoginDetails);
             this.Controls.Add(this.buttonViewSpecificPatient);
             this.Controls.Add(this.labelEnterFirstName);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxSearchFirstName);
-            this.Controls.Add(this.dataGridViewLoginDetails);
             this.Controls.Add(this.panelWhiteTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "NursePatientPersonalInfoForm";
+            this.Name = "NursePatientPersonalInfoMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NursePatientPersonalInformationForm";
-            this.Load += new System.EventHandler(this.NursePatientPersonalInfoForm_Load);
+            this.Text = "NursePatientPersonalInfoMenu";
+            this.Load += new System.EventHandler(this.NursePatientPersonalInfoMenu_Load);
             this.panelWhiteTop.ResumeLayout(false);
             this.panelWhiteTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBackArrow)).EndInit();
@@ -383,12 +383,17 @@ namespace HospitalInformationManagementSystem
         #endregion
 
         private System.Windows.Forms.Panel panelWhiteTop;
+        private System.Windows.Forms.Label labeBackText;
+        private System.Windows.Forms.PictureBox pictureBoxGoBackArrow;
         private System.Windows.Forms.Label labelGoBack;
         private System.Windows.Forms.PictureBox pictureBoxGoBack;
         private System.Windows.Forms.Label labelPatientPersonalInfoMenuText;
         private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
-        private System.Windows.Forms.Label labeBackText;
-        private System.Windows.Forms.PictureBox pictureBoxGoBackArrow;
+        private System.Windows.Forms.Button buttonViewSpecificPatient;
+        private System.Windows.Forms.Label labelEnterFirstName;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.TextBox textBoxSearchFirstName;
         private System.Windows.Forms.DataGridView dataGridViewLoginDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPatientID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNHSNumber;
@@ -406,10 +411,5 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPostcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBloodType;
-        private System.Windows.Forms.Label labelEnterFirstName;
-        private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.TextBox textBoxSearchFirstName;
-        private System.Windows.Forms.Button buttonViewSpecificPatient;
     }
 }
