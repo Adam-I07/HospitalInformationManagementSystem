@@ -13,6 +13,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminPasswordManagement : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public AdminPasswordManagement()
         {
             InitializeComponent();
@@ -20,7 +21,40 @@ namespace HospitalInformationManagementSystem
 
         private void AdminPasswordManagement_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+            SqlCommand command = new SqlCommand();
+            command.Connection = sqlConnection;
+
+            command.CommandText = "select * from LogInDetails";
+            SqlDataAdapter sda = new SqlDataAdapter(command);
+            DataSet dataSet = new DataSet();
+            sda.Fill(dataSet);
+
+            dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+            sqlConnection.Close();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if(comboBoxRoleFilter.Text == "")
+            {
+                MessageBox.Show("Select a Role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                sqlConnection.Open();
+                string query = "select * from LogInDetails where Role = '" + comboBoxRoleFilter.SelectedItem.ToString() + "'";
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
+                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(sqlDataAdapter);
+                DataSet dataSet = new DataSet();
+                sqlDataAdapter.Fill(dataSet);
+                dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
+                sqlConnection.Close();
+            }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            comboBoxRoleFilter.Text = "";
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
 

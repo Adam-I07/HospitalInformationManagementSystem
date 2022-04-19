@@ -115,9 +115,9 @@ namespace HospitalInformationManagementSystem
             this.labelLogOutText.ForeColor = System.Drawing.Color.White;
             this.labelLogOutText.Location = new System.Drawing.Point(280, 221);
             this.labelLogOutText.Name = "labelLogOutText";
-            this.labelLogOutText.Size = new System.Drawing.Size(85, 24);
+            this.labelLogOutText.Size = new System.Drawing.Size(90, 24);
             this.labelLogOutText.TabIndex = 5;
-            this.labelLogOutText.Text = "Log Out";
+            this.labelLogOutText.Text = " Log Out";
             this.labelLogOutText.Click += new System.EventHandler(this.labelLogOutText_Click);
             // 
             // pictureBoxLoginDetailsLogo
