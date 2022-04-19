@@ -42,6 +42,11 @@ namespace HospitalInformationManagementSystem.NursesMenus
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
             this.labelViewExistingRequestText = new System.Windows.Forms.Label();
             this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
+            this.buttonViewSpecificRequest = new System.Windows.Forms.Button();
+            this.comboBoxRequestStatus = new System.Windows.Forms.ComboBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.labelSelectFilterText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRequestsView)).BeginInit();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
@@ -60,10 +65,10 @@ namespace HospitalInformationManagementSystem.NursesMenus
             this.ColumnRequestStatus,
             this.ColumnRequest,
             this.ColumnRequestResponse});
-            this.dataGridViewRequestsView.Location = new System.Drawing.Point(12, 187);
+            this.dataGridViewRequestsView.Location = new System.Drawing.Point(12, 150);
             this.dataGridViewRequestsView.Name = "dataGridViewRequestsView";
             this.dataGridViewRequestsView.ReadOnly = true;
-            this.dataGridViewRequestsView.Size = new System.Drawing.Size(763, 301);
+            this.dataGridViewRequestsView.Size = new System.Drawing.Size(763, 338);
             this.dataGridViewRequestsView.TabIndex = 12;
             // 
             // ColumnRequestID
@@ -123,7 +128,7 @@ namespace HospitalInformationManagementSystem.NursesMenus
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-5, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(801, 112);
+            this.panelWhiteTop.Size = new System.Drawing.Size(795, 112);
             this.panelWhiteTop.TabIndex = 13;
             // 
             // labelGoBack
@@ -131,29 +136,31 @@ namespace HospitalInformationManagementSystem.NursesMenus
             this.labelGoBack.AutoSize = true;
             this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGoBack.Location = new System.Drawing.Point(758, 19);
+            this.labelGoBack.Location = new System.Drawing.Point(746, 18);
             this.labelGoBack.Name = "labelGoBack";
             this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.labelGoBack.Size = new System.Drawing.Size(36, 15);
             this.labelGoBack.TabIndex = 7;
             this.labelGoBack.Text = "Back";
+            this.labelGoBack.Click += new System.EventHandler(this.labelGoBack_Click);
             // 
             // pictureBoxGoBack
             // 
             this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
-            this.pictureBoxGoBack.Location = new System.Drawing.Point(736, 4);
+            this.pictureBoxGoBack.Location = new System.Drawing.Point(724, 3);
             this.pictureBoxGoBack.Name = "pictureBoxGoBack";
             this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
             this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxGoBack.TabIndex = 6;
             this.pictureBoxGoBack.TabStop = false;
+            this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
             // 
             // labelViewExistingRequestText
             // 
             this.labelViewExistingRequestText.AutoSize = true;
             this.labelViewExistingRequestText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViewExistingRequestText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelViewExistingRequestText.Location = new System.Drawing.Point(240, 34);
+            this.labelViewExistingRequestText.Location = new System.Drawing.Point(219, 36);
             this.labelViewExistingRequestText.Name = "labelViewExistingRequestText";
             this.labelViewExistingRequestText.Size = new System.Drawing.Size(384, 42);
             this.labelViewExistingRequestText.TabIndex = 5;
@@ -169,12 +176,73 @@ namespace HospitalInformationManagementSystem.NursesMenus
             this.pictureBoxHospitalLogo.TabIndex = 4;
             this.pictureBoxHospitalLogo.TabStop = false;
             // 
+            // buttonViewSpecificRequest
+            // 
+            this.buttonViewSpecificRequest.Location = new System.Drawing.Point(635, 118);
+            this.buttonViewSpecificRequest.Name = "buttonViewSpecificRequest";
+            this.buttonViewSpecificRequest.Size = new System.Drawing.Size(131, 28);
+            this.buttonViewSpecificRequest.TabIndex = 60;
+            this.buttonViewSpecificRequest.Text = "View Specific Request";
+            this.buttonViewSpecificRequest.UseVisualStyleBackColor = true;
+            this.buttonViewSpecificRequest.Click += new System.EventHandler(this.buttonViewSpecificRequest_Click);
+            // 
+            // comboBoxRequestStatus
+            // 
+            this.comboBoxRequestStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRequestStatus.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRequestStatus.FormattingEnabled = true;
+            this.comboBoxRequestStatus.Items.AddRange(new object[] {
+            "",
+            "Pending",
+            "Accepted",
+            "Rejected"});
+            this.comboBoxRequestStatus.Location = new System.Drawing.Point(368, 118);
+            this.comboBoxRequestStatus.Name = "comboBoxRequestStatus";
+            this.comboBoxRequestStatus.Size = new System.Drawing.Size(103, 28);
+            this.comboBoxRequestStatus.TabIndex = 109;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(477, 118);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(73, 28);
+            this.buttonSearch.TabIndex = 110;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(556, 118);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(73, 28);
+            this.buttonReset.TabIndex = 111;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // labelSelectFilterText
+            // 
+            this.labelSelectFilterText.AutoSize = true;
+            this.labelSelectFilterText.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSelectFilterText.ForeColor = System.Drawing.Color.White;
+            this.labelSelectFilterText.Location = new System.Drawing.Point(41, 118);
+            this.labelSelectFilterText.Name = "labelSelectFilterText";
+            this.labelSelectFilterText.Size = new System.Drawing.Size(321, 24);
+            this.labelSelectFilterText.TabIndex = 133;
+            this.labelSelectFilterText.Text = "Select a Request Status to filter by:";
+            // 
             // NurseViewExistingRequests
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ClientSize = new System.Drawing.Size(789, 500);
+            this.ClientSize = new System.Drawing.Size(785, 500);
+            this.Controls.Add(this.labelSelectFilterText);
+            this.Controls.Add(this.buttonReset);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.comboBoxRequestStatus);
+            this.Controls.Add(this.buttonViewSpecificRequest);
             this.Controls.Add(this.panelWhiteTop);
             this.Controls.Add(this.dataGridViewRequestsView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -188,6 +256,7 @@ namespace HospitalInformationManagementSystem.NursesMenus
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -205,5 +274,10 @@ namespace HospitalInformationManagementSystem.NursesMenus
         private System.Windows.Forms.PictureBox pictureBoxGoBack;
         private System.Windows.Forms.Label labelViewExistingRequestText;
         private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
+        private System.Windows.Forms.Button buttonViewSpecificRequest;
+        private System.Windows.Forms.ComboBox comboBoxRequestStatus;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label labelSelectFilterText;
     }
 }

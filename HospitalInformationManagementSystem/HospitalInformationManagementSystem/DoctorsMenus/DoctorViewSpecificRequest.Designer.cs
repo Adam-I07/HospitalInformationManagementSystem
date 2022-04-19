@@ -30,11 +30,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorViewSpecificRequest));
-            this.panelWhiteTop = new System.Windows.Forms.Panel();
-            this.labelGoBack = new System.Windows.Forms.Label();
-            this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
-            this.labelViewRequestText = new System.Windows.Forms.Label();
-            this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
             this.textBoxRequestID = new System.Windows.Forms.MaskedTextBox();
             this.buttonFindID = new System.Windows.Forms.Button();
             this.labelRequestID = new System.Windows.Forms.Label();
@@ -51,67 +46,15 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.textBoxRequestResponseInput = new System.Windows.Forms.RichTextBox();
             this.labelRequestResponse = new System.Windows.Forms.Label();
             this.buttonNewSearch = new System.Windows.Forms.Button();
-            this.panelWhiteTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
+            this.pictureBoxHospitalLogo = new System.Windows.Forms.PictureBox();
+            this.labelViewRequestText = new System.Windows.Forms.Label();
+            this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
+            this.labelGoBack = new System.Windows.Forms.Label();
+            this.panelWhiteTop = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
+            this.panelWhiteTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelWhiteTop
-            // 
-            this.panelWhiteTop.BackColor = System.Drawing.Color.White;
-            this.panelWhiteTop.Controls.Add(this.labelGoBack);
-            this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
-            this.panelWhiteTop.Controls.Add(this.labelViewRequestText);
-            this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
-            this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
-            this.panelWhiteTop.Name = "panelWhiteTop";
-            this.panelWhiteTop.Size = new System.Drawing.Size(685, 107);
-            this.panelWhiteTop.TabIndex = 12;
-            // 
-            // labelGoBack
-            // 
-            this.labelGoBack.AutoSize = true;
-            this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelGoBack.Location = new System.Drawing.Point(643, 18);
-            this.labelGoBack.Name = "labelGoBack";
-            this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelGoBack.Size = new System.Drawing.Size(36, 15);
-            this.labelGoBack.TabIndex = 7;
-            this.labelGoBack.Text = "Back";
-            this.labelGoBack.Click += new System.EventHandler(this.labelGoBack_Click);
-            // 
-            // pictureBoxGoBack
-            // 
-            this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
-            this.pictureBoxGoBack.Location = new System.Drawing.Point(621, 3);
-            this.pictureBoxGoBack.Name = "pictureBoxGoBack";
-            this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
-            this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxGoBack.TabIndex = 6;
-            this.pictureBoxGoBack.TabStop = false;
-            this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
-            // 
-            // labelViewRequestText
-            // 
-            this.labelViewRequestText.AutoSize = true;
-            this.labelViewRequestText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelViewRequestText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelViewRequestText.Location = new System.Drawing.Point(194, 37);
-            this.labelViewRequestText.Name = "labelViewRequestText";
-            this.labelViewRequestText.Size = new System.Drawing.Size(364, 42);
-            this.labelViewRequestText.TabIndex = 5;
-            this.labelViewRequestText.Text = "View Specific Request";
-            // 
-            // pictureBoxHospitalLogo
-            // 
-            this.pictureBoxHospitalLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHospitalLogo.Image")));
-            this.pictureBoxHospitalLogo.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxHospitalLogo.Name = "pictureBoxHospitalLogo";
-            this.pictureBoxHospitalLogo.Size = new System.Drawing.Size(131, 116);
-            this.pictureBoxHospitalLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxHospitalLogo.TabIndex = 4;
-            this.pictureBoxHospitalLogo.TabStop = false;
             // 
             // textBoxRequestID
             // 
@@ -280,13 +223,70 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonNewSearch
             // 
-            this.buttonNewSearch.Location = new System.Drawing.Point(308, 119);
+            this.buttonNewSearch.Location = new System.Drawing.Point(308, 118);
             this.buttonNewSearch.Name = "buttonNewSearch";
             this.buttonNewSearch.Size = new System.Drawing.Size(75, 26);
             this.buttonNewSearch.TabIndex = 135;
             this.buttonNewSearch.Text = "New Search";
             this.buttonNewSearch.UseVisualStyleBackColor = true;
             this.buttonNewSearch.Click += new System.EventHandler(this.buttonNewSearch_Click);
+            // 
+            // pictureBoxHospitalLogo
+            // 
+            this.pictureBoxHospitalLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHospitalLogo.Image")));
+            this.pictureBoxHospitalLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxHospitalLogo.Name = "pictureBoxHospitalLogo";
+            this.pictureBoxHospitalLogo.Size = new System.Drawing.Size(131, 116);
+            this.pictureBoxHospitalLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxHospitalLogo.TabIndex = 4;
+            this.pictureBoxHospitalLogo.TabStop = false;
+            // 
+            // labelViewRequestText
+            // 
+            this.labelViewRequestText.AutoSize = true;
+            this.labelViewRequestText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelViewRequestText.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelViewRequestText.Location = new System.Drawing.Point(194, 37);
+            this.labelViewRequestText.Name = "labelViewRequestText";
+            this.labelViewRequestText.Size = new System.Drawing.Size(364, 42);
+            this.labelViewRequestText.TabIndex = 5;
+            this.labelViewRequestText.Text = "View Specific Request";
+            // 
+            // pictureBoxGoBack
+            // 
+            this.pictureBoxGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGoBack.Image")));
+            this.pictureBoxGoBack.Location = new System.Drawing.Point(621, 3);
+            this.pictureBoxGoBack.Name = "pictureBoxGoBack";
+            this.pictureBoxGoBack.Size = new System.Drawing.Size(47, 48);
+            this.pictureBoxGoBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxGoBack.TabIndex = 6;
+            this.pictureBoxGoBack.TabStop = false;
+            this.pictureBoxGoBack.Click += new System.EventHandler(this.pictureBoxGoBack_Click);
+            // 
+            // labelGoBack
+            // 
+            this.labelGoBack.AutoSize = true;
+            this.labelGoBack.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGoBack.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelGoBack.Location = new System.Drawing.Point(643, 18);
+            this.labelGoBack.Name = "labelGoBack";
+            this.labelGoBack.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelGoBack.Size = new System.Drawing.Size(36, 15);
+            this.labelGoBack.TabIndex = 7;
+            this.labelGoBack.Text = "Back";
+            this.labelGoBack.Click += new System.EventHandler(this.labelGoBack_Click);
+            // 
+            // panelWhiteTop
+            // 
+            this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelGoBack);
+            this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
+            this.panelWhiteTop.Controls.Add(this.labelViewRequestText);
+            this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
+            this.panelWhiteTop.Location = new System.Drawing.Point(-2, 0);
+            this.panelWhiteTop.Name = "panelWhiteTop";
+            this.panelWhiteTop.Size = new System.Drawing.Size(685, 107);
+            this.panelWhiteTop.TabIndex = 12;
             // 
             // DoctorViewSpecificRequest
             // 
@@ -316,21 +316,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DoctorViewSpecificRequest";
             this.Load += new System.EventHandler(this.DoctorViewSpecificRequest_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).EndInit();
             this.panelWhiteTop.ResumeLayout(false);
             this.panelWhiteTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelWhiteTop;
-        private System.Windows.Forms.Label labelGoBack;
-        private System.Windows.Forms.PictureBox pictureBoxGoBack;
-        private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
         private System.Windows.Forms.MaskedTextBox textBoxRequestID;
         private System.Windows.Forms.Button buttonFindID;
         private System.Windows.Forms.Label labelRequestID;
@@ -345,8 +340,12 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Label labelRequestStatusInput;
         private System.Windows.Forms.RichTextBox textBoxRequestResponseInput;
         private System.Windows.Forms.Label labelRequestResponse;
-        private System.Windows.Forms.Label labelViewRequestText;
         private System.Windows.Forms.RichTextBox textBoxRequestInput;
         private System.Windows.Forms.Button buttonNewSearch;
+        private System.Windows.Forms.PictureBox pictureBoxHospitalLogo;
+        private System.Windows.Forms.Label labelViewRequestText;
+        private System.Windows.Forms.PictureBox pictureBoxGoBack;
+        private System.Windows.Forms.Label labelGoBack;
+        private System.Windows.Forms.Panel panelWhiteTop;
     }
 }
