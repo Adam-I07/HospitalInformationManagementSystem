@@ -31,7 +31,7 @@ namespace HospitalInformationManagementSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NurseMainMenu));
             this.panelWhiteTop = new System.Windows.Forms.Panel();
-            this.labelDoctorsMenu = new System.Windows.Forms.Label();
+            this.labelNurseMenu = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelWhiteBottom = new System.Windows.Forms.Panel();
             this.pictureBoxLogOut = new System.Windows.Forms.PictureBox();
@@ -43,39 +43,40 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxInteractionLog = new System.Windows.Forms.PictureBox();
             this.labelIIlnessTextPart1 = new System.Windows.Forms.Label();
             this.labelPatientDetailsTextPart1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxPatientPersonalDetailsLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxRequests = new System.Windows.Forms.PictureBox();
+            this.labelRequests = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelWhiteBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRequests)).BeginInit();
             this.SuspendLayout();
             // 
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
-            this.panelWhiteTop.Controls.Add(this.labelDoctorsMenu);
+            this.panelWhiteTop.Controls.Add(this.labelNurseMenu);
             this.panelWhiteTop.Controls.Add(this.pictureBoxLogo);
             this.panelWhiteTop.Location = new System.Drawing.Point(-7, 0);
             this.panelWhiteTop.Name = "panelWhiteTop";
             this.panelWhiteTop.Size = new System.Drawing.Size(528, 87);
             this.panelWhiteTop.TabIndex = 5;
             // 
-            // labelDoctorsMenu
+            // labelNurseMenu
             // 
-            this.labelDoctorsMenu.AutoSize = true;
-            this.labelDoctorsMenu.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDoctorsMenu.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelDoctorsMenu.Location = new System.Drawing.Point(130, 31);
-            this.labelDoctorsMenu.Name = "labelDoctorsMenu";
-            this.labelDoctorsMenu.Size = new System.Drawing.Size(229, 42);
-            this.labelDoctorsMenu.TabIndex = 5;
-            this.labelDoctorsMenu.Text = "Nurses Menu";
+            this.labelNurseMenu.AutoSize = true;
+            this.labelNurseMenu.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNurseMenu.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelNurseMenu.Location = new System.Drawing.Point(130, 31);
+            this.labelNurseMenu.Name = "labelNurseMenu";
+            this.labelNurseMenu.Size = new System.Drawing.Size(229, 42);
+            this.labelNurseMenu.TabIndex = 5;
+            this.labelNurseMenu.Text = "Nurses Menu";
             // 
             // pictureBoxLogo
             // 
@@ -202,16 +203,6 @@ namespace HospitalInformationManagementSystem
             this.labelPatientDetailsTextPart1.Text = "Patient Personal";
             this.labelPatientDetailsTextPart1.Click += new System.EventHandler(this.labelPatientDetailsTextPart1_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(381, 239);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(124, 133);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -234,12 +225,37 @@ namespace HospitalInformationManagementSystem
             this.pictureBoxPatientPersonalDetailsLogo.TabStop = false;
             this.pictureBoxPatientPersonalDetailsLogo.Click += new System.EventHandler(this.pictureBoxPatientPersonalDetailsLogo_Click);
             // 
+            // pictureBoxRequests
+            // 
+            this.pictureBoxRequests.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRequests.Image")));
+            this.pictureBoxRequests.Location = new System.Drawing.Point(381, 239);
+            this.pictureBoxRequests.Name = "pictureBoxRequests";
+            this.pictureBoxRequests.Size = new System.Drawing.Size(124, 143);
+            this.pictureBoxRequests.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxRequests.TabIndex = 27;
+            this.pictureBoxRequests.TabStop = false;
+            this.pictureBoxRequests.Click += new System.EventHandler(this.pictureBoxRequests_Click);
+            // 
+            // labelRequests
+            // 
+            this.labelRequests.AutoSize = true;
+            this.labelRequests.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequests.ForeColor = System.Drawing.Color.White;
+            this.labelRequests.Location = new System.Drawing.Point(396, 375);
+            this.labelRequests.Name = "labelRequests";
+            this.labelRequests.Size = new System.Drawing.Size(90, 24);
+            this.labelRequests.TabIndex = 28;
+            this.labelRequests.Text = "Requests";
+            this.labelRequests.Click += new System.EventHandler(this.labelRequests_Click);
+            // 
             // NurseMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(517, 613);
+            this.Controls.Add(this.labelRequests);
+            this.Controls.Add(this.pictureBoxRequests);
             this.Controls.Add(this.labelPatientDetailsTextPart2);
             this.Controls.Add(this.labelInteractionLogTextPart2);
             this.Controls.Add(this.labelInteractionLogTextPart1);
@@ -247,7 +263,6 @@ namespace HospitalInformationManagementSystem
             this.Controls.Add(this.pictureBoxInteractionLog);
             this.Controls.Add(this.labelIIlnessTextPart1);
             this.Controls.Add(this.labelPatientDetailsTextPart1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBoxPatientPersonalDetailsLogo);
             this.Controls.Add(this.panelWhiteBottom);
@@ -263,9 +278,9 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRequests)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,7 +289,7 @@ namespace HospitalInformationManagementSystem
         #endregion
 
         private System.Windows.Forms.Panel panelWhiteTop;
-        private System.Windows.Forms.Label labelDoctorsMenu;
+        private System.Windows.Forms.Label labelNurseMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Panel panelWhiteBottom;
         private System.Windows.Forms.PictureBox pictureBoxLogOut;
@@ -286,8 +301,9 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.PictureBox pictureBoxInteractionLog;
         private System.Windows.Forms.Label labelIIlnessTextPart1;
         private System.Windows.Forms.Label labelPatientDetailsTextPart1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBoxPatientPersonalDetailsLogo;
+        private System.Windows.Forms.PictureBox pictureBoxRequests;
+        private System.Windows.Forms.Label labelRequests;
     }
 }

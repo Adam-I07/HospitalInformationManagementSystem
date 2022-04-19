@@ -55,9 +55,9 @@ namespace HospitalInformationManagementSystem
             DataTable dataTable2 = new DataTable();
             sqlDataAdapted3.Fill(dataTable2);
 
-            comboBoxLoginID.DataSource = dataTable2;
-            comboBoxLoginID.DisplayMember = "LogInID";
-            comboBoxLoginID.ValueMember = "LogInID";
+            comboBoxLogInID.DataSource = dataTable2;
+            comboBoxLogInID.DisplayMember = "LogInID";
+            comboBoxLogInID.ValueMember = "LogInID";
 
             sqlConnection.Close();
         }
@@ -88,7 +88,7 @@ namespace HospitalInformationManagementSystem
                     sda.Fill(dataSet);
                     sqlConnection.Close();
 
-                    comboBoxLoginID.Text = dataSet.Tables[0].Rows[0][1].ToString();
+                    comboBoxLogInID.Text = dataSet.Tables[0].Rows[0][1].ToString();
                     textBoxStaffName.Text = dataSet.Tables[0].Rows[0][2].ToString();
                     comboBoxPatientID.Text = dataSet.Tables[0].Rows[0][3].ToString();
                     textBoxDate.Text = dataSet.Tables[0].Rows[0][4].ToString();
@@ -101,7 +101,7 @@ namespace HospitalInformationManagementSystem
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             string date = textBoxDate.Text;
-            if (comboBoxLoginID.Text == "" || textBoxStaffName.Text == "" || comboBoxPatientID.Text == "" || textBoxDate.Text == "" || comboBoxShift.Text == "" || textBoxInteractionNotes.Text == "")
+            if (comboBoxLogInID.Text == "" || textBoxStaffName.Text == "" || comboBoxPatientID.Text == "" || textBoxDate.Text == "" || comboBoxShift.Text == "" || textBoxInteractionNotes.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -115,13 +115,13 @@ namespace HospitalInformationManagementSystem
                 {
                     SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     sqlConnection.Open();
-                    string query = "UPDATE InteractionLog SET LogInID = '" + comboBoxLoginID.Text + "', StaffName = '" + textBoxStaffName.Text + "', PatientID = '" + comboBoxPatientID.Text + "', Date = '" + textBoxDate.Text + "', Shift = '" + comboBoxShift.Text + "', InteractionNotes = '" + textBoxInteractionNotes.Text + "' where LogID = '" + textBoxLogID.Text + "'";
+                    string query = "UPDATE InteractionLog SET LogInID = '" + comboBoxLogInID.Text + "', StaffName = '" + textBoxStaffName.Text + "', PatientID = '" + comboBoxPatientID.Text + "', Date = '" + textBoxDate.Text + "', Shift = '" + comboBoxShift.Text + "', InteractionNotes = '" + textBoxInteractionNotes.Text + "' where LogID = '" + textBoxLogID.Text + "'";
                     SqlCommand command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                     sqlConnection.Close();
                     MessageBox.Show("Interaction Log Information successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                     textBoxLogID.Text = "";
-                    comboBoxLoginID.Text = "";
+                    comboBoxLogInID.Text = "";
                     textBoxStaffName.Text = "";
                     comboBoxPatientID.Text = "";
                     textBoxDate.ResetText();

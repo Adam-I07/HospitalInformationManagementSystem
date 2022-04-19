@@ -127,5 +127,12 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                 this.Show();
             }
         }
+
+        private void buttonAddInteraction_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NurseAddInteractionLog nurseAddInteractionLog = new NurseAddInteractionLog();
+            nurseAddInteractionLog.Show();
+        }
     }
 }

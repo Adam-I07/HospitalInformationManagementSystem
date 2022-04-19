@@ -47,7 +47,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearchPatient = new System.Windows.Forms.TextBox();
-            this.buttonViewSpecificInteractionLog = new System.Windows.Forms.Button();
+            this.buttonAddInteractionLog = new System.Windows.Forms.Button();
+            this.buttonAddInteraction = new System.Windows.Forms.Button();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -190,7 +191,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelEnterPatientID.AutoSize = true;
             this.labelEnterPatientID.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnterPatientID.ForeColor = System.Drawing.Color.White;
-            this.labelEnterPatientID.Location = new System.Drawing.Point(69, 136);
+            this.labelEnterPatientID.Location = new System.Drawing.Point(9, 136);
             this.labelEnterPatientID.Name = "labelEnterPatientID";
             this.labelEnterPatientID.Size = new System.Drawing.Size(266, 24);
             this.labelEnterPatientID.TabIndex = 58;
@@ -198,7 +199,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(550, 135);
+            this.buttonReset.Location = new System.Drawing.Point(490, 135);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(71, 25);
             this.buttonReset.TabIndex = 57;
@@ -208,7 +209,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(473, 135);
+            this.buttonSearch.Location = new System.Drawing.Point(413, 135);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(71, 25);
             this.buttonSearch.TabIndex = 56;
@@ -219,20 +220,30 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // textBoxSearchPatient
             // 
             this.textBoxSearchPatient.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearchPatient.Location = new System.Drawing.Point(341, 135);
+            this.textBoxSearchPatient.Location = new System.Drawing.Point(281, 135);
             this.textBoxSearchPatient.Name = "textBoxSearchPatient";
             this.textBoxSearchPatient.Size = new System.Drawing.Size(126, 25);
             this.textBoxSearchPatient.TabIndex = 55;
             // 
-            // buttonViewSpecificInteractionLog
+            // buttonAddInteractionLog
             // 
-            this.buttonViewSpecificInteractionLog.Location = new System.Drawing.Point(627, 135);
-            this.buttonViewSpecificInteractionLog.Name = "buttonViewSpecificInteractionLog";
-            this.buttonViewSpecificInteractionLog.Size = new System.Drawing.Size(156, 25);
-            this.buttonViewSpecificInteractionLog.TabIndex = 59;
-            this.buttonViewSpecificInteractionLog.Text = "View Specific Log Interaction";
-            this.buttonViewSpecificInteractionLog.UseVisualStyleBackColor = true;
-            this.buttonViewSpecificInteractionLog.Click += new System.EventHandler(this.buttonViewSpecificInteractionLog_Click);
+            this.buttonAddInteractionLog.Location = new System.Drawing.Point(685, 136);
+            this.buttonAddInteractionLog.Name = "buttonAddInteractionLog";
+            this.buttonAddInteractionLog.Size = new System.Drawing.Size(156, 24);
+            this.buttonAddInteractionLog.TabIndex = 59;
+            this.buttonAddInteractionLog.Text = "View Specific Log Interaction";
+            this.buttonAddInteractionLog.UseVisualStyleBackColor = true;
+            this.buttonAddInteractionLog.Click += new System.EventHandler(this.buttonViewSpecificInteractionLog_Click);
+            // 
+            // buttonAddInteraction
+            // 
+            this.buttonAddInteraction.Location = new System.Drawing.Point(567, 135);
+            this.buttonAddInteraction.Name = "buttonAddInteraction";
+            this.buttonAddInteraction.Size = new System.Drawing.Size(112, 25);
+            this.buttonAddInteraction.TabIndex = 60;
+            this.buttonAddInteraction.Text = "Add Interaction Log";
+            this.buttonAddInteraction.UseVisualStyleBackColor = true;
+            this.buttonAddInteraction.Click += new System.EventHandler(this.buttonAddInteraction_Click);
             // 
             // NurseInteractionLogMenu
             // 
@@ -240,7 +251,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(858, 497);
-            this.Controls.Add(this.buttonViewSpecificInteractionLog);
+            this.Controls.Add(this.buttonAddInteraction);
+            this.Controls.Add(this.buttonAddInteractionLog);
             this.Controls.Add(this.labelEnterPatientID);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonSearch);
@@ -281,6 +293,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.TextBox textBoxSearchPatient;
-        private System.Windows.Forms.Button buttonViewSpecificInteractionLog;
+        private System.Windows.Forms.Button buttonAddInteractionLog;
+        private System.Windows.Forms.Button buttonAddInteraction;
     }
 }

@@ -95,5 +95,19 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
             doctorInteractionLogMenu.Show();
         }
+
+        private void pictureBoxRequests_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+            doctorRequestMenu.Show();
+        }
+
+        private void labelRequests_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+            doctorRequestMenu.Show();
+        }
     }
 }

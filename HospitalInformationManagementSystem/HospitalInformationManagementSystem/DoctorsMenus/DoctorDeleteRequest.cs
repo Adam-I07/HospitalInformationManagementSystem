@@ -8,34 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using HospitalInformationManagementSystem.DoctorsMenus;
 
-namespace HospitalInformationManagementSystem
+namespace HospitalInformationManagementSystem.DoctorsMenus
 {
-    public partial class DoctorDeleteInteractionLog : Form
+    public partial class DoctorDeleteRequest : Form
     {
-        public List<string> idAvailable = new List<string>();
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-
-        public DoctorDeleteInteractionLog()
+        public List<string> idAvailable = new List<string>();
+        public DoctorDeleteRequest()
         {
             InitializeComponent();
         }
 
-        private void DoctorDeleteInteractionLog_Load(object sender, EventArgs e)
+        private void DoctorDeleteRequest_Load(object sender, EventArgs e)
         {
-             SqlCommand command = new SqlCommand();
+            SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
 
-            command.CommandText = "select * from InteractionLog";
+            command.CommandText = "select * from Requests";
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
             sda.Fill(dataSet);
 
-            dataGridViewDisplayInteractionLoginfo.DataSource = dataSet.Tables[0];
+            dataGridViewRequestsView.DataSource = dataSet.Tables[0];
             sqlConnection.Close();
-
-            foreach (DataGridViewRow item in dataGridViewDisplayInteractionLoginfo.Rows)
+            foreach (DataGridViewRow item in dataGridViewRequestsView.Rows)
             {
                 idAvailable.Add(item.Cells[0].Value.ToString());
             }
@@ -43,7 +40,7 @@ namespace HospitalInformationManagementSystem
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
-            String userIDInputted = textBoxLogID.Text.ToString();
+            String userIDInputted = textBoxRequestID.Text.ToString();
             bool isValidUserID = false;
             for (int i = 0; i < idAvailable.Count(); i++)
             {
@@ -54,9 +51,9 @@ namespace HospitalInformationManagementSystem
                 }
             }
 
-            if (textBoxLogID.Text == "")
+            if (textBoxRequestID.Text == "")
             {
-                MessageBox.Show("Please enter a Log ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a RequestID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (isValidUserID == false)
             {
@@ -64,20 +61,20 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                if (MessageBox.Show("Are you sure you would like to delete Log = " + textBoxLogID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure you would like to delete Request = " + textBoxRequestID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
 
-                    command.CommandText = "delete from InteractionLog where LogID = '" + textBoxLogID.Text + "'";
+                    command.CommandText = "delete from Requests where RequestID = '" + textBoxRequestID.Text + "'";
                     SqlDataAdapter sda = new SqlDataAdapter(command);
                     DataSet dataSet = new DataSet();
                     sda.Fill(dataSet);
                     sqlConnection.Close();
                     this.Close();
-                    DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
-                    doctorInteractionLogMenu.Show();
-                    MessageBox.Show("Interaction Log Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+                    doctorRequestMenu.Show();
+                    MessageBox.Show("Request Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -88,8 +85,8 @@ namespace HospitalInformationManagementSystem
             dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
-                doctorInteractionLogMenu.Show();
+                DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+                doctorRequestMenu.Show();
                 this.Close();
             }
             else
@@ -104,8 +101,8 @@ namespace HospitalInformationManagementSystem
             dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
-                doctorInteractionLogMenu.Show();
+                DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+                doctorRequestMenu.Show();
                 this.Close();
             }
             else

@@ -1,4 +1,5 @@
 ﻿using HospitalInformationManagementSystem.DoctorsMenus;
+using HospitalInformationManagementSystem.NursesMenus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,6 +94,20 @@ namespace HospitalInformationManagementSystem
             this.Hide();
             NurseInteractionLogMenu nurseInteractionLogMenu = new NurseInteractionLogMenu();
             nurseInteractionLogMenu.Show();
+        }
+
+        private void pictureBoxRequests_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NurseRequestMenu nurseRequestMenu = new NurseRequestMenu();
+            nurseRequestMenu.Show();
+        }
+
+        private void labelRequests_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NurseRequestMenu nurseRequestMenu = new NurseRequestMenu();
+            nurseRequestMenu.Show();
         }
     }
 }

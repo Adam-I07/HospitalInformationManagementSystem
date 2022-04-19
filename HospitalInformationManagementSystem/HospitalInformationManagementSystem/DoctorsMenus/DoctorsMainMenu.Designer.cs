@@ -43,15 +43,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.pictureBoxInteractionLog = new System.Windows.Forms.PictureBox();
             this.labelIIlnessTextPart1 = new System.Windows.Forms.Label();
             this.labelPatientDetailsTextPart1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxRequests = new System.Windows.Forms.PictureBox();
             this.pictureBoxIllnessInformationLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxPatientPersonalDetailsLogo = new System.Windows.Forms.PictureBox();
+            this.labelRequests = new System.Windows.Forms.Label();
             this.panelWhiteBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogOut)).BeginInit();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIllnessInformationLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).BeginInit();
             this.SuspendLayout();
@@ -202,15 +203,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelPatientDetailsTextPart1.Text = "Patient Personal";
             this.labelPatientDetailsTextPart1.Click += new System.EventHandler(this.labelPatientDetailsTextPart1_Click);
             // 
-            // pictureBox2
+            // pictureBoxRequests
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(381, 241);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(124, 133);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxRequests.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRequests.Image")));
+            this.pictureBoxRequests.Location = new System.Drawing.Point(381, 241);
+            this.pictureBoxRequests.Name = "pictureBoxRequests";
+            this.pictureBoxRequests.Size = new System.Drawing.Size(124, 143);
+            this.pictureBoxRequests.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxRequests.TabIndex = 19;
+            this.pictureBoxRequests.TabStop = false;
+            this.pictureBoxRequests.Click += new System.EventHandler(this.pictureBoxRequests_Click);
             // 
             // pictureBoxIllnessInformationLogo
             // 
@@ -234,12 +236,25 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.pictureBoxPatientPersonalDetailsLogo.TabStop = false;
             this.pictureBoxPatientPersonalDetailsLogo.Click += new System.EventHandler(this.pictureBoxPatientPersonalDetailsLogo_Click);
             // 
+            // labelRequests
+            // 
+            this.labelRequests.AutoSize = true;
+            this.labelRequests.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequests.ForeColor = System.Drawing.Color.White;
+            this.labelRequests.Location = new System.Drawing.Point(394, 377);
+            this.labelRequests.Name = "labelRequests";
+            this.labelRequests.Size = new System.Drawing.Size(90, 24);
+            this.labelRequests.TabIndex = 27;
+            this.labelRequests.Text = "Requests";
+            this.labelRequests.Click += new System.EventHandler(this.labelRequests_Click);
+            // 
             // DoctorsMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(517, 613);
+            this.Controls.Add(this.labelRequests);
             this.Controls.Add(this.labelPatientDetailsTextPart2);
             this.Controls.Add(this.labelInteractionLogTextPart2);
             this.Controls.Add(this.labelInteractionLogTextPart1);
@@ -247,7 +262,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.Controls.Add(this.pictureBoxInteractionLog);
             this.Controls.Add(this.labelIIlnessTextPart1);
             this.Controls.Add(this.labelPatientDetailsTextPart1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBoxRequests);
             this.Controls.Add(this.pictureBoxIllnessInformationLogo);
             this.Controls.Add(this.pictureBoxPatientPersonalDetailsLogo);
             this.Controls.Add(this.panelWhiteTop);
@@ -263,7 +278,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.panelWhiteTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInteractionLog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRequests)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIllnessInformationLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatientPersonalDetailsLogo)).EndInit();
             this.ResumeLayout(false);
@@ -286,8 +301,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.PictureBox pictureBoxInteractionLog;
         private System.Windows.Forms.Label labelIIlnessTextPart1;
         private System.Windows.Forms.Label labelPatientDetailsTextPart1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxRequests;
         private System.Windows.Forms.PictureBox pictureBoxIllnessInformationLogo;
         private System.Windows.Forms.PictureBox pictureBoxPatientPersonalDetailsLogo;
+        private System.Windows.Forms.Label labelRequests;
     }
 }
