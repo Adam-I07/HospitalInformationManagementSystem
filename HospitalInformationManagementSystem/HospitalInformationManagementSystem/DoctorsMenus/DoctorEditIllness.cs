@@ -14,6 +14,8 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorEditIllness : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+
         public double maximumIDNumber;
         public DoctorEditIllness()
         {
@@ -22,7 +24,6 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorEditIllness_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(TreatmentID) from IllnessInformation";
@@ -52,7 +53,6 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "select * from IllnessInformation where TreatmentID = " + textBoxTreatmentID.Text + "";
@@ -101,7 +101,6 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to Edit Treatment = " + textBoxTreatmentID.Text + "'s Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     sqlConnection.Open();
                     string query = "UPDATE IllnessInformation SET PatientID = '" + labelPatientIDInsert.Text + "', Illness = '" + textBoxIllness.Text + "', IllnessType = '" + textBoxIllnessType.Text + "', TreatmentStage = '" + comboBoxTreatmentStage.Text + "', DateCheckedIn = '" + textBoxDateCheckedIn.Text + "', DateCheckedOut = '" + textBoxDateCheckedOut.Text + "', Notes = '" + textBoxNotes.Text + "' where TreatmentID = '" + textBoxTreatmentID.Text + "'";
                     SqlCommand command = new SqlCommand(query, sqlConnection);

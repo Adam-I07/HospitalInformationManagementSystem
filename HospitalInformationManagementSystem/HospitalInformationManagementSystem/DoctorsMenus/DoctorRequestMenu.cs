@@ -14,7 +14,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
     public partial class DoctorRequestMenu : Form
     {
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-
         public DoctorRequestMenu()
         {
             InitializeComponent();

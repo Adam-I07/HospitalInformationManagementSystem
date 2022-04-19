@@ -14,6 +14,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorEditInteractionLog : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public double maximumIDNumber;
         public DoctorEditInteractionLog()
         {
@@ -22,7 +23,7 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorEditInteractionLog_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+            
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(LogID) from InteractionLog";
@@ -78,7 +79,6 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "select * from InteractionLog where LogID = " + textBoxLogID.Text + "";
@@ -113,7 +113,6 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to Edit Log = " + textBoxLogID.Text + "'s Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     sqlConnection.Open();
                     string query = "UPDATE InteractionLog SET LogInID = '" + comboBoxLogInID.Text + "', StaffName = '" + textBoxStaffName.Text + "', PatientID = '" + comboBoxPatientID.Text + "', Date = '" + textBoxDate.Text + "', Shift = '" + comboBoxShift.Text + "', InteractionNotes = '" + textBoxInteractionNotes.Text + "' where LogID = '" + textBoxLogID.Text + "'";
                     SqlCommand command = new SqlCommand(query, sqlConnection);

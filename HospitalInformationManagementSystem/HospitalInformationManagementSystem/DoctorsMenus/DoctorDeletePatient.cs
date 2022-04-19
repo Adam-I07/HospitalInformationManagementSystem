@@ -13,6 +13,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorDeletePatientPersonalInfo : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public List<string> idAvailable = new List<string>();
         public DoctorDeletePatientPersonalInfo()
         {
@@ -21,7 +22,6 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorDeletePatientPersonalInfo_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
 
@@ -63,7 +63,6 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to delete PatientID = " + textBoxPatientID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
 

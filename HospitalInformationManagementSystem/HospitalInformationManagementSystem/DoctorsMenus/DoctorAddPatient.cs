@@ -13,6 +13,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorAddPatient : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public Int64 idNumber;
         public DoctorAddPatient()
         {
@@ -21,7 +22,7 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorAddPatient_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(PatientID) from PatientPersonalInformation";
@@ -38,7 +39,6 @@ namespace HospitalInformationManagementSystem
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             string nhsNumber = textBoxNHSNumber.Text;
             string dateOfBirth = textBoxDateOfBirth.Text;
             string phoneNumber = textBoxPhoneNumber.Text;

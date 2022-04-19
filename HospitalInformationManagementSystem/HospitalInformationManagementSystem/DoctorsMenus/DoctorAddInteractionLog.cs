@@ -13,6 +13,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorAddInteractionLog : Form
     {
+
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public Int64 idNumber;
         public DoctorAddInteractionLog()
         {
@@ -21,7 +23,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorAddInteractionLog_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(LogID) from InteractionLog";
@@ -65,7 +66,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             string date = textBoxDate.Text;
             if (comboBoxLoginID.Text == "" || textBoxStaffName.Text == "" || comboBoxPatientID.Text == "" || textBoxDate.Text == "" || comboBoxShift.Text == "" || textBoxInteractionNotes.Text == "" )
             {

@@ -14,6 +14,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
     
     public partial class DoctorViewSpecificInformationLog : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public double maximumIDNumber;
         public DoctorViewSpecificInformationLog()
         {
@@ -22,7 +23,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorViewSpecificInformationLog_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(LogID) from InteractionLog";
@@ -50,7 +50,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "select * from InteractionLog where LogID = " +  textBoxLogID.Text + "";

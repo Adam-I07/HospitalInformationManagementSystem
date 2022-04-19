@@ -14,6 +14,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorViewSpecificIllness : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public double maximumIDNumber;
         public DoctorViewSpecificIllness()
         {
@@ -22,7 +23,6 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorViewSpecificIllness_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(TreatmentID) from IllnessInformation";
@@ -51,7 +51,6 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "select * from IllnessInformation where TreatmentID = " + textBoxTreatmentID.Text + "";
