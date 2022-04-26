@@ -17,7 +17,7 @@ namespace HospitalInformationManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminMainMenu()); 
+            Application.Run(new DoctorViewSpecificIllness()); 
         }
     }
 }

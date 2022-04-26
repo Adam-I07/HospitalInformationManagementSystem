@@ -16,6 +16,7 @@ namespace HospitalInformationManagementSystem
     {
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public double maximumIDNumber;
+        public List<string> idAvailable = new List<string>();
         public DoctorViewSpecificIllness()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace HospitalInformationManagementSystem
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
-            command.CommandText = "select max(TreatmentID) from IllnessInformation";
+            command.CommandText = "select TreatmentID from IllnessInformation";
 
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
@@ -33,6 +34,7 @@ namespace HospitalInformationManagementSystem
 
             maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
             sqlConnection.Close();
+
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
