@@ -31,6 +31,10 @@ namespace HospitalInformationManagementSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPasswordManagement));
             this.dataGridViewLoginDetails = new System.Windows.Forms.DataGridView();
+            this.ColumnLogInID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelWhiteTop = new System.Windows.Forms.Panel();
             this.labelGoBack = new System.Windows.Forms.Label();
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
@@ -39,10 +43,6 @@ namespace HospitalInformationManagementSystem
             this.buttonAddNewUser = new System.Windows.Forms.Button();
             this.buttonEditUser = new System.Windows.Forms.Button();
             this.buttonDeleteUser = new System.Windows.Forms.Button();
-            this.ColumnLogInID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelSelectFilterText = new System.Windows.Forms.Label();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -68,6 +68,38 @@ namespace HospitalInformationManagementSystem
             this.dataGridViewLoginDetails.ReadOnly = true;
             this.dataGridViewLoginDetails.Size = new System.Drawing.Size(535, 283);
             this.dataGridViewLoginDetails.TabIndex = 0;
+            // 
+            // ColumnLogInID
+            // 
+            this.ColumnLogInID.DataPropertyName = "LogInID";
+            this.ColumnLogInID.HeaderText = "LoginID";
+            this.ColumnLogInID.Name = "ColumnLogInID";
+            this.ColumnLogInID.ReadOnly = true;
+            this.ColumnLogInID.Width = 70;
+            // 
+            // ColumnRole
+            // 
+            this.ColumnRole.DataPropertyName = "Role";
+            this.ColumnRole.HeaderText = "Role";
+            this.ColumnRole.Name = "ColumnRole";
+            this.ColumnRole.ReadOnly = true;
+            this.ColumnRole.Width = 102;
+            // 
+            // ColumnUsername
+            // 
+            this.ColumnUsername.DataPropertyName = "Username";
+            this.ColumnUsername.HeaderText = "Username";
+            this.ColumnUsername.Name = "ColumnUsername";
+            this.ColumnUsername.ReadOnly = true;
+            this.ColumnUsername.Width = 160;
+            // 
+            // ColumnPassword
+            // 
+            this.ColumnPassword.DataPropertyName = "Password";
+            this.ColumnPassword.HeaderText = "Password";
+            this.ColumnPassword.Name = "ColumnPassword";
+            this.ColumnPassword.ReadOnly = true;
+            this.ColumnPassword.Width = 160;
             // 
             // panelWhiteTop
             // 
@@ -108,13 +140,13 @@ namespace HospitalInformationManagementSystem
             // labelLoginManagementText
             // 
             this.labelLoginManagementText.AutoSize = true;
-            this.labelLoginManagementText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginManagementText.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoginManagementText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelLoginManagementText.Location = new System.Drawing.Point(103, 44);
+            this.labelLoginManagementText.Location = new System.Drawing.Point(99, 45);
             this.labelLoginManagementText.Name = "labelLoginManagementText";
-            this.labelLoginManagementText.Size = new System.Drawing.Size(512, 42);
+            this.labelLoginManagementText.Size = new System.Drawing.Size(533, 36);
             this.labelLoginManagementText.TabIndex = 5;
-            this.labelLoginManagementText.Text = "User Login Detail Management";
+            this.labelLoginManagementText.Text = "User Login Detail Management Menu";
             // 
             // pictureBoxHospitalLogo
             // 
@@ -155,38 +187,6 @@ namespace HospitalInformationManagementSystem
             this.buttonDeleteUser.Text = "Delete User";
             this.buttonDeleteUser.UseVisualStyleBackColor = true;
             this.buttonDeleteUser.Click += new System.EventHandler(this.buttonDeleteUser_Click);
-            // 
-            // ColumnLogInID
-            // 
-            this.ColumnLogInID.DataPropertyName = "LogInID";
-            this.ColumnLogInID.HeaderText = "LoginID";
-            this.ColumnLogInID.Name = "ColumnLogInID";
-            this.ColumnLogInID.ReadOnly = true;
-            this.ColumnLogInID.Width = 70;
-            // 
-            // ColumnRole
-            // 
-            this.ColumnRole.DataPropertyName = "Role";
-            this.ColumnRole.HeaderText = "Role";
-            this.ColumnRole.Name = "ColumnRole";
-            this.ColumnRole.ReadOnly = true;
-            this.ColumnRole.Width = 102;
-            // 
-            // ColumnUsername
-            // 
-            this.ColumnUsername.DataPropertyName = "Username";
-            this.ColumnUsername.HeaderText = "Username";
-            this.ColumnUsername.Name = "ColumnUsername";
-            this.ColumnUsername.ReadOnly = true;
-            this.ColumnUsername.Width = 160;
-            // 
-            // ColumnPassword
-            // 
-            this.ColumnPassword.DataPropertyName = "Password";
-            this.ColumnPassword.HeaderText = "Password";
-            this.ColumnPassword.Name = "ColumnPassword";
-            this.ColumnPassword.ReadOnly = true;
-            this.ColumnPassword.Width = 160;
             // 
             // labelSelectFilterText
             // 
