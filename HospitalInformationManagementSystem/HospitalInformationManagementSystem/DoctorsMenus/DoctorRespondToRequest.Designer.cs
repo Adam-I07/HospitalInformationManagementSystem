@@ -45,13 +45,13 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelRequestResponse = new System.Windows.Forms.Label();
             this.labelDateFromatPart2 = new System.Windows.Forms.Label();
             this.labelDateFromatPart1 = new System.Windows.Forms.Label();
-            this.textBoxRequestDate = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxRequestStatus = new System.Windows.Forms.ComboBox();
             this.textBoxRequestResponse = new System.Windows.Forms.RichTextBox();
             this.textBoxRequest = new System.Windows.Forms.RichTextBox();
-            this.comboBoxUserID = new System.Windows.Forms.ComboBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRespond = new System.Windows.Forms.Button();
+            this.labelUserIDInput = new System.Windows.Forms.Label();
+            this.labelRequestDateInput = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -228,15 +228,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDateFromatPart1.TabIndex = 98;
             this.labelDateFromatPart1.Text = "(Format:";
             // 
-            // textBoxRequestDate
-            // 
-            this.textBoxRequestDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRequestDate.Location = new System.Drawing.Point(279, 205);
-            this.textBoxRequestDate.Mask = "00-00-0000";
-            this.textBoxRequestDate.Name = "textBoxRequestDate";
-            this.textBoxRequestDate.Size = new System.Drawing.Size(70, 26);
-            this.textBoxRequestDate.TabIndex = 101;
-            // 
             // comboBoxRequestStatus
             // 
             this.comboBoxRequestStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -270,16 +261,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.textBoxRequest.TabIndex = 104;
             this.textBoxRequest.Text = "";
             // 
-            // comboBoxUserID
-            // 
-            this.comboBoxUserID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUserID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxUserID.FormattingEnabled = true;
-            this.comboBoxUserID.Location = new System.Drawing.Point(279, 167);
-            this.comboBoxUserID.Name = "comboBoxUserID";
-            this.comboBoxUserID.Size = new System.Drawing.Size(41, 28);
-            this.comboBoxUserID.TabIndex = 105;
-            // 
             // buttonCancel
             // 
             this.buttonCancel.Location = new System.Drawing.Point(381, 376);
@@ -300,19 +281,41 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonRespond.UseVisualStyleBackColor = true;
             this.buttonRespond.Click += new System.EventHandler(this.buttonRespond_Click);
             // 
+            // labelUserIDInput
+            // 
+            this.labelUserIDInput.AutoSize = true;
+            this.labelUserIDInput.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserIDInput.ForeColor = System.Drawing.Color.White;
+            this.labelUserIDInput.Location = new System.Drawing.Point(275, 171);
+            this.labelUserIDInput.Name = "labelUserIDInput";
+            this.labelUserIDInput.Size = new System.Drawing.Size(0, 24);
+            this.labelUserIDInput.TabIndex = 108;
+            this.labelUserIDInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelRequestDateInput
+            // 
+            this.labelRequestDateInput.AutoSize = true;
+            this.labelRequestDateInput.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequestDateInput.ForeColor = System.Drawing.Color.White;
+            this.labelRequestDateInput.Location = new System.Drawing.Point(275, 205);
+            this.labelRequestDateInput.Name = "labelRequestDateInput";
+            this.labelRequestDateInput.Size = new System.Drawing.Size(0, 24);
+            this.labelRequestDateInput.TabIndex = 109;
+            this.labelRequestDateInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // DoctorRespondToRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(678, 431);
+            this.Controls.Add(this.labelRequestDateInput);
+            this.Controls.Add(this.labelUserIDInput);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonRespond);
-            this.Controls.Add(this.comboBoxUserID);
             this.Controls.Add(this.textBoxRequest);
             this.Controls.Add(this.textBoxRequestResponse);
             this.Controls.Add(this.comboBoxRequestStatus);
-            this.Controls.Add(this.textBoxRequestDate);
             this.Controls.Add(this.labelDateFromatPart2);
             this.Controls.Add(this.labelDateFromatPart1);
             this.Controls.Add(this.labelRequestResponse);
@@ -355,12 +358,12 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Label labelRequestResponse;
         private System.Windows.Forms.Label labelDateFromatPart2;
         private System.Windows.Forms.Label labelDateFromatPart1;
-        private System.Windows.Forms.MaskedTextBox textBoxRequestDate;
         private System.Windows.Forms.ComboBox comboBoxRequestStatus;
         private System.Windows.Forms.RichTextBox textBoxRequestResponse;
         private System.Windows.Forms.RichTextBox textBoxRequest;
-        private System.Windows.Forms.ComboBox comboBoxUserID;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonRespond;
+        private System.Windows.Forms.Label labelUserIDInput;
+        private System.Windows.Forms.Label labelRequestDateInput;
     }
 }

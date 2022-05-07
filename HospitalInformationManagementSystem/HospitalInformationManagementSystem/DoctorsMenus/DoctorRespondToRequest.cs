@@ -32,18 +32,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
             maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
 
-            SqlCommand command2 = new SqlCommand();
-            command2.Connection = sqlConnection;
-            command2.CommandText = "select LogInID from LogInDetails";
-
-            SqlDataAdapter sqlDataAdapted2 = new SqlDataAdapter();
-            sqlDataAdapted2.SelectCommand = command2;
-            DataTable dataTable = new DataTable();
-            sqlDataAdapted2.Fill(dataTable);
-
-            comboBoxUserID.DataSource = dataTable;
-            comboBoxUserID.DisplayMember = "LogInID";
-            comboBoxUserID.ValueMember = "LogInID";
 
             sqlConnection.Close();
         }
@@ -73,8 +61,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                     sda.Fill(dataSet);
                     sqlConnection.Close();
 
-                    comboBoxUserID.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    textBoxRequestDate.Text = dataSet.Tables[0].Rows[0][2].ToString();
+                    labelUserIDInput.Text = dataSet.Tables[0].Rows[0][1].ToString();
+                    labelRequestDateInput.Text = dataSet.Tables[0].Rows[0][2].ToString();
                     comboBoxRequestStatus.Text = dataSet.Tables[0].Rows[0][3].ToString();
                     textBoxRequest.Text = dataSet.Tables[0].Rows[0][4].ToString();
                     textBoxRequestResponse.Text = dataSet.Tables[0].Rows[0][5].ToString();
@@ -84,26 +72,21 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void buttonRespond_Click(object sender, EventArgs e)
         {
-            string date = textBoxRequestDate.Text;
-            if (textBoxRequestID.Text == "" || comboBoxUserID.Text == "" || textBoxRequestDate.Text == "" || comboBoxRequestStatus.Text == "" || textBoxRequest.Text == "")
+            if (textBoxRequestID.Text == "" || labelUserIDInput.Text == "" || labelRequestDateInput.Text == "" || comboBoxRequestStatus.Text == "" || textBoxRequest.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (date.Length != 10)
-            {
-                MessageBox.Show("Make sure the Date is filled in correctly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 sqlConnection.Open();
-                string query = "UPDATE Requests SET UserID = '" + comboBoxUserID.Text + "', RequestDate = '" + textBoxRequestDate.Text + "', RequestStatus = '" + comboBoxRequestStatus.Text + "', Request = '" + textBoxRequest.Text + "', RequestResponse = '" + textBoxRequestResponse.Text + "' where RequestID = '" + textBoxRequestID.Text + "'";
+                string query = "UPDATE Requests SET UserID = '" + labelUserIDInput.Text + "', RequestDate = '" + labelRequestDateInput.Text + "', RequestStatus = '" + comboBoxRequestStatus.Text + "', Request = '" + textBoxRequest.Text + "', RequestResponse = '" + textBoxRequestResponse.Text + "' where RequestID = '" + textBoxRequestID.Text + "'";
                 SqlCommand command = new SqlCommand(query, sqlConnection);
                 command.ExecuteNonQuery();
                 sqlConnection.Close();
                 MessageBox.Show("Response successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                 textBoxRequestID.Text = "";
-                comboBoxUserID.Text = "";
-                textBoxRequestDate.Text = "";
+                labelUserIDInput.Text = "";
+                labelRequestDateInput.Text = "";
                 comboBoxRequestStatus.Text = "";
                 textBoxRequest.Text = "";
                 textBoxRequestResponse.Text = "";
