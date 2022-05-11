@@ -141,5 +141,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                 this.Show();
             }
         }
+
+
     }
 }

@@ -13,7 +13,9 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminEditUser : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public double maximumIDNumber;
+
         public AdminEditUser()
         {
             InitializeComponent();
@@ -29,6 +31,8 @@ namespace HospitalInformationManagementSystem
             else
             {
                 Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
+       
+
                 if (textBoxUserID.Text == "1" || textBoxUserID.Text == " 1" || textBoxUserID.Text == "  1" || textBoxUserID.Text == "   1" || textBoxUserID.Text == "    1" || textBoxUserID.Text == "     1")
                 {
                     MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -40,7 +44,7 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+                    
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
                     command.CommandText = "select * from LogInDetails where LogInID = " + textBoxUserID.Text + "";
@@ -59,7 +63,6 @@ namespace HospitalInformationManagementSystem
 
         private void AdminEditUser_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(LogInID) from LogInDetails";
@@ -80,22 +83,49 @@ namespace HospitalInformationManagementSystem
             {
                 MessageBox.Show("Make sure that all fields are filled in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (textBoxUserID.Text == "1")
-            {
-                MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             else
             {
                 Double userIDInputted = Convert.ToDouble(textBoxUserID.Text);
-                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                string passCheck = textBoxPassword.Text;
+                bool containsDigit = false;
+                bool containsUppercaseLetter = false;
+                bool containsLowercaseLetter = false;
+
+                for (int i = 0; i < passCheck.Length; i++)
+                {
+                    if (char.IsUpper(passCheck[i]))
+                    {
+                        containsUppercaseLetter = true;
+                    }
+
+                    if (char.IsDigit(passCheck[i]))
+                    {
+                        containsDigit = true;
+                    }
+
+                    if (char.IsLower(passCheck[i]))
+                    {
+                        containsLowercaseLetter = true;
+                    }
+                }
+                
+                if (textBoxUserID.Text == "1")
+                {
+                    MessageBox.Show("You Cannot Edit The Admin!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
                 {
                     MessageBox.Show("The User ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                else if (containsDigit != true || containsLowercaseLetter != true|| containsUppercaseLetter != true)
+                {
+                    MessageBox.Show("Your password must contain atleast one uppercase letter, one lowercase letter and a digit!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     if (MessageBox.Show("Are you sure you would like to Edit UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
                         sqlConnection.Open();
                         string query = "UPDATE LogInDetails SET Role = '" + comboBoxRole.Text + "', Username = '" + textBoxUsername.Text + "', Password = '" + textBoxPassword.Text + "' where LogInID = '" + textBoxUserID.Text + "'";
                         SqlCommand command = new SqlCommand(query, sqlConnection);

@@ -53,6 +53,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelStaffName = new System.Windows.Forms.Label();
             this.labelLogInID = new System.Windows.Forms.Label();
             this.labelLogID = new System.Windows.Forms.Label();
+            this.labelNameInfoPart2 = new System.Windows.Forms.Label();
+            this.labelNameInfoPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -128,7 +130,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // textBoxStaffName
             // 
             this.textBoxStaffName.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStaffName.Location = new System.Drawing.Point(205, 196);
+            this.textBoxStaffName.Location = new System.Drawing.Point(215, 196);
             this.textBoxStaffName.Name = "textBoxStaffName";
             this.textBoxStaffName.Size = new System.Drawing.Size(126, 25);
             this.textBoxStaffName.TabIndex = 97;
@@ -138,7 +140,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxLoginID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLoginID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxLoginID.FormattingEnabled = true;
-            this.comboBoxLoginID.Location = new System.Drawing.Point(205, 162);
+            this.comboBoxLoginID.Location = new System.Drawing.Point(215, 162);
             this.comboBoxLoginID.Name = "comboBoxLoginID";
             this.comboBoxLoginID.Size = new System.Drawing.Size(53, 28);
             this.comboBoxLoginID.TabIndex = 96;
@@ -148,7 +150,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxPatientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPatientID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPatientID.FormattingEnabled = true;
-            this.comboBoxPatientID.Location = new System.Drawing.Point(205, 227);
+            this.comboBoxPatientID.Location = new System.Drawing.Point(215, 227);
             this.comboBoxPatientID.Name = "comboBoxPatientID";
             this.comboBoxPatientID.Size = new System.Drawing.Size(53, 28);
             this.comboBoxPatientID.TabIndex = 95;
@@ -166,7 +168,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             "",
             "Morning",
             "Night"});
-            this.comboBoxShift.Location = new System.Drawing.Point(205, 300);
+            this.comboBoxShift.Location = new System.Drawing.Point(215, 300);
             this.comboBoxShift.Name = "comboBoxShift";
             this.comboBoxShift.Size = new System.Drawing.Size(126, 28);
             this.comboBoxShift.TabIndex = 94;
@@ -174,7 +176,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // textBoxDate
             // 
             this.textBoxDate.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDate.Location = new System.Drawing.Point(205, 264);
+            this.textBoxDate.Location = new System.Drawing.Point(215, 264);
             this.textBoxDate.Mask = "00-00-0000";
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.Size = new System.Drawing.Size(70, 26);
@@ -308,12 +310,36 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelLogID.TabIndex = 81;
             this.labelLogID.Text = "Log ID:";
             // 
+            // labelNameInfoPart2
+            // 
+            this.labelNameInfoPart2.AutoSize = true;
+            this.labelNameInfoPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameInfoPart2.ForeColor = System.Drawing.Color.White;
+            this.labelNameInfoPart2.Location = new System.Drawing.Point(112, 216);
+            this.labelNameInfoPart2.Name = "labelNameInfoPart2";
+            this.labelNameInfoPart2.Size = new System.Drawing.Size(97, 15);
+            this.labelNameInfoPart2.TabIndex = 100;
+            this.labelNameInfoPart2.Text = "Surname Initial)";
+            // 
+            // labelNameInfoPart1
+            // 
+            this.labelNameInfoPart1.AutoSize = true;
+            this.labelNameInfoPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameInfoPart1.ForeColor = System.Drawing.Color.White;
+            this.labelNameInfoPart1.Location = new System.Drawing.Point(127, 202);
+            this.labelNameInfoPart1.Name = "labelNameInfoPart1";
+            this.labelNameInfoPart1.Size = new System.Drawing.Size(82, 15);
+            this.labelNameInfoPart1.TabIndex = 99;
+            this.labelNameInfoPart1.Text = "(First Name +";
+            // 
             // NurseAddInteractionLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(711, 397);
+            this.Controls.Add(this.labelNameInfoPart2);
+            this.Controls.Add(this.labelNameInfoPart1);
             this.Controls.Add(this.labelLogIDCurrent);
             this.Controls.Add(this.textBoxStaffName);
             this.Controls.Add(this.comboBoxLoginID);
@@ -372,5 +398,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Label labelStaffName;
         private System.Windows.Forms.Label labelLogInID;
         private System.Windows.Forms.Label labelLogID;
+        private System.Windows.Forms.Label labelNameInfoPart2;
+        private System.Windows.Forms.Label labelNameInfoPart1;
     }
 }

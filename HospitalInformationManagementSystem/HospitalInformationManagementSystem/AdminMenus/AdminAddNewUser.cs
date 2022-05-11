@@ -13,6 +13,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminAddNewUser : Form
     {
+        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         public Int64 idNumber;
         public AdminAddNewUser()
         {
@@ -53,43 +54,69 @@ namespace HospitalInformationManagementSystem
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             if (comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                try
+                string passCheck = textBoxPassword.Text;
+                bool containsDigit = false;
+                bool containsUppercaseLetter = false;
+                bool containsLowercaseLetter = false;
+                for (int i = 0; i < passCheck.Length; i++)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "insert into LogInDetails (LogInID,Role,Username,Password) values ('" + idNumber + "', '" + comboBoxRole.Text + "','" + textBoxUsername.Text + "','" + textBoxPassword.Text + "')";
+                    if (char.IsUpper(passCheck[i]))
+                    {
+                        containsUppercaseLetter = true;
+                    }
 
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-                    MessageBox.Show("The User has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
-                    adminPasswordManagement.Show();
-                    this.Close();
+                    if (char.IsDigit(passCheck[i]))
+                    {
+                        containsDigit = true;
+                    }
+
+                    if(char.IsLower(passCheck[i]))
+                    {
+                        containsLowercaseLetter = true;
+                    }
                 }
-                catch
+
+                if (containsDigit == true && containsUppercaseLetter == true && containsLowercaseLetter == true)
                 {
-                    MessageBox.Show("Error");
+                    try
+                    {
+                        SqlCommand command = new SqlCommand();
+                        command.Connection = sqlConnection;
+                        command.CommandText = "insert into LogInDetails (LogInID,Role,Username,Password) values ('" + idNumber + "', '" + comboBoxRole.Text + "','" + textBoxUsername.Text + "','" + textBoxPassword.Text + "')";
+
+                        SqlDataAdapter sda = new SqlDataAdapter(command);
+                        DataSet dataSet = new DataSet();
+                        sda.Fill(dataSet);
+                        sqlConnection.Close();
+                        MessageBox.Show("The User has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
+                        adminPasswordManagement.Show();
+                        this.Close();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error");
+                    }
+                    finally
+                    {
+                        sqlConnection.Close();
+                    }
                 }
-                finally
+                else
                 {
-                    sqlConnection.Close();
+                    MessageBox.Show("Your password must contain atleast one uppercase letter, one lowercase letter and a digit!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void AdminAddNewUser_Load(object sender, EventArgs e)
         {
-            SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
             command.CommandText = "select max(LogInID) from LogInDetails";
