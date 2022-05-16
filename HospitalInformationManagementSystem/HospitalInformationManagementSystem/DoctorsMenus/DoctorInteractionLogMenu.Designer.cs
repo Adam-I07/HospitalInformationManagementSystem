@@ -98,11 +98,11 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelInteractionLogText.AutoSize = true;
             this.labelInteractionLogText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInteractionLogText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelInteractionLogText.Location = new System.Drawing.Point(219, 45);
+            this.labelInteractionLogText.Location = new System.Drawing.Point(358, 46);
             this.labelInteractionLogText.Name = "labelInteractionLogText";
-            this.labelInteractionLogText.Size = new System.Drawing.Size(488, 42);
+            this.labelInteractionLogText.Size = new System.Drawing.Size(366, 42);
             this.labelInteractionLogText.TabIndex = 5;
-            this.labelInteractionLogText.Text = "Patient Interaction Log Menu";
+            this.labelInteractionLogText.Text = "Interaction Log Menu";
             // 
             // pictureBoxHospitalLogo
             // 

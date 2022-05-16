@@ -133,10 +133,11 @@ namespace HospitalInformationManagementSystem
             // checkBoxShowPassword
             // 
             this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxShowPassword.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBoxShowPassword.Location = new System.Drawing.Point(57, 333);
             this.checkBoxShowPassword.Name = "checkBoxShowPassword";
-            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(95, 19);
             this.checkBoxShowPassword.TabIndex = 8;
             this.checkBoxShowPassword.Text = "Show Password";
             this.checkBoxShowPassword.UseVisualStyleBackColor = true;

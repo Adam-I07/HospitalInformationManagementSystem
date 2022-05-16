@@ -37,7 +37,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelDoctorsMenu = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.labelPatientDetailsTextPart2 = new System.Windows.Forms.Label();
-            this.labelInteractionLogTextPart2 = new System.Windows.Forms.Label();
             this.labelInteractionLogTextPart1 = new System.Windows.Forms.Label();
             this.labelIllnessTextPart2 = new System.Windows.Forms.Label();
             this.pictureBoxInteractionLog = new System.Windows.Forms.PictureBox();
@@ -132,28 +131,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelPatientDetailsTextPart2.Text = "Information";
             this.labelPatientDetailsTextPart2.Click += new System.EventHandler(this.labelPatientDetailsTextPart2_Click);
             // 
-            // labelInteractionLogTextPart2
-            // 
-            this.labelInteractionLogTextPart2.AutoSize = true;
-            this.labelInteractionLogTextPart2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInteractionLogTextPart2.ForeColor = System.Drawing.Color.White;
-            this.labelInteractionLogTextPart2.Location = new System.Drawing.Point(246, 546);
-            this.labelInteractionLogTextPart2.Name = "labelInteractionLogTextPart2";
-            this.labelInteractionLogTextPart2.Size = new System.Drawing.Size(46, 24);
-            this.labelInteractionLogTextPart2.TabIndex = 25;
-            this.labelInteractionLogTextPart2.Text = "Log";
-            this.labelInteractionLogTextPart2.Click += new System.EventHandler(this.labelInteractionLogTextPart2_Click);
-            // 
             // labelInteractionLogTextPart1
             // 
             this.labelInteractionLogTextPart1.AutoSize = true;
             this.labelInteractionLogTextPart1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInteractionLogTextPart1.ForeColor = System.Drawing.Color.White;
-            this.labelInteractionLogTextPart1.Location = new System.Drawing.Point(184, 524);
+            this.labelInteractionLogTextPart1.Location = new System.Drawing.Point(201, 524);
             this.labelInteractionLogTextPart1.Name = "labelInteractionLogTextPart1";
-            this.labelInteractionLogTextPart1.Size = new System.Drawing.Size(178, 24);
+            this.labelInteractionLogTextPart1.Size = new System.Drawing.Size(149, 24);
             this.labelInteractionLogTextPart1.TabIndex = 24;
-            this.labelInteractionLogTextPart1.Text = "Patient Interaction";
+            this.labelInteractionLogTextPart1.Text = "Interaction Log";
             this.labelInteractionLogTextPart1.Click += new System.EventHandler(this.labelInteractionLogTextPart1_Click);
             // 
             // labelIllnessTextPart2
@@ -256,7 +243,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.ClientSize = new System.Drawing.Size(517, 613);
             this.Controls.Add(this.labelRequests);
             this.Controls.Add(this.labelPatientDetailsTextPart2);
-            this.Controls.Add(this.labelInteractionLogTextPart2);
             this.Controls.Add(this.labelInteractionLogTextPart1);
             this.Controls.Add(this.labelIllnessTextPart2);
             this.Controls.Add(this.pictureBoxInteractionLog);
@@ -295,7 +281,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Label labelDoctorsMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label labelPatientDetailsTextPart2;
-        private System.Windows.Forms.Label labelInteractionLogTextPart2;
         private System.Windows.Forms.Label labelInteractionLogTextPart1;
         private System.Windows.Forms.Label labelIllnessTextPart2;
         private System.Windows.Forms.PictureBox pictureBoxInteractionLog;
