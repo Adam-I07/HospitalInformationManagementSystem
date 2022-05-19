@@ -26,7 +26,7 @@ namespace HospitalInformationManagementSystem
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;
-            command.CommandText = "select TreatmentID from IllnessInformation";
+            command.CommandText = "select max(TreatmentID) from IllnessInformation";
 
             SqlDataAdapter sda = new SqlDataAdapter(command);
             DataSet dataSet = new DataSet();
@@ -42,14 +42,14 @@ namespace HospitalInformationManagementSystem
             
             if (textBoxTreatmentID.Text == "")
             {
-                MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Treatment ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 Double treatmentIDInputted = Convert.ToDouble(textBoxTreatmentID.Text);
                 if (treatmentIDInputted > maximumIDNumber || treatmentIDInputted <= 0)
                 {
-                    MessageBox.Show("The Patient ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The Treatment ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

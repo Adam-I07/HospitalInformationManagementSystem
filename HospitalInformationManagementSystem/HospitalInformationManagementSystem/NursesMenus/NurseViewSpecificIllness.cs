@@ -38,7 +38,7 @@ namespace HospitalInformationManagementSystem
         {
             if (textBoxTreatmentID.Text == "")
             {
-                MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Treatment ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

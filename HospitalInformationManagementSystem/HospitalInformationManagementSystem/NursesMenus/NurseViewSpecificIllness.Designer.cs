@@ -357,6 +357,7 @@ namespace HospitalInformationManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(836, 405);
+            this.Controls.Add(this.buttonFindID);
             this.Controls.Add(this.labelPatientIDInsert);
             this.Controls.Add(this.labelIllnessInsert);
             this.Controls.Add(this.labelIllnessTypeInsert);
@@ -377,7 +378,6 @@ namespace HospitalInformationManagementSystem
             this.Controls.Add(this.labelNotes);
             this.Controls.Add(this.buttonNewSearch);
             this.Controls.Add(this.textBoxTreatmentID);
-            this.Controls.Add(this.buttonFindID);
             this.Controls.Add(this.labelTreatmentID);
             this.Controls.Add(this.panelWhiteTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

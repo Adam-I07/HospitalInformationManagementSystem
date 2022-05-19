@@ -66,7 +66,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                     SqlCommand command = new SqlCommand();
                     command.Connection = sqlConnection;
 
-                    command.CommandText = "delete from Requests where RequestID '" + textBoxRequestID.Text + "'";
+                    command.CommandText = "delete from Requests where RequestID = '" + textBoxRequestID.Text + "'";
                     SqlDataAdapter sda = new SqlDataAdapter(command);
                     DataSet dataSet = new DataSet();
                     sda.Fill(dataSet);
