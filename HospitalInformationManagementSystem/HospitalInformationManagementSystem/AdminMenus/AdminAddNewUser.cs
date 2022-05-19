@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class AdminAddNewUser : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        User user = new User();
+        public List<string> idAvailable = new List<string>();
         public Int64 idNumber;
         public AdminAddNewUser()
         {
@@ -76,7 +76,7 @@ namespace HospitalInformationManagementSystem
                         containsDigit = true;
                     }
 
-                    if(char.IsLower(passCheck[i]))
+                    if (char.IsLower(passCheck[i]))
                     {
                         containsLowercaseLetter = true;
                     }
@@ -84,29 +84,16 @@ namespace HospitalInformationManagementSystem
 
                 if (containsDigit == true && containsUppercaseLetter == true && containsLowercaseLetter == true)
                 {
-                    try
-                    {
-                        SqlCommand command = new SqlCommand();
-                        command.Connection = sqlConnection;
-                        command.CommandText = "insert into LogInDetails (LogInID,Role,Username,Password) values ('" + idNumber + "', '" + comboBoxRole.Text + "','" + textBoxUsername.Text + "','" + textBoxPassword.Text + "')";
+                    user.loginID = labelUserIDCurrent.Text;
+                    user.role = comboBoxRole.Text;
+                    user.username = textBoxUsername.Text;
+                    user.password = textBoxPassword.Text;
+                    user.AddUser();
+                    MessageBox.Show("The User has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
+                    adminPasswordManagement.Show();
+                    this.Close();
 
-                        SqlDataAdapter sda = new SqlDataAdapter(command);
-                        DataSet dataSet = new DataSet();
-                        sda.Fill(dataSet);
-                        sqlConnection.Close();
-                        MessageBox.Show("The User has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
-                        adminPasswordManagement.Show();
-                        this.Close();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Error");
-                    }
-                    finally
-                    {
-                        sqlConnection.Close();
-                    }
                 }
                 else
                 {
@@ -117,18 +104,20 @@ namespace HospitalInformationManagementSystem
 
         private void AdminAddNewUser_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(LogInID) from LogInDetails";
+            user.GetAllCurrentUserIDs();
+            idAvailable = user.currentExistingIDs;
+            int nextAvailableID = 0;
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                int currentID = Convert.ToInt32(idAvailable[i]);
+                if (nextAvailableID < currentID)
+                {
+                    idNumber = currentID;
+                }
+            }
 
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
             idNumber = idNumber + 1;
             labelUserIDCurrent.Text = idNumber.ToString();
-            sqlConnection.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class AdminDeleteUser : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        User user = new User();
         public List<string> idAvailable = new List<string>();
         public AdminDeleteUser()
         {
@@ -23,38 +22,25 @@ namespace HospitalInformationManagementSystem
         private void AdminDeleteUser_Load(object sender, EventArgs e)
         {
 
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from LogInDetails";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-            dataGridViewShowUserDetail.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
-            
-            foreach(DataGridViewRow item in dataGridViewShowUserDetail.Rows)
-            {
-                idAvailable.Add(item.Cells[0].Value.ToString());
-            }
+            user.LoadCurrentDetails();
+            dataGridViewShowUserDetail.DataSource = user.currentUserDetails.Tables[0];
+            user.GetAllCurrentUserIDs();
+            idAvailable = user.currentExistingIDs;
 
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
-
-
             String userIDInputted = textBoxUserID.Text.ToString();
             bool isValidUserID = false;
             for (int i = 0; i < idAvailable.Count(); i++)
             {
-                if(idAvailable[i] == userIDInputted)
+                if (idAvailable[i] == userIDInputted)
                 {
                     isValidUserID = true;
                     break;
                 }
             }
-
 
             if (textBoxUserID.Text == "")
             {
@@ -72,19 +58,14 @@ namespace HospitalInformationManagementSystem
             else
             {
                 if (MessageBox.Show("Are you sure you would like to delete UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                {;
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-
-                    command.CommandText = "delete from LogInDetails where LogInID = '" + textBoxUserID.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
+                {
+                    user.loginID = textBoxUserID.Text;
+                    user.DeleteExistingUser();
                     this.Close();
                     AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
                     adminPasswordManagement.Show();
                     MessageBox.Show("User Deleted Successfully", "User Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
         }
