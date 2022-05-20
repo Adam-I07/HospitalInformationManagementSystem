@@ -71,6 +71,8 @@ namespace HospitalInformationManagementSystem
             this.labelPostcodeInput = new System.Windows.Forms.Label();
             this.labelBloodTypeInput = new System.Windows.Forms.Label();
             this.buttonNewSearch = new System.Windows.Forms.Button();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -79,7 +81,9 @@ namespace HospitalInformationManagementSystem
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart2);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart1);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelViewSpecificPatientText);
             this.panelWhiteTop.Controls.Add(this.pictureBoxHospitalLogo);
@@ -117,7 +121,7 @@ namespace HospitalInformationManagementSystem
             this.labelViewSpecificPatientText.AutoSize = true;
             this.labelViewSpecificPatientText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViewSpecificPatientText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelViewSpecificPatientText.Location = new System.Drawing.Point(382, 36);
+            this.labelViewSpecificPatientText.Location = new System.Drawing.Point(382, 28);
             this.labelViewSpecificPatientText.Name = "labelViewSpecificPatientText";
             this.labelViewSpecificPatientText.Size = new System.Drawing.Size(378, 42);
             this.labelViewSpecificPatientText.TabIndex = 5;
@@ -511,6 +515,28 @@ namespace HospitalInformationManagementSystem
             this.buttonNewSearch.UseVisualStyleBackColor = true;
             this.buttonNewSearch.Click += new System.EventHandler(this.buttonNewSearch_Click);
             // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(386, 85);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 130;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(386, 70);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 129;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            // 
             // DoctorViewSpecificPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,5 +637,7 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.Label labelPostcodeInput;
         private System.Windows.Forms.Label labelBloodTypeInput;
         private System.Windows.Forms.Button buttonNewSearch;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
     }
 }

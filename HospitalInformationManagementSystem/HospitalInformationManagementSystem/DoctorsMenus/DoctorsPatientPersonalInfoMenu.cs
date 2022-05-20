@@ -14,8 +14,8 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorsPatientPersonalInfoMenu : Form
     {
-        public List<string> idAvailable = new List<string>();
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
+        public List<string> currentPatientFirstName = new List<string>();
         public DoctorsPatientPersonalInfoMenu()
         {
             InitializeComponent();
@@ -23,19 +23,12 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorsPatientPersonalInfoMenu_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
+            patientPersonalDetails.LoadCurrentDetails();
+            dataGridViewLoginDetails.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
 
-            command.CommandText = "select * from PatientPersonalInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
             foreach (DataGridViewRow item in dataGridViewLoginDetails.Rows)
             {
-                idAvailable.Add(item.Cells[2].Value.ToString());
+                currentPatientFirstName.Add(item.Cells[2].Value.ToString().ToLower());
             }
         }
 
@@ -101,11 +94,11 @@ namespace HospitalInformationManagementSystem
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            String firstNameIDInputted = textBoxSearchFirstName.Text.ToString();
+            String firstNameInputted = textBoxSearchFirstName.Text.ToString().ToLower();
             bool isValidUserID = false;
-            for (int i = 0; i < idAvailable.Count(); i++)
+            for (int i = 0; i < currentPatientFirstName.Count(); i++)
             {
-                if (idAvailable[i] == firstNameIDInputted)
+                if (currentPatientFirstName[i] == firstNameInputted)
                 {
                     isValidUserID = true;
                     break;
@@ -122,32 +115,23 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
 
-                command.CommandText = "select * from PatientPersonalInformation where [FirstName] = '"+textBoxSearchFirstName.Text+"'";
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-
-                dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
-                sqlConnection.Close();
+                patientPersonalDetails.userFirstNameSearch = firstNameInputted;
+                patientPersonalDetails.FilterUserDetails();
+                dataGridViewLoginDetails.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
             }
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
+            currentPatientFirstName.Clear();
+            patientPersonalDetails.LoadCurrentDetails();
+            dataGridViewLoginDetails.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
 
-            command.CommandText = "select * from PatientPersonalInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewLoginDetails.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
+            foreach (DataGridViewRow item in dataGridViewLoginDetails.Rows)
+            {
+                currentPatientFirstName.Add(item.Cells[2].Value.ToString().ToLower());
+            }
         }
     }
 }

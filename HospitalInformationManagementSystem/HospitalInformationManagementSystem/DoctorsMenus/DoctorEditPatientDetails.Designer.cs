@@ -30,7 +30,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorEditPatientDetails));
-            this.textBoxPostcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxAge = new System.Windows.Forms.MaskedTextBox();
             this.comboBoxBloodType = new System.Windows.Forms.ComboBox();
@@ -72,18 +71,13 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonFindID = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.textBoxPostcode = new System.Windows.Forms.MaskedTextBox();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxPostcode
-            // 
-            this.textBoxPostcode.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostcode.Location = new System.Drawing.Point(308, 589);
-            this.textBoxPostcode.Name = "textBoxPostcode";
-            this.textBoxPostcode.Size = new System.Drawing.Size(122, 25);
-            this.textBoxPostcode.TabIndex = 87;
             // 
             // label1
             // 
@@ -112,8 +106,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxBloodType.FormattingEnabled = true;
             this.comboBoxBloodType.Items.AddRange(new object[] {
             "",
-            "0-",
-            "0+",
+            "O-",
+            "O+",
             "A-",
             "A+",
             "B-",
@@ -164,10 +158,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.comboBoxGender.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGender.FormattingEnabled = true;
             this.comboBoxGender.Items.AddRange(new object[] {
-            "",
             "Male",
-            "Female",
-            "Other"});
+            "Female"});
             this.comboBoxGender.Location = new System.Drawing.Point(308, 315);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(96, 28);
@@ -695,6 +687,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart2);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart1);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelEditPatientDetailsText);
@@ -733,7 +727,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelEditPatientDetailsText.AutoSize = true;
             this.labelEditPatientDetailsText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEditPatientDetailsText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelEditPatientDetailsText.Location = new System.Drawing.Point(103, 40);
+            this.labelEditPatientDetailsText.Location = new System.Drawing.Point(103, 33);
             this.labelEditPatientDetailsText.Name = "labelEditPatientDetailsText";
             this.labelEditPatientDetailsText.Size = new System.Drawing.Size(325, 42);
             this.labelEditPatientDetailsText.TabIndex = 5;
@@ -789,17 +783,49 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
+            // textBoxPostcode
+            // 
+            this.textBoxPostcode.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPostcode.Location = new System.Drawing.Point(308, 588);
+            this.textBoxPostcode.Mask = "AA00 0AA";
+            this.textBoxPostcode.Name = "textBoxPostcode";
+            this.textBoxPostcode.Size = new System.Drawing.Size(70, 26);
+            this.textBoxPostcode.TabIndex = 93;
+            this.textBoxPostcode.ValidatingType = typeof(int);
+            // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(109, 86);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 12;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(109, 71);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 11;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            // 
             // DoctorEditPatientDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(557, 720);
+            this.Controls.Add(this.textBoxPostcode);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.textBoxPatientID);
             this.Controls.Add(this.buttonFindID);
-            this.Controls.Add(this.textBoxPostcode);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxAge);
             this.Controls.Add(this.comboBoxBloodType);
@@ -848,8 +874,6 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxPostcode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox textBoxAge;
         private System.Windows.Forms.ComboBox comboBoxBloodType;
@@ -891,5 +915,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Button buttonFindID;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.MaskedTextBox textBoxPostcode;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
     }
 }

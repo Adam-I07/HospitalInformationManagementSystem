@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class DoctorDeletePatientPersonalInfo : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
         public List<string> idAvailable = new List<string>();
         public DoctorDeletePatientPersonalInfo()
         {
@@ -22,32 +21,22 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorDeletePatientPersonalInfo_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from PatientPersonalInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-            dataGridViewShowUserDetail.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
-
-            foreach (DataGridViewRow item in dataGridViewShowUserDetail.Rows)
-            {
-                idAvailable.Add(item.Cells[0].Value.ToString());
-            }
+            patientPersonalDetails.LoadCurrentDetails();
+            dataGridViewShowUserDetail.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
+            patientPersonalDetails.GetAllCurrentUserIDs();
+            idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
-            String patientIDInputted = textBoxPatientID.Text.ToString();
-            bool isValidPatientID = false;
-            for (int i = 0; i < idAvailable.Count(); i++)
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxPatientID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
             {
-                if (idAvailable[i] == patientIDInputted)
+                if (userIDInputted == idAvailable[i])
                 {
-                    isValidPatientID = true;
-                    break;
+                    userExists = true;
                 }
             }
 
@@ -55,7 +44,7 @@ namespace HospitalInformationManagementSystem
             {
                 MessageBox.Show("Please enter a Patient ID to delete!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (isValidPatientID == false)
+            else if (userExists == false)
             {
                 MessageBox.Show("The ID entered does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -63,18 +52,13 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to delete PatientID = " + textBoxPatientID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-
-                    command.CommandText = "delete from PatientPersonalInformation where PatientID = '" + textBoxPatientID.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
+                    patientPersonalDetails.patientID = textBoxPatientID.Text;
+                    patientPersonalDetails.DeleteExistingPatient();
                     this.Close();
                     DoctorsPatientPersonalInfoMenu doctorsPatientPersonalInfoMenu = new DoctorsPatientPersonalInfoMenu();
                     doctorsPatientPersonalInfoMenu.Show();
-                    MessageBox.Show("Patient Deleted Successfully", "Patient Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Patient Deleted Successfully", "User Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
         }

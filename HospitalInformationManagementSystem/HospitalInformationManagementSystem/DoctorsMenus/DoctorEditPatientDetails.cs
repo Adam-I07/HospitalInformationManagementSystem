@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorEditPatientDetails : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
         public double maximumIDNumber;
+        public List<string> idAvailable = new List<string>();
         public DoctorEditPatientDetails()
         {
             InitializeComponent();
@@ -22,58 +22,52 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorEditPatientDetails_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(PatientID) from PatientPersonalInformation";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-            sqlConnection.Close();
+            patientPersonalDetails.GetAllCurrentUserIDs();
+            idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
-            
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxPatientID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
+
             if (textBoxPatientID.Text == "")
             {
                 MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Double userIDInputted = Convert.ToDouble(textBoxPatientID.Text);
-                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Patient ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from PatientPersonalInformation where PatientID = " + textBoxPatientID.Text + "";
-
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    textBoxNHSNumber.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    textBoxFirstName.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    textBoxMiddleName.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    textBoxLastName.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    textBoxAge.Text = dataSet.Tables[0].Rows[0][5].ToString();
-                    comboBoxGender.Text = dataSet.Tables[0].Rows[0][6].ToString();
-                    textBoxDateOfBirth.Text = dataSet.Tables[0].Rows[0][7].ToString();
-                    comboBoxCountry.Text = dataSet.Tables[0].Rows[0][8].ToString();
-                    textBoxEmail.Text = dataSet.Tables[0].Rows[0][9].ToString();
-                    textBoxPhoneNumber.Text = dataSet.Tables[0].Rows[0][10].ToString();
-                    textBoxHomeNumber.Text = dataSet.Tables[0].Rows[0][11].ToString();
-                    textBoxAddress.Text = dataSet.Tables[0].Rows[0][12].ToString();
-                    comboBoxCity.Text = dataSet.Tables[0].Rows[0][13].ToString();
-                    textBoxPostcode.Text = dataSet.Tables[0].Rows[0][14].ToString();
-                    comboBoxBloodType.Text = dataSet.Tables[0].Rows[0][15].ToString();
+                    patientPersonalDetails.patientID = textBoxPatientID.Text;
+                    patientPersonalDetails.GetPatientDetails();
+                    textBoxNHSNumber.Text = patientPersonalDetails.nhsNumber;
+                    textBoxFirstName.Text = patientPersonalDetails.firstName;
+                    textBoxMiddleName.Text = patientPersonalDetails.middleName;
+                    textBoxLastName.Text = patientPersonalDetails.lastName;
+                    textBoxAge.Text = patientPersonalDetails.age;
+                    comboBoxGender.Text = patientPersonalDetails.gender;
+                    textBoxDateOfBirth.Text = patientPersonalDetails.dateOfBirth;
+                    comboBoxCountry.Text = patientPersonalDetails.countryOfBirth;
+                    textBoxEmail.Text = patientPersonalDetails.email;
+                    textBoxPhoneNumber.Text = patientPersonalDetails.phoneNumber;
+                    textBoxHomeNumber.Text = patientPersonalDetails.homeNumber;
+                    textBoxAddress.Text = patientPersonalDetails.address;
+                    comboBoxCity.Text = patientPersonalDetails.city;
+                    textBoxPostcode.Text = patientPersonalDetails.postcode;
+                    comboBoxBloodType.Text = patientPersonalDetails.bloodType;
                 }
             }
         }
@@ -82,19 +76,30 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         {
             string nhsNumber = textBoxNHSNumber.Text;
             string dateOfBirth = textBoxDateOfBirth.Text;
+            string phoneNumber = textBoxPhoneNumber.Text;
+            string postcode = textBoxPostcode.Text;
+            String userIDInputted = Convert.ToString(textBoxPatientID.Text);
+            bool userExists = false;
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
 
             if (textBoxNHSNumber.Text == "" || textBoxFirstName.Text == "" || textBoxLastName.Text == "" || textBoxAge.Text == "" || comboBoxGender.Text == "" || textBoxAge.Text == "" || textBoxDateOfBirth.Text == "" || comboBoxCountry.Text == "" || textBoxEmail.Text == "" || textBoxPhoneNumber.Text == "" || textBoxAddress.Text == "" || comboBoxCity.Text == "" || textBoxPostcode.Text == "" || comboBoxBloodType.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (nhsNumber.Length != 12 || dateOfBirth.Length != 10)
+            else if (nhsNumber.Length != 12 || dateOfBirth.Length != 10 || phoneNumber.Length != 11 || postcode.Length != 8)
             {
-                MessageBox.Show("Make sure NHS Number, Date of Birth are filled in correctly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Make sure the NHS Number, Date of Birth, Phone Number and Postcode are filled in correctly!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Double userIDInputted = Convert.ToDouble(textBoxPatientID.Text);
-                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Patient ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -102,11 +107,24 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
                 {
                     if (MessageBox.Show("Are you sure you would like to Edit PatientID = " + textBoxPatientID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        sqlConnection.Open();
-                        string query = "UPDATE PatientPersonalInformation SET NHSNumber = '" + textBoxNHSNumber.Text + "', FirstName = '" + textBoxFirstName.Text + "', MiddleName = '" + textBoxMiddleName.Text + "', LastName = '" + textBoxLastName.Text + "', Age = '" + textBoxAge.Text + "', Gender = '" + comboBoxGender.Text + "', DateOfBirth = '" + textBoxDateOfBirth.Text + "', CountryOfBirth = '" + comboBoxCountry.Text + "', Email = '" + textBoxEmail.Text + "', PhoneNumber = '" + textBoxPhoneNumber.Text + "', HomeNumber = '" + textBoxHomeNumber.Text + "', Address = '" + textBoxAddress.Text + "', City = '" + comboBoxCity.Text + "', Postcode = '" + textBoxPostcode.Text + "', BloodType = '" + comboBoxBloodType.Text + "' where PatientID = '" + textBoxPatientID.Text + "'";
-                        SqlCommand command = new SqlCommand(query, sqlConnection);
-                        command.ExecuteNonQuery();
-                        sqlConnection.Close();
+                        patientPersonalDetails.patientID = textBoxPatientID.Text;
+                        patientPersonalDetails.nhsNumber = textBoxNHSNumber.Text;
+                        patientPersonalDetails.firstName = textBoxFirstName.Text;
+                        patientPersonalDetails.middleName = textBoxMiddleName.Text;
+                        patientPersonalDetails.lastName = textBoxLastName.Text;
+                        patientPersonalDetails.age = textBoxAge.Text;
+                        patientPersonalDetails.gender = comboBoxGender.Text;
+                        patientPersonalDetails.dateOfBirth = textBoxDateOfBirth.Text;
+                        patientPersonalDetails.countryOfBirth = comboBoxCountry.Text;
+                        patientPersonalDetails.email = textBoxEmail.Text;
+                        patientPersonalDetails.phoneNumber = textBoxPhoneNumber.Text;
+                        patientPersonalDetails.homeNumber = textBoxHomeNumber.Text;
+                        patientPersonalDetails.address = textBoxAddress.Text;
+                        patientPersonalDetails.city = comboBoxCity.Text;
+                        patientPersonalDetails.postcode = textBoxPostcode.Text;
+                        patientPersonalDetails.bloodType = comboBoxBloodType.Text;
+                        patientPersonalDetails.EditPatient();
+
                         MessageBox.Show("Patient details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                         textBoxPatientID.Text = "";
                         textBoxNHSNumber.Text = "";

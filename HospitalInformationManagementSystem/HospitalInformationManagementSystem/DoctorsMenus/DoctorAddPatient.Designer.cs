@@ -70,7 +70,7 @@ namespace HospitalInformationManagementSystem
             this.comboBoxBloodType = new System.Windows.Forms.ComboBox();
             this.textBoxAge = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxPostcode = new System.Windows.Forms.TextBox();
+            this.textBoxPostcode = new System.Windows.Forms.MaskedTextBox();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -687,8 +687,7 @@ namespace HospitalInformationManagementSystem
             this.comboBoxGender.FormattingEnabled = true;
             this.comboBoxGender.Items.AddRange(new object[] {
             "Male",
-            "Female",
-            "Other"});
+            "Female"});
             this.comboBoxGender.Location = new System.Drawing.Point(311, 315);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(96, 28);
@@ -768,11 +767,13 @@ namespace HospitalInformationManagementSystem
             // 
             // textBoxPostcode
             // 
-            this.textBoxPostcode.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPostcode.Location = new System.Drawing.Point(311, 589);
+            this.textBoxPostcode.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPostcode.Location = new System.Drawing.Point(311, 588);
+            this.textBoxPostcode.Mask = "AA00 0AA";
             this.textBoxPostcode.Name = "textBoxPostcode";
-            this.textBoxPostcode.Size = new System.Drawing.Size(122, 25);
-            this.textBoxPostcode.TabIndex = 52;
+            this.textBoxPostcode.Size = new System.Drawing.Size(62, 26);
+            this.textBoxPostcode.TabIndex = 93;
+            this.textBoxPostcode.ValidatingType = typeof(int);
             // 
             // DoctorAddPatient
             // 
@@ -873,6 +874,6 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.ComboBox comboBoxBloodType;
         private System.Windows.Forms.MaskedTextBox textBoxAge;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxPostcode;
+        private System.Windows.Forms.MaskedTextBox textBoxPostcode;
     }
 }
