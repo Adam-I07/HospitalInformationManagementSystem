@@ -12,7 +12,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminAddNewUser : Form
     {
-        User user = new User();
+        UserLoginDetails userLoginDetails = new UserLoginDetails();
         public List<string> idAvailable = new List<string>();
         public Int64 idNumber;
         public AdminAddNewUser()
@@ -84,11 +84,11 @@ namespace HospitalInformationManagementSystem
 
                 if (containsDigit == true && containsUppercaseLetter == true && containsLowercaseLetter == true)
                 {
-                    user.loginID = labelUserIDCurrent.Text;
-                    user.role = comboBoxRole.Text;
-                    user.username = textBoxUsername.Text;
-                    user.password = textBoxPassword.Text;
-                    user.AddUser();
+                    userLoginDetails.loginID = labelUserIDCurrent.Text;
+                    userLoginDetails.role = comboBoxRole.Text;
+                    userLoginDetails.username = textBoxUsername.Text;
+                    userLoginDetails.password = textBoxPassword.Text;
+                    userLoginDetails.AddUser();
                     MessageBox.Show("The User has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
                     AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
                     adminPasswordManagement.Show();
@@ -104,8 +104,8 @@ namespace HospitalInformationManagementSystem
 
         private void AdminAddNewUser_Load(object sender, EventArgs e)
         {
-            user.GetAllCurrentUserIDs();
-            idAvailable = user.currentExistingIDs;
+            userLoginDetails.GetAllCurrentUserIDs();
+            idAvailable = userLoginDetails.currentExistingIDs;
             int nextAvailableID = 0;
             for (int i = 0; i < idAvailable.Count; i++)
             {

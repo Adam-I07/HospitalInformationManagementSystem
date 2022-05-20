@@ -76,7 +76,8 @@
     <Compile Include="AdminMenus\AdminPasswordManagement.Designer.cs">
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\UserLoginDetails.cs" />
     <Compile Include="DoctorsMenus\DoctorDeleteInteractionLog.cs">
       <SubType>Form</SubType>
     </Compile>

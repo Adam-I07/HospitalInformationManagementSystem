@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class LoginForm : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        Login login = new Login();
         public LoginForm()
         {
             InitializeComponent();
@@ -22,56 +21,43 @@ namespace HospitalInformationManagementSystem
         }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string windowToLoad = comboBoxRole.Text;
             if(comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields!", ("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                try
+                bool loginCheck = false;
+                login.role = comboBoxRole.Text;
+                login.username = textBoxUsername.Text;
+                login.password = textBoxPassword.Text;
+                login.CheckLoginCredentials();
+                loginCheck = login.userDetailsCorrect;
+                if (loginCheck == true)
                 {
-                    string query = "SELECT * FROM LogInDetails WHERE Role = '" + comboBoxRole.Text + "' AND Username = '" + textBoxUsername.Text + "' AND Password = '" + textBoxPassword.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(query, sqlConnection);
-                    DataTable dataTable = new DataTable();
-                    sda.Fill(dataTable);
-
-                    if (dataTable.Rows.Count > 0)
+                    if (comboBoxRole.Text == "Admin")
                     {
-                        sqlConnection.Close();
-                        if (windowToLoad == "Admin")
-                        {
-                            AdminMainMenu adminMainMenu = new AdminMainMenu();
-                            adminMainMenu.Show();
-                            this.Hide();
-                        }
-                        else if(windowToLoad == "Doctor")
-                        {
-                            DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
-                            doctorsMainMenu.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            NurseMainMenu nurseMainMenu = new NurseMainMenu();
-                            nurseMainMenu.Show();
-                            this.Hide();
-                        }
+                        AdminMainMenu adminMainMenu = new AdminMainMenu();
+                        adminMainMenu.Show();
+                        this.Hide();
+                    }
+                    else if (comboBoxRole.Text == "Doctor")
+                    {
+                        DoctorsMainMenu doctorsMainMenu = new DoctorsMainMenu();
+                        doctorsMainMenu.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBoxPassword.Clear();
+                        NurseMainMenu nurseMainMenu = new NurseMainMenu();
+                        nurseMainMenu.Show();
+                        this.Hide();
                     }
-
                 }
-                catch
+                else
                 {
-                    MessageBox.Show("Error");
-                }
-                finally
-                {
-                    sqlConnection.Close();
+                    MessageBox.Show("Invalid login details! Try Again!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxPassword.Clear();
                 }
             }
 

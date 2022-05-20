@@ -12,7 +12,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminEditUser : Form
     {
-        User user = new User();
+        UserLoginDetails userLoginDetails = new UserLoginDetails();
         public List<string> idAvailable = new List<string>();
 
         public AdminEditUser()
@@ -50,19 +50,19 @@ namespace HospitalInformationManagementSystem
                 }
                 else
                 {
-                    user.loginID = textBoxUserID.Text;
-                    user.GetUserDetails();
-                    comboBoxRole.Text = user.role;
-                    textBoxUsername.Text = user.username;
-                    textBoxPassword.Text = user.password;
+                    userLoginDetails.loginID = textBoxUserID.Text;
+                    userLoginDetails.GetUserDetails();
+                    comboBoxRole.Text = userLoginDetails.role;
+                    textBoxUsername.Text = userLoginDetails.username;
+                    textBoxPassword.Text = userLoginDetails.password;
                 }
             }
         }
 
         private void AdminEditUser_Load(object sender, EventArgs e)
         {
-            user.GetAllCurrentUserIDs();
-            idAvailable = user.currentExistingIDs;
+            userLoginDetails.GetAllCurrentUserIDs();
+            idAvailable = userLoginDetails.currentExistingIDs;
         }
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
@@ -119,11 +119,11 @@ namespace HospitalInformationManagementSystem
                 {
                     if (MessageBox.Show("Are you sure you would like to Edit UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                     {
-                        user.loginID = textBoxUserID.Text;
-                        user.role = comboBoxRole.Text;
-                        user.username = textBoxUsername.Text;
-                        user.password = textBoxPassword.Text;
-                        user.EditUser();
+                        userLoginDetails.loginID = textBoxUserID.Text;
+                        userLoginDetails.role = comboBoxRole.Text;
+                        userLoginDetails.username = textBoxUsername.Text;
+                        userLoginDetails.password = textBoxPassword.Text;
+                        userLoginDetails.EditUser();
 
                         MessageBox.Show("User details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                         textBoxUserID.Text = "";

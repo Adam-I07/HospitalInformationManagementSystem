@@ -12,7 +12,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminDeleteUser : Form
     {
-        User user = new User();
+        UserLoginDetails userLoginDetails = new UserLoginDetails();
         public List<string> idAvailable = new List<string>();
         public AdminDeleteUser()
         {
@@ -22,10 +22,10 @@ namespace HospitalInformationManagementSystem
         private void AdminDeleteUser_Load(object sender, EventArgs e)
         {
 
-            user.LoadCurrentDetails();
-            dataGridViewShowUserDetail.DataSource = user.currentUserDetails.Tables[0];
-            user.GetAllCurrentUserIDs();
-            idAvailable = user.currentExistingIDs;
+            userLoginDetails.LoadCurrentDetails();
+            dataGridViewShowUserDetail.DataSource = userLoginDetails.currentUserDetails.Tables[0];
+            userLoginDetails.GetAllCurrentUserIDs();
+            idAvailable = userLoginDetails.currentExistingIDs;
 
         }
 
@@ -59,8 +59,8 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to delete UserID = " + textBoxUserID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    user.loginID = textBoxUserID.Text;
-                    user.DeleteExistingUser();
+                    userLoginDetails.loginID = textBoxUserID.Text;
+                    userLoginDetails.DeleteExistingUser();
                     this.Close();
                     AdminPasswordManagement adminPasswordManagement = new AdminPasswordManagement();
                     adminPasswordManagement.Show();

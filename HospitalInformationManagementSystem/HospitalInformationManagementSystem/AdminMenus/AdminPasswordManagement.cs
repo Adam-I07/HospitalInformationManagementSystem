@@ -12,7 +12,7 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminPasswordManagement : Form
     {
-        User user = new User();
+        UserLoginDetails userLoginDetails = new UserLoginDetails();
 
         public AdminPasswordManagement()
         {
@@ -21,8 +21,8 @@ namespace HospitalInformationManagementSystem
 
         private void AdminPasswordManagement_Load(object sender, EventArgs e)
         {
-            user.LoadCurrentDetails();
-            dataGridViewLoginDetails.DataSource = user.currentUserDetails.Tables[0];
+            userLoginDetails.LoadCurrentDetails();
+            dataGridViewLoginDetails.DataSource = userLoginDetails.currentUserDetails.Tables[0];
 
         }
 
@@ -34,16 +34,16 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                user.userAddedFilter = comboBoxRoleFilter.Text;
-                user.FilterUserDetails();
-                dataGridViewLoginDetails.DataSource = user.currentUserDetails.Tables[0];
+                userLoginDetails.userAddedFilter = comboBoxRoleFilter.Text;
+                userLoginDetails.FilterUserDetails();
+                dataGridViewLoginDetails.DataSource = userLoginDetails.currentUserDetails.Tables[0];
             }
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            user.LoadCurrentDetails();
-            dataGridViewLoginDetails.DataSource = user.currentUserDetails.Tables[0];
+            userLoginDetails.LoadCurrentDetails();
+            dataGridViewLoginDetails.DataSource = userLoginDetails.currentUserDetails.Tables[0];
         }
 
         private void pictureBoxGoBack_Click(object sender, EventArgs e)

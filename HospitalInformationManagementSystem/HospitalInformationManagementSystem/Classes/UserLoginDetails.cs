@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HospitalInformationManagementSystem
 {
-    class User
+    class UserLoginDetails
     {
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
         string _loginID;
@@ -19,7 +19,7 @@ namespace HospitalInformationManagementSystem
         public DataSet currentUserDetails = new DataSet();
         public string userAddedFilter;
 
-        public User()
+        public UserLoginDetails()
         {
             _loginID = "";
             _role = "";
@@ -27,7 +27,7 @@ namespace HospitalInformationManagementSystem
             _password = "";
         }
 
-        public User(string loginID, string role, string username, string password)
+        public UserLoginDetails(string loginID, string role, string username, string password)
         {
             _loginID = loginID;
             _role = role;
