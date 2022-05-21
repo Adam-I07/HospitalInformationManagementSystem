@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class DoctorAddIllness : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        IllnessInformation illnessInformation = new IllnessInformation();
         public Int64 idNumber;
+        public List<string> idAvailable = new List<string>();
+        public List<string> patientIDCurrentlyUsed = new List<string>();
         public DoctorAddIllness()
         {
             InitializeComponent();
@@ -23,33 +24,26 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorAddIllness_Load(object sender, EventArgs e)
         {
-            
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(TreatmentID) from IllnessInformation";
 
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
+            illnessInformation.GetAllCurrentTreatmentIDs();
+            idAvailable = illnessInformation.currentExistingTreatmentIDs;
+            int nextAvailableID = 0;
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                int currentID = Convert.ToInt32(idAvailable[i]);
+                if (nextAvailableID < currentID)
+                {
+                    idNumber = currentID;
+                }
+            }
 
-            idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
             idNumber = idNumber + 1;
             labelTreatmentIDCurrent.Text = idNumber.ToString();
 
-            SqlCommand command2 = new SqlCommand();
-            command2.Connection = sqlConnection;
-            command2.CommandText = "select PatientID from PatientPersonalInformation";
-
-            SqlDataAdapter sqlDataAdapted2 = new SqlDataAdapter();
-            sqlDataAdapted2.SelectCommand = command2;
-            DataTable dataTable = new DataTable();
-            sqlDataAdapted2.Fill(dataTable);
-
-            comboBoxPatientID.DataSource = dataTable;
+            illnessInformation.GetAllCurrentPateintIDs();
+            comboBoxPatientID.DataSource = illnessInformation.currentExistingPatientIDs;
             comboBoxPatientID.DisplayMember = "PatientID";
             comboBoxPatientID.ValueMember = "PatientID";
-
-            sqlConnection.Close();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -78,16 +72,15 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = "insert into IllnessInformation(TreatmentID,PatientID,Illness,IllnessType,TreatmentStage,DateCheckedIn,DateCheckedOut,Notes) values ('" + idNumber + "', '" + comboBoxPatientID.Text + "','" + textBoxIllness.Text + "','" + textBoxIllnessType.Text + "','" + comboBoxTreatmentStage.Text + "','" + textBoxDateCheckedIn.Text + "','" + textBoxDateCheckedOut.Text + "','" + textBoxNotes.Text + "')";
-
-
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-                sqlConnection.Close();
-                sqlConnection.Close();
+                illnessInformation.treatmentID = labelTreatmentIDCurrent.Text;
+                illnessInformation.patientID = comboBoxPatientID.Text;
+                illnessInformation.illness = textBoxIllness.Text;
+                illnessInformation.illnessType = textBoxIllnessType.Text;
+                illnessInformation.treatmentStage = comboBoxTreatmentStage.Text;
+                illnessInformation.dateCheckedIn = textBoxDateCheckedIn.Text;
+                illnessInformation.dateCheckedOut = textBoxDateCheckedOut.Text;
+                illnessInformation.notes = textBoxNotes.Text;
+                illnessInformation.AddIllnessInformation();
                 MessageBox.Show("The Patient Illness Information has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
                 DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
                 doctorIllnessMenu.Show();

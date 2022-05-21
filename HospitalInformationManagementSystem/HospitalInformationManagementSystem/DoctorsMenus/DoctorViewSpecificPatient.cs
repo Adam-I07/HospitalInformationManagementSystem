@@ -22,7 +22,7 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorViewSpecificPatient_Load(object sender, EventArgs e)
         {
-            patientPersonalDetails.GetAllCurrentUserIDs();
+            patientPersonalDetails.GetAllCurrentPatientIDs();
             idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 

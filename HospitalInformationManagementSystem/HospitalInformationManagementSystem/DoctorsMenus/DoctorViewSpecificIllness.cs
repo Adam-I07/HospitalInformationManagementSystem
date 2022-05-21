@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class DoctorViewSpecificIllness : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        IllnessInformation illnessInformation = new IllnessInformation();
         public double maximumIDNumber;
         public List<string> idAvailable = new List<string>();
         public DoctorViewSpecificIllness()
@@ -24,52 +23,44 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorViewSpecificIllness_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(TreatmentID) from IllnessInformation";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-            sqlConnection.Close();
+            illnessInformation.GetAllCurrentTreatmentIDs();
+            idAvailable = illnessInformation.currentExistingTreatmentIDs;
 
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
-            
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxTreatmentID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
             if (textBoxTreatmentID.Text == "")
             {
                 MessageBox.Show("Please enter a Treatment ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                Double treatmentIDInputted = Convert.ToDouble(textBoxTreatmentID.Text);
-                if (treatmentIDInputted > maximumIDNumber || treatmentIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Treatment ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from IllnessInformation where TreatmentID = " + textBoxTreatmentID.Text + "";
-
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    labelPatientIDInsert.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    labelIllnessInsert.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    labelIllnessTypeInsert.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    labelTreatmentStageInsert.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    labelDateCheckedInInsert.Text = dataSet.Tables[0].Rows[0][5].ToString();
-                    labelDateCheckedOutInsert.Text = dataSet.Tables[0].Rows[0][6].ToString();
-                    textBoxNotesInsert.Text = dataSet.Tables[0].Rows[0][7].ToString();
-
+                    illnessInformation.treatmentID = textBoxTreatmentID.Text;
+                    illnessInformation.GetIllnessInformation();
+                    labelPatientIDInsert.Text = illnessInformation.patientID;
+                    labelIllnessInsert.Text = illnessInformation.illness;
+                    labelIllnessTypeInsert.Text = illnessInformation.illnessType;
+                    labelTreatmentStageInsert.Text = illnessInformation.treatmentStage;
+                    labelDateCheckedInInsert.Text = illnessInformation.dateCheckedIn;
+                    labelDateCheckedOutInsert.Text = illnessInformation.dateCheckedOut;
+                    textBoxNotesInsert.Text = illnessInformation.notes;
                 }
             }
         }

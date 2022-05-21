@@ -261,7 +261,7 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
-        public bool FilterUserDetails()
+        public bool FilterPatientDetails()
         {
             currentPatientDetails.Clear();
             sqlConnection.Open();
@@ -273,7 +273,7 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
-        public bool GetAllCurrentUserIDs()
+        public bool GetAllCurrentPatientIDs()
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;

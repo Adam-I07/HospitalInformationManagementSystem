@@ -23,7 +23,7 @@ namespace HospitalInformationManagementSystem
         private void DoctorAddPatient_Load(object sender, EventArgs e)
         {
 
-            patientPersonalDetails.GetAllCurrentUserIDs();
+            patientPersonalDetails.GetAllCurrentPatientIDs();
             idAvailable = patientPersonalDetails.currentExistingIDs;
             int nextAvailableID = 0;
             for (int i = 0; i < idAvailable.Count; i++)

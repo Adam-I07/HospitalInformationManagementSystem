@@ -23,7 +23,7 @@ namespace HospitalInformationManagementSystem
         {
             patientPersonalDetails.LoadCurrentDetails();
             dataGridViewShowUserDetail.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
-            patientPersonalDetails.GetAllCurrentUserIDs();
+            patientPersonalDetails.GetAllCurrentPatientIDs();
             idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 

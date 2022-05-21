@@ -58,6 +58,8 @@ namespace HospitalInformationManagementSystem
             this.textBoxTreatmentID = new System.Windows.Forms.MaskedTextBox();
             this.buttonFindID = new System.Windows.Forms.Button();
             this.labelPatientIDInsert = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -66,6 +68,8 @@ namespace HospitalInformationManagementSystem
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart2);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart1);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelEditIllnessText);
@@ -104,7 +108,7 @@ namespace HospitalInformationManagementSystem
             this.labelEditIllnessText.AutoSize = true;
             this.labelEditIllnessText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEditIllnessText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelEditIllnessText.Location = new System.Drawing.Point(163, 40);
+            this.labelEditIllnessText.Location = new System.Drawing.Point(162, 29);
             this.labelEditIllnessText.Name = "labelEditIllnessText";
             this.labelEditIllnessText.Size = new System.Drawing.Size(514, 42);
             this.labelEditIllnessText.TabIndex = 5;
@@ -360,6 +364,28 @@ namespace HospitalInformationManagementSystem
             this.labelPatientIDInsert.Size = new System.Drawing.Size(0, 24);
             this.labelPatientIDInsert.TabIndex = 100;
             // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(212, 86);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 14;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(212, 71);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 13;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            // 
             // DoctorEditIllness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -433,5 +459,7 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.MaskedTextBox textBoxTreatmentID;
         private System.Windows.Forms.Button buttonFindID;
         private System.Windows.Forms.Label labelPatientIDInsert;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
     }
 }

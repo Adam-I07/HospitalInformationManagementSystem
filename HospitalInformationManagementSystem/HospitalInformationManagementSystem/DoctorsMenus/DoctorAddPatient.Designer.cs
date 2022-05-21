@@ -771,7 +771,7 @@ namespace HospitalInformationManagementSystem
             this.textBoxPostcode.Location = new System.Drawing.Point(311, 588);
             this.textBoxPostcode.Mask = "AA00 0AA";
             this.textBoxPostcode.Name = "textBoxPostcode";
-            this.textBoxPostcode.Size = new System.Drawing.Size(62, 26);
+            this.textBoxPostcode.Size = new System.Drawing.Size(70, 26);
             this.textBoxPostcode.TabIndex = 93;
             this.textBoxPostcode.ValidatingType = typeof(int);
             // 

@@ -117,7 +117,7 @@ namespace HospitalInformationManagementSystem
             {
 
                 patientPersonalDetails.userFirstNameSearch = firstNameInputted;
-                patientPersonalDetails.FilterUserDetails();
+                patientPersonalDetails.FilterPatientDetails();
                 dataGridViewLoginDetails.DataSource = patientPersonalDetails.currentPatientDetails.Tables[0];
             }
         }

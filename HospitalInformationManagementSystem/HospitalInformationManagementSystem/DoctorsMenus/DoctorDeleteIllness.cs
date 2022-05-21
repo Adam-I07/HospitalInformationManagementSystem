@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class DoctorDeleteIllness : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        IllnessInformation illnessInformation = new IllnessInformation();
         public List<string> idAvailable = new List<string>();
+        public string idToDelete;
         public DoctorDeleteIllness()
         {
             InitializeComponent();
@@ -23,27 +23,17 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorDeleteIllness_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from IllnessInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
-            
-            foreach (DataGridViewRow item in dataGridViewDisplayIllnessInfo.Rows)
-            {
-                idAvailable.Add(item.Cells[0].Value.ToString());
-            }
+            illnessInformation.LoadCurrentDetails();
+            dataGridViewDisplayIllnessInfo.DataSource = illnessInformation.currentIllnessInformation.Tables[0];
+            illnessInformation.GetAllCurrentTreatmentIDs();
+            idAvailable = illnessInformation.currentExistingTreatmentIDs;
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
             String userIDInputted = textBoxTreatmentID.Text.ToString();
             bool isValidUserID = false;
+            idToDelete = textBoxTreatmentID.Text;
             for (int i = 0; i < idAvailable.Count(); i++)
             {
                 if (idAvailable[i] == userIDInputted)
@@ -65,18 +55,12 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to delete Treatment = " + textBoxTreatmentID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-
-                    command.CommandText = "delete from IllnessInformation where TreatmentID = '" + textBoxTreatmentID.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
+                    illnessInformation.treatmentID = textBoxTreatmentID.Text;
+                    illnessInformation.DeleteIllnessInformation();
                     this.Close();
                     DoctorIllnessMenu doctorIllnessMenu = new DoctorIllnessMenu();
                     doctorIllnessMenu.Show();
-                    MessageBox.Show("Patient Illness Information Deleted Successfully", "Illness Information Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
         }
