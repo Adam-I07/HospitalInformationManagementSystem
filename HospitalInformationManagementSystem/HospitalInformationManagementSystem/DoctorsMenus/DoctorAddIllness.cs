@@ -16,7 +16,6 @@ namespace HospitalInformationManagementSystem
         IllnessInformation illnessInformation = new IllnessInformation();
         public Int64 idNumber;
         public List<string> idAvailable = new List<string>();
-        public List<string> patientIDCurrentlyUsed = new List<string>();
         public DoctorAddIllness()
         {
             InitializeComponent();
@@ -40,7 +39,7 @@ namespace HospitalInformationManagementSystem
             idNumber = idNumber + 1;
             labelTreatmentIDCurrent.Text = idNumber.ToString();
 
-            illnessInformation.GetAllCurrentPateintIDs();
+            illnessInformation.GetAllCurrentPatientIDs();
             comboBoxPatientID.DataSource = illnessInformation.currentExistingPatientIDs;
             comboBoxPatientID.DisplayMember = "PatientID";
             comboBoxPatientID.ValueMember = "PatientID";

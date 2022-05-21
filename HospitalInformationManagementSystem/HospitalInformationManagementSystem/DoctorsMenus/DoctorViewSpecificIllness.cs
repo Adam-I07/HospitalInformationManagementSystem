@@ -14,7 +14,6 @@ namespace HospitalInformationManagementSystem
     public partial class DoctorViewSpecificIllness : Form
     {
         IllnessInformation illnessInformation = new IllnessInformation();
-        public double maximumIDNumber;
         public List<string> idAvailable = new List<string>();
         public DoctorViewSpecificIllness()
         {

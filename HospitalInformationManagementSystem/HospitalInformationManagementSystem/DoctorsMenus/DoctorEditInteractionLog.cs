@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class DoctorEditInteractionLog : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-        public double maximumIDNumber;
+        InteractionLog interactionLog = new InteractionLog();
+        public Int64 idNumber;
+        public List<string> idAvailable = new List<string>();
         public DoctorEditInteractionLog()
         {
             InitializeComponent();
@@ -23,48 +23,34 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorEditInteractionLog_Load(object sender, EventArgs e)
         {
-            
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(LogID) from InteractionLog";
 
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
+            interactionLog.GetAllCurrentlogIDs();
+            idAvailable = interactionLog.currentExistingLogIDs;
 
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-
-            SqlCommand command2 = new SqlCommand();
-            command2.Connection = sqlConnection;
-            command2.CommandText = "select PatientID from PatientPersonalInformation";
-
-            SqlDataAdapter sqlDataAdapted2 = new SqlDataAdapter();
-            sqlDataAdapted2.SelectCommand = command2;
-            DataTable dataTable = new DataTable();
-            sqlDataAdapted2.Fill(dataTable);
-
-            comboBoxPatientID.DataSource = dataTable;
+            interactionLog.GetAllCurrentPatientIDs();
+            comboBoxPatientID.DataSource = interactionLog.currentExistingPatientIDs;
             comboBoxPatientID.DisplayMember = "PatientID";
             comboBoxPatientID.ValueMember = "PatientID";
 
-            SqlCommand command3 = new SqlCommand();
-            command3.Connection = sqlConnection;
-            command3.CommandText = "select LogInID from LogInDetails";
-
-            SqlDataAdapter sqlDataAdapted3 = new SqlDataAdapter();
-            sqlDataAdapted3.SelectCommand = command3;
-            DataTable dataTable2 = new DataTable();
-            sqlDataAdapted3.Fill(dataTable2);
-
-            comboBoxLogInID.DataSource = dataTable2;
+            interactionLog.GetAllCurrentLoginIDs();
+            comboBoxLogInID.DataSource = interactionLog.currentExistingLoginIDs;
             comboBoxLogInID.DisplayMember = "LogInID";
             comboBoxLogInID.ValueMember = "LogInID";
-
-            sqlConnection.Close();
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxLogID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
+
             if (textBoxLogID.Text == "")
             {
                 MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -73,27 +59,20 @@ namespace HospitalInformationManagementSystem
             {
 
                 Double logIDInputted = Convert.ToDouble(textBoxLogID.Text);
-                if (logIDInputted > maximumIDNumber || logIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Log ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from InteractionLog where LogID = " + textBoxLogID.Text + "";
-
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    comboBoxLogInID.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    textBoxStaffName.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    comboBoxPatientID.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    textBoxDate.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    comboBoxShift.Text = dataSet.Tables[0].Rows[0][5].ToString();
-                    textBoxInteractionNotes.Text = dataSet.Tables[0].Rows[0][6].ToString();
+                    interactionLog.logID = textBoxLogID.Text;
+                    interactionLog.GetInteractionLog();
+                    comboBoxLogInID.Text = interactionLog.loginID;
+                    textBoxStaffName.Text = interactionLog.staffName;
+                    comboBoxPatientID.Text = interactionLog.patientID;
+                    textBoxDate.Text = interactionLog.date;
+                    comboBoxShift.Text = interactionLog.shift;
+                    textBoxInteractionNotes.Text = interactionLog.interactionNotes;
                 }
             }
         }
@@ -113,11 +92,15 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to Edit Log = " + textBoxLogID.Text + "'s Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    sqlConnection.Open();
-                    string query = "UPDATE InteractionLog SET LogInID = '" + comboBoxLogInID.Text + "', StaffName = '" + textBoxStaffName.Text + "', PatientID = '" + comboBoxPatientID.Text + "', Date = '" + textBoxDate.Text + "', Shift = '" + comboBoxShift.Text + "', InteractionNotes = '" + textBoxInteractionNotes.Text + "' where LogID = '" + textBoxLogID.Text + "'";
-                    SqlCommand command = new SqlCommand(query, sqlConnection);
-                    command.ExecuteNonQuery();
-                    sqlConnection.Close();
+                    interactionLog.logID = textBoxLogID.Text;
+                    interactionLog.loginID = comboBoxLogInID.Text;
+                    interactionLog.staffName = textBoxStaffName.Text;
+                    interactionLog.patientID = comboBoxPatientID.Text;
+                    interactionLog.date = textBoxDate.Text;
+                    interactionLog.shift = comboBoxShift.Text;
+                    interactionLog.interactionNotes = textBoxInteractionNotes.Text;
+                    interactionLog.EditIllnessInformation();
+
                     MessageBox.Show("Interaction Log Information successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                     textBoxLogID.Text = "";
                     comboBoxLogInID.Text = "";

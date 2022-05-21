@@ -7,16 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.DoctorsMenus
 {
 
     public partial class DoctorInteractionLogMenu : Form
     {
-        public List<string> idAvailable = new List<string>();
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-
+        InteractionLog interactionLog = new InteractionLog();
+        public List<string> idAvailable = new List<string>(); 
+        
         public DoctorInteractionLogMenu()
         {
             InitializeComponent();
@@ -24,16 +23,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorInteractionLogMenu_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
+            interactionLog.LoadCurrentDetails();
+            dataGridViewDisplayInteractionLoginfo.DataSource = interactionLog.currentInteractionLogDetails.Tables[0];
 
-            command.CommandText = "select * from InteractionLog";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayInteractionLoginfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
             foreach (DataGridViewRow item in dataGridViewDisplayInteractionLoginfo.Rows)
             {
                 idAvailable.Add(item.Cells[3].Value.ToString());
@@ -96,8 +88,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private void buttonViewSpecificInteractionLog_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DoctorViewSpecificInformationLog doctorViewSpecificInformationLog = new DoctorViewSpecificInformationLog();
-            doctorViewSpecificInformationLog.Show();
+            DoctorViewSpecificInteractionLog doctorViewSpecificInteractionLog = new DoctorViewSpecificInteractionLog();
+            doctorViewSpecificInteractionLog.Show();
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -123,31 +115,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
             else
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-
-                command.CommandText = "select * from InteractionLog where PatientID = " + textBoxSearchPatient.Text + "";
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-
-                dataGridViewDisplayInteractionLoginfo.DataSource = dataSet.Tables[0];
-                sqlConnection.Close();
+                interactionLog.userSelectedPatientID = textBoxSearchPatient.Text;
+                interactionLog.FilterIlnessInformation();
+                dataGridViewDisplayInteractionLoginfo.DataSource = interactionLog.currentInteractionLogDetails.Tables[0];
             }
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from InteractionLog";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayInteractionLoginfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
+            interactionLog.LoadCurrentDetails();
+            dataGridViewDisplayInteractionLoginfo.DataSource = interactionLog.currentInteractionLogDetails.Tables[0];
         }
     }
 }

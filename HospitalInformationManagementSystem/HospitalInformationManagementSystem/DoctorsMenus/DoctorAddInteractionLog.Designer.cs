@@ -305,7 +305,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelLogIDCurrent.AutoSize = true;
             this.labelLogIDCurrent.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLogIDCurrent.ForeColor = System.Drawing.Color.White;
-            this.labelLogIDCurrent.Location = new System.Drawing.Point(201, 132);
+            this.labelLogIDCurrent.Location = new System.Drawing.Point(215, 132);
             this.labelLogIDCurrent.Name = "labelLogIDCurrent";
             this.labelLogIDCurrent.Size = new System.Drawing.Size(0, 24);
             this.labelLogIDCurrent.TabIndex = 80;

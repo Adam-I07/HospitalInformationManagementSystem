@@ -77,8 +77,10 @@
       <DependentUpon>AdminPasswordManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\IllnessInformation.cs" />
+    <Compile Include="Classes\InteractionLog.cs" />
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\PatientPersonalDetails.cs" />
+    <Compile Include="Classes\Requests.cs" />
     <Compile Include="Classes\UserLoginDetails.cs" />
     <Compile Include="DoctorsMenus\DoctorDeleteInteractionLog.cs">
       <SubType>Form</SubType>
@@ -176,11 +178,11 @@
     <Compile Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.Designer.cs">
       <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsMenus\DoctorViewSpecificInformationLog.cs">
+    <Compile Include="DoctorsMenus\DoctorViewSpecificInteractionLog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoctorsMenus\DoctorViewSpecificInformationLog.Designer.cs">
-      <DependentUpon>DoctorViewSpecificInformationLog.cs</DependentUpon>
+    <Compile Include="DoctorsMenus\DoctorViewSpecificInteractionLog.Designer.cs">
+      <DependentUpon>DoctorViewSpecificInteractionLog.cs</DependentUpon>
     </Compile>
     <Compile Include="DoctorsMenus\DoctorViewSpecificPatient.cs">
       <SubType>Form</SubType>
@@ -349,8 +351,8 @@
     <EmbeddedResource Include="DoctorsMenus\DoctorsPatientPersonalInfoMenu.resx">
       <DependentUpon>DoctorsPatientPersonalInfoMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificInformationLog.resx">
-      <DependentUpon>DoctorViewSpecificInformationLog.cs</DependentUpon>
+    <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificInteractionLog.resx">
+      <DependentUpon>DoctorViewSpecificInteractionLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DoctorsMenus\DoctorViewSpecificPatient.resx">
       <DependentUpon>DoctorViewSpecificPatient.cs</DependentUpon>

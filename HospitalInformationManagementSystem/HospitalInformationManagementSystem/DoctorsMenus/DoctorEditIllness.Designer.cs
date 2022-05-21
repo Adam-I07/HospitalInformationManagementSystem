@@ -31,6 +31,8 @@ namespace HospitalInformationManagementSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoctorEditIllness));
             this.panelWhiteTop = new System.Windows.Forms.Panel();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.labelGoBack = new System.Windows.Forms.Label();
             this.pictureBoxGoBack = new System.Windows.Forms.PictureBox();
             this.labelEditIllnessText = new System.Windows.Forms.Label();
@@ -57,9 +59,7 @@ namespace HospitalInformationManagementSystem
             this.labelPatientID = new System.Windows.Forms.Label();
             this.textBoxTreatmentID = new System.Windows.Forms.MaskedTextBox();
             this.buttonFindID = new System.Windows.Forms.Button();
-            this.labelPatientIDInsert = new System.Windows.Forms.Label();
-            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
-            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
+            this.comboBoxPatientID = new System.Windows.Forms.ComboBox();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -78,6 +78,28 @@ namespace HospitalInformationManagementSystem
             this.panelWhiteTop.Name = "panelWhiteTop";
             this.panelWhiteTop.Size = new System.Drawing.Size(780, 107);
             this.panelWhiteTop.TabIndex = 12;
+            // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(212, 86);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 14;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(212, 71);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 13;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
             // 
             // labelGoBack
             // 
@@ -354,37 +376,15 @@ namespace HospitalInformationManagementSystem
             this.buttonFindID.UseVisualStyleBackColor = true;
             this.buttonFindID.Click += new System.EventHandler(this.buttonFindID_Click);
             // 
-            // labelPatientIDInsert
+            // comboBoxPatientID
             // 
-            this.labelPatientIDInsert.AutoSize = true;
-            this.labelPatientIDInsert.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatientIDInsert.ForeColor = System.Drawing.Color.White;
-            this.labelPatientIDInsert.Location = new System.Drawing.Point(313, 170);
-            this.labelPatientIDInsert.Name = "labelPatientIDInsert";
-            this.labelPatientIDInsert.Size = new System.Drawing.Size(0, 24);
-            this.labelPatientIDInsert.TabIndex = 100;
-            // 
-            // labelErrorDisclaimerTextPart2
-            // 
-            this.labelErrorDisclaimerTextPart2.AutoSize = true;
-            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(212, 86);
-            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
-            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
-            this.labelErrorDisclaimerTextPart2.TabIndex = 14;
-            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
-            // 
-            // labelErrorDisclaimerTextPart1
-            // 
-            this.labelErrorDisclaimerTextPart1.AutoSize = true;
-            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(212, 71);
-            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
-            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
-            this.labelErrorDisclaimerTextPart1.TabIndex = 13;
-            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            this.comboBoxPatientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPatientID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPatientID.FormattingEnabled = true;
+            this.comboBoxPatientID.Location = new System.Drawing.Point(317, 170);
+            this.comboBoxPatientID.Name = "comboBoxPatientID";
+            this.comboBoxPatientID.Size = new System.Drawing.Size(43, 28);
+            this.comboBoxPatientID.TabIndex = 100;
             // 
             // DoctorEditIllness
             // 
@@ -392,7 +392,7 @@ namespace HospitalInformationManagementSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(777, 452);
-            this.Controls.Add(this.labelPatientIDInsert);
+            this.Controls.Add(this.comboBoxPatientID);
             this.Controls.Add(this.textBoxTreatmentID);
             this.Controls.Add(this.buttonFindID);
             this.Controls.Add(this.comboBoxTreatmentStage);
@@ -458,8 +458,8 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.Label labelPatientID;
         private System.Windows.Forms.MaskedTextBox textBoxTreatmentID;
         private System.Windows.Forms.Button buttonFindID;
-        private System.Windows.Forms.Label labelPatientIDInsert;
         private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
         private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
+        private System.Windows.Forms.ComboBox comboBoxPatientID;
     }
 }

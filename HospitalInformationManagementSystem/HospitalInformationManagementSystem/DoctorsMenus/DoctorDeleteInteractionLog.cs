@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
@@ -15,8 +14,8 @@ namespace HospitalInformationManagementSystem
     public partial class DoctorDeleteInteractionLog : Form
     {
         public List<string> idAvailable = new List<string>();
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-
+        InteractionLog interactionLog = new InteractionLog();
+        public string idToDelete;
         public DoctorDeleteInteractionLog()
         {
             InitializeComponent();
@@ -24,21 +23,10 @@ namespace HospitalInformationManagementSystem
 
         private void DoctorDeleteInteractionLog_Load(object sender, EventArgs e)
         {
-             SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from InteractionLog";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayInteractionLoginfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
-
-            foreach (DataGridViewRow item in dataGridViewDisplayInteractionLoginfo.Rows)
-            {
-                idAvailable.Add(item.Cells[0].Value.ToString());
-            }
+            interactionLog.LoadCurrentDetails();
+            dataGridViewDisplayInteractionLoginfo.DataSource = interactionLog.currentInteractionLogDetails.Tables[0];
+            interactionLog.GetAllCurrentlogIDs();
+            idAvailable = interactionLog.currentExistingLogIDs;
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
@@ -66,18 +54,12 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to delete Log = " + textBoxLogID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-
-                    command.CommandText = "delete from InteractionLog where LogID = '" + textBoxLogID.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
+                    interactionLog.logID = textBoxLogID.Text;
+                    interactionLog.DeleteIlnteractionLog();
+                    MessageBox.Show("Interaction Log Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                     DoctorInteractionLogMenu doctorInteractionLogMenu = new DoctorInteractionLogMenu();
                     doctorInteractionLogMenu.Show();
-                    MessageBox.Show("Interaction Log Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

@@ -178,7 +178,7 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
-        public bool GetAllCurrentPateintIDs()
+        public bool GetAllCurrentPatientIDs()
         {
             SqlCommand command = new SqlCommand();
             command.Connection = sqlConnection;

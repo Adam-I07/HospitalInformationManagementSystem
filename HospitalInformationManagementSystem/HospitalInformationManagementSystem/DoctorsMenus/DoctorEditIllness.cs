@@ -25,6 +25,10 @@ namespace HospitalInformationManagementSystem
         {
             illnessInformation.GetAllCurrentTreatmentIDs();
             idAvailable = illnessInformation.currentExistingTreatmentIDs;
+            illnessInformation.GetAllCurrentPatientIDs();
+            comboBoxPatientID.DataSource = illnessInformation.currentExistingPatientIDs;
+            comboBoxPatientID.DisplayMember = "PatientID";
+            comboBoxPatientID.ValueMember = "PatientID";
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
@@ -55,7 +59,7 @@ namespace HospitalInformationManagementSystem
 
                     illnessInformation.treatmentID = textBoxTreatmentID.Text;
                     illnessInformation.GetIllnessInformation();
-                    labelPatientIDInsert.Text = illnessInformation.patientID;
+                    comboBoxPatientID.Text = illnessInformation.patientID;
                     textBoxIllness.Text = illnessInformation.illness;
                     textBoxIllnessType.Text = illnessInformation.illnessType;
                     comboBoxTreatmentStage.Text = illnessInformation.treatmentStage;
@@ -82,7 +86,7 @@ namespace HospitalInformationManagementSystem
                 checkedOutDate = "00-00-0000";
             }
 
-            if (labelPatientIDInsert.Text == "" || textBoxIllness.Text == "" || textBoxIllnessType.Text == "" || comboBoxTreatmentStage.Text == "" || textBoxDateCheckedIn.Text == "" || checkedOutDate == "" || notes == "")
+            if (comboBoxPatientID.Text == "" || textBoxIllness.Text == "" || textBoxIllnessType.Text == "" || comboBoxTreatmentStage.Text == "" || textBoxDateCheckedIn.Text == "" || checkedOutDate == "" || notes == "")
             {
                 MessageBox.Show("Please fill in all the fields!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -94,7 +98,8 @@ namespace HospitalInformationManagementSystem
             {
                 if (MessageBox.Show("Are you sure you would like to Edit Treatment " + textBoxTreatmentID.Text + "'s Information?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    illnessInformation.patientID = labelPatientIDInsert.Text;
+                    illnessInformation.treatmentID = textBoxTreatmentID.Text;
+                    illnessInformation.patientID = comboBoxPatientID.Text;
                     illnessInformation.illness = textBoxIllness.Text;
                     illnessInformation.illnessType = textBoxIllnessType.Text;
                     illnessInformation.treatmentStage = comboBoxTreatmentStage.Text;
@@ -105,7 +110,7 @@ namespace HospitalInformationManagementSystem
 
                     MessageBox.Show("Patient Illness Information details successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
                     textBoxTreatmentID.Text = "";
-                    labelPatientIDInsert.Text = "";
+                    comboBoxPatientID.Text = "";
                     textBoxIllness.Text = "";
                     textBoxIllnessType.Text = "";
                     comboBoxTreatmentStage.ResetText();
