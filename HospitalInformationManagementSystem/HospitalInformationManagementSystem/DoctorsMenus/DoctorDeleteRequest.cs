@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorDeleteRequest : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        Requests requests = new Requests();
         public List<string> idAvailable = new List<string>();
         public DoctorDeleteRequest()
         {
@@ -22,20 +21,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorDeleteRequest_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from Requests";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewRequestsView.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
-            foreach (DataGridViewRow item in dataGridViewRequestsView.Rows)
-            {
-                idAvailable.Add(item.Cells[0].Value.ToString());
-            }
+            requests.LoadCurrentRequests();
+            dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
+            requests.GetAllCurrentRequestID();
+            idAvailable = requests.currentExistingRequestIDs;
         }
 
         private void buttonDeleteUser_Click(object sender, EventArgs e)
@@ -63,18 +52,12 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             {
                 if (MessageBox.Show("Are you sure you would like to delete Request = " + textBoxRequestID.Text + "?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-
-                    command.CommandText = "delete from Requests where RequestID = '" + textBoxRequestID.Text + "'";
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
+                    requests.requestID = textBoxRequestID.Text;
+                    requests.DeleteRequest();
+                    MessageBox.Show("Request Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                     DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
                     doctorRequestMenu.Show();
-                    MessageBox.Show("Request Deleted Successfully", "Interaction Log Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

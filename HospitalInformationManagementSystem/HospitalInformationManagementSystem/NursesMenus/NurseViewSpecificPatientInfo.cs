@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class NurseViewSpecificPatientInfo : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
+        public List<string> idAvailable = new List<string>();
         public double maximumIDNumber;
         public NurseViewSpecificPatientInfo()
         {
@@ -22,58 +22,52 @@ namespace HospitalInformationManagementSystem
 
         private void NurseViewSpecificPatientInfo_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(PatientID) from PatientPersonalInformation";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-            sqlConnection.Close();
+            patientPersonalDetails.GetAllCurrentPatientIDs();
+            idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxPatientID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
+
             if (textBoxPatientID.Text == "")
             {
                 MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } 
+            }
             else
             {
-
-                Double userIDInputted = Convert.ToDouble(textBoxPatientID.Text);
-                if (userIDInputted > maximumIDNumber || userIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Patient ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from PatientPersonalInformation where PatientID = " + textBoxPatientID.Text + "";
-
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    labelNHSNumberInput.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    labelFirstNameInput.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    labelMiddleNameInput.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    labelLastNameInput.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    labelAgeInput.Text = dataSet.Tables[0].Rows[0][5].ToString();
-                    labelGenderInput.Text = dataSet.Tables[0].Rows[0][6].ToString();
-                    labelDateOfBirthInput.Text = dataSet.Tables[0].Rows[0][7].ToString();
-                    labelCountryOfBirthInput.Text = dataSet.Tables[0].Rows[0][8].ToString();
-                    labelEmailInput.Text = dataSet.Tables[0].Rows[0][9].ToString();
-                    labelPhoneNumberInput.Text = dataSet.Tables[0].Rows[0][10].ToString();
-                    labelHomeNumberInput.Text = dataSet.Tables[0].Rows[0][11].ToString();
-                    labelAddressInput.Text = dataSet.Tables[0].Rows[0][12].ToString();
-                    labelCityInput.Text = dataSet.Tables[0].Rows[0][13].ToString();
-                    labelPostcodeInput.Text = dataSet.Tables[0].Rows[0][14].ToString();
-                    labelBloodTypeInput.Text = dataSet.Tables[0].Rows[0][15].ToString();
+                    patientPersonalDetails.patientID = textBoxPatientID.Text;
+                    patientPersonalDetails.GetPatientDetails();
+                    labelNHSNumberInput.Text = patientPersonalDetails.nhsNumber;
+                    labelFirstNameInput.Text = patientPersonalDetails.firstName;
+                    labelMiddleNameInput.Text = patientPersonalDetails.middleName;
+                    labelLastNameInput.Text = patientPersonalDetails.lastName;
+                    labelAgeInput.Text = patientPersonalDetails.age;
+                    labelGenderInput.Text = patientPersonalDetails.gender;
+                    labelDateOfBirthInput.Text = patientPersonalDetails.dateOfBirth;
+                    labelCountryOfBirthInput.Text = patientPersonalDetails.countryOfBirth;
+                    labelEmailInput.Text = patientPersonalDetails.email;
+                    labelPhoneNumberInput.Text = patientPersonalDetails.phoneNumber;
+                    labelHomeNumberInput.Text = patientPersonalDetails.homeNumber;
+                    labelAddressInput.Text = patientPersonalDetails.address;
+                    labelCityInput.Text = patientPersonalDetails.city;
+                    labelPostcodeInput.Text = patientPersonalDetails.postcode;
+                    labelBloodTypeInput.Text = patientPersonalDetails.bloodType;
                 }
 
             }

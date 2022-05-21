@@ -14,6 +14,7 @@ namespace HospitalInformationManagementSystem.NursesMenus
     public partial class NurseViewExistingRequests : Form
     {
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        Requests requests = new Requests();
 
         public NurseViewExistingRequests()
         {
@@ -22,16 +23,8 @@ namespace HospitalInformationManagementSystem.NursesMenus
 
         private void NurseViewExistingRequests_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from Requests";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewRequestsView.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
+            requests.LoadCurrentRequests();
+            dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
@@ -42,31 +35,17 @@ namespace HospitalInformationManagementSystem.NursesMenus
             }
             else
             {
-                sqlConnection.Open();
-                string query = "select * from Requests where RequestStatus = '" + comboBoxRequestStatus.SelectedItem.ToString() + "'";
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, sqlConnection);
-                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(sqlDataAdapter);
-                DataSet dataSet = new DataSet();
-                sqlDataAdapter.Fill(dataSet);
-                dataGridViewRequestsView.DataSource = dataSet.Tables[0];
-                sqlConnection.Close();
+                requests.userSelectedFilter = comboBoxRequestStatus.Text;
+                requests.FilterIlnessInformation();
+                dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
             }
 
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            comboBoxRequestStatus.Text = "";
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from Requests";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewRequestsView.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
+            requests.LoadCurrentRequests();
+            dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
         }
 
         private void buttonViewSpecificRequest_Click(object sender, EventArgs e)

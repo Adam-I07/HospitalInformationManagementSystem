@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorRespondToRequest : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-        public double maximumIDNumber;
+        Requests requests = new Requests();
+        public List<string> idAvailable = new List<string>();
         public DoctorRespondToRequest()
         {
             InitializeComponent();
@@ -22,22 +21,22 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void DoctorRespondToRequest_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(RequestID) from Requests";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-
-
-            sqlConnection.Close();
+            requests.GetAllCurrentRequestID();
+            idAvailable = requests.currentExistingRequestIDs;
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxRequestID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
             if (textBoxRequestID.Text == "")
             {
                 MessageBox.Show("Please enter a RequestID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,27 +44,20 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             else
             {
 
-                Double requestIDInputted = Convert.ToDouble(textBoxRequestID.Text);
-                if (requestIDInputted > maximumIDNumber || requestIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The RequestID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from Requests where RequestID = " + textBoxRequestID.Text + "";
+                    requests.requestID = textBoxRequestID.Text;
+                    requests.GetRequest();
+                    labelUserIDInput.Text = requests.userID;
+                    labelRequestDateInput.Text = requests.requestDate;
+                    comboBoxRequestStatus.Text = requests.requestStatus;
+                    textBoxRequest.Text = requests.request;
+                    textBoxRequestResponse.Text = requests.requestResponse;
 
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    labelUserIDInput.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    labelRequestDateInput.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    comboBoxRequestStatus.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    textBoxRequest.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    textBoxRequestResponse.Text = dataSet.Tables[0].Rows[0][5].ToString();
                 }
             }
         }
@@ -78,19 +70,19 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
             else
             {
-                sqlConnection.Open();
-                string query = "UPDATE Requests SET UserID = '" + labelUserIDInput.Text + "', RequestDate = '" + labelRequestDateInput.Text + "', RequestStatus = '" + comboBoxRequestStatus.Text + "', Request = '" + textBoxRequest.Text + "', RequestResponse = '" + textBoxRequestResponse.Text + "' where RequestID = '" + textBoxRequestID.Text + "'";
-                SqlCommand command = new SqlCommand(query, sqlConnection);
-                command.ExecuteNonQuery();
-                sqlConnection.Close();
+                requests.requestID = textBoxRequestID.Text;
+                requests.userID = labelUserIDInput.Text;
+                requests.requestDate = labelRequestDate.Text;
+                requests.requestStatus = comboBoxRequestStatus.Text;
+                requests.request = textBoxRequest.Text;
+                requests.requestResponse = textBoxRequestResponse.Text;
+                requests.RespondToRequest();
+
                 MessageBox.Show("Response successfully updated. ", "Updated", MessageBoxButtons.OK, MessageBoxIcon.None);
-                textBoxRequestID.Text = "";
-                labelUserIDInput.Text = "";
-                labelRequestDateInput.Text = "";
-                comboBoxRequestStatus.Text = "";
-                textBoxRequest.Text = "";
-                textBoxRequestResponse.Text = "";
-               
+                this.Close();
+                DoctorRequestMenu doctorRequestMenu = new DoctorRequestMenu();
+                doctorRequestMenu.Show();
+
             }
         }
 

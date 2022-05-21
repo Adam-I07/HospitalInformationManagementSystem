@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class NurseAddInteractionLog : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        InteractionLog interactionLog = new InteractionLog();
         public Int64 idNumber;
+        public List<string> idAvailable = new List<string>();
         public NurseAddInteractionLog()
         {
             InitializeComponent();
@@ -22,45 +22,30 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 
         private void NurseAddInteractionLog_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(LogID) from InteractionLog";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            idNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
+            interactionLog.GetAllCurrentlogIDs();
+            idAvailable = interactionLog.currentExistingLogIDs;
+            int nextAvailableID = 0;
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                int currentID = Convert.ToInt32(idAvailable[i]);
+                if (nextAvailableID < currentID)
+                {
+                    idNumber = currentID;
+                }
+            }
             idNumber = idNumber + 1;
             labelLogIDCurrent.Text = idNumber.ToString();
 
-            SqlCommand command2 = new SqlCommand();
-            command2.Connection = sqlConnection;
-            command2.CommandText = "select PatientID from PatientPersonalInformation";
-
-            SqlDataAdapter sqlDataAdapted2 = new SqlDataAdapter();
-            sqlDataAdapted2.SelectCommand = command2;
-            DataTable dataTable = new DataTable();
-            sqlDataAdapted2.Fill(dataTable);
-
-            comboBoxPatientID.DataSource = dataTable;
+            interactionLog.GetAllCurrentPatientIDs();
+            comboBoxPatientID.DataSource = interactionLog.currentExistingPatientIDs;
             comboBoxPatientID.DisplayMember = "PatientID";
             comboBoxPatientID.ValueMember = "PatientID";
 
-            SqlCommand command3 = new SqlCommand();
-            command3.Connection = sqlConnection;
-            command3.CommandText = "select LogInID from LogInDetails";
-
-            SqlDataAdapter sqlDataAdapted3 = new SqlDataAdapter();
-            sqlDataAdapted3.SelectCommand = command3;
-            DataTable dataTable2 = new DataTable();
-            sqlDataAdapted3.Fill(dataTable2);
-
-            comboBoxLoginID.DataSource = dataTable2;
+            interactionLog.GetAllCurrentLoginIDs();
+            comboBoxLoginID.DataSource = interactionLog.currentExistingLoginIDs;
             comboBoxLoginID.DisplayMember = "LogInID";
             comboBoxLoginID.ValueMember = "LogInID";
 
-            sqlConnection.Close();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -76,16 +61,15 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
             else
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = "insert into InteractionLog(LogID,LogInID,StaffName,PatientID,Date,Shift,InteractionNotes) values ('" + idNumber + "', '" + comboBoxLoginID.Text + "','" + textBoxStaffName.Text + "','" + comboBoxPatientID.Text + "','" + textBoxDate.Text + "','" + comboBoxShift.Text + "','" + textBoxInteractionNotes.Text + "')";
+                interactionLog.logID = labelLogIDCurrent.Text;
+                interactionLog.loginID = comboBoxLoginID.Text;
+                interactionLog.staffName = textBoxStaffName.Text;
+                interactionLog.patientID = comboBoxPatientID.Text;
+                interactionLog.date = textBoxDate.Text;
+                interactionLog.shift = comboBoxShift.Text;
+                interactionLog.interactionNotes = textBoxInteractionNotes.Text;
+                interactionLog.AddInteractionLog();
 
-
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-                sqlConnection.Close();
-                sqlConnection.Close();
                 MessageBox.Show("The Interaction has been added successfully", "Added", MessageBoxButtons.OK, MessageBoxIcon.None);
                 NurseInteractionLogMenu nurseInteractionLogMenu = new NurseInteractionLogMenu();
                 nurseInteractionLogMenu.Show();
@@ -94,6 +78,22 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult;
+            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                NurseInteractionLogMenu nurseInteractionLogMenu = new NurseInteractionLogMenu();
+                nurseInteractionLogMenu.Show();
+                this.Close();
+            }
+            else
+            {
+                this.Show();
+            }
+        }
+
+        private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
             dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -125,20 +125,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
-        private void pictureBoxGoBack_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult;
-            dialogResult = MessageBox.Show("Are you sure you would like to go back?", "Go Back", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                NurseInteractionLogMenu nurseInteractionLogMenu = new NurseInteractionLogMenu();
-                nurseInteractionLogMenu.Show();
-                this.Close();
-            }
-            else
-            {
-                this.Show();
-            }
-        }
+
     }
 }
+

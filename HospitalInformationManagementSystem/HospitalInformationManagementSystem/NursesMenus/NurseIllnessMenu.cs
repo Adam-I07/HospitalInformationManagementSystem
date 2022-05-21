@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class NurseIllnessMenu : Form
     {
+        IllnessInformation illnessInformation = new IllnessInformation();
         public List<string> idAvailable = new List<string>();
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-
         public NurseIllnessMenu()
         {
             InitializeComponent();
@@ -23,16 +21,8 @@ namespace HospitalInformationManagementSystem
 
         private void NurseIllnessMenu_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-
-            command.CommandText = "select * from IllnessInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
+            illnessInformation.LoadCurrentDetails();
+            dataGridViewDisplayIllnessInfo.DataSource = illnessInformation.currentIllnessInformation.Tables[0];
 
             foreach (DataGridViewRow item in dataGridViewDisplayIllnessInfo.Rows)
             {
@@ -63,31 +53,17 @@ namespace HospitalInformationManagementSystem
             }
             else
             {
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-
-                command.CommandText = "select * from IllnessInformation where PatientID = " + textBoxSearchPatient.Text + "";
-                SqlDataAdapter sda = new SqlDataAdapter(command);
-                DataSet dataSet = new DataSet();
-                sda.Fill(dataSet);
-
-                dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
-                sqlConnection.Close();
+                illnessInformation.userSelectedPatientID = patientIDInputted;
+                illnessInformation.FilterIlnessInformation();
+                dataGridViewDisplayIllnessInfo.DataSource = illnessInformation.currentIllnessInformation.Tables[0];
             }
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
+            illnessInformation.LoadCurrentDetails();
+            dataGridViewDisplayIllnessInfo.DataSource = illnessInformation.currentIllnessInformation.Tables[0];
 
-            command.CommandText = "select * from IllnessInformation";
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            dataGridViewDisplayIllnessInfo.DataSource = dataSet.Tables[0];
-            sqlConnection.Close();
         }
 
         private void buttonViewSpecificIllnessInformation_Click(object sender, EventArgs e)

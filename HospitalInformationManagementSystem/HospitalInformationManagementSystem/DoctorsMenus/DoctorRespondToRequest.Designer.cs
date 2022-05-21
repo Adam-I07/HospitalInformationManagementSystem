@@ -52,6 +52,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.buttonRespond = new System.Windows.Forms.Button();
             this.labelUserIDInput = new System.Windows.Forms.Label();
             this.labelRequestDateInput = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -60,6 +62,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart2);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart1);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelRespondToRequestText);
@@ -98,7 +102,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelRespondToRequestText.AutoSize = true;
             this.labelRespondToRequestText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRespondToRequestText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelRespondToRequestText.Location = new System.Drawing.Point(194, 37);
+            this.labelRespondToRequestText.Location = new System.Drawing.Point(195, 26);
             this.labelRespondToRequestText.Name = "labelRespondToRequestText";
             this.labelRespondToRequestText.Size = new System.Drawing.Size(340, 42);
             this.labelRespondToRequestText.TabIndex = 5;
@@ -303,6 +307,28 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             this.labelRequestDateInput.TabIndex = 109;
             this.labelRequestDateInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(180, 83);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 18;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(180, 68);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 17;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            // 
             // DoctorRespondToRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +391,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
         private System.Windows.Forms.Button buttonRespond;
         private System.Windows.Forms.Label labelUserIDInput;
         private System.Windows.Forms.Label labelRequestDateInput;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
     }
 }

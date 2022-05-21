@@ -57,6 +57,8 @@ namespace HospitalInformationManagementSystem
             this.labelIllnessType = new System.Windows.Forms.Label();
             this.labelIllness = new System.Windows.Forms.Label();
             this.labelPatientID = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart2 = new System.Windows.Forms.Label();
+            this.labelErrorDisclaimerTextPart1 = new System.Windows.Forms.Label();
             this.panelWhiteTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGoBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHospitalLogo)).BeginInit();
@@ -65,6 +67,8 @@ namespace HospitalInformationManagementSystem
             // panelWhiteTop
             // 
             this.panelWhiteTop.BackColor = System.Drawing.Color.White;
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart2);
+            this.panelWhiteTop.Controls.Add(this.labelErrorDisclaimerTextPart1);
             this.panelWhiteTop.Controls.Add(this.labelGoBack);
             this.panelWhiteTop.Controls.Add(this.pictureBoxGoBack);
             this.panelWhiteTop.Controls.Add(this.labelViewllnessText);
@@ -103,7 +107,7 @@ namespace HospitalInformationManagementSystem
             this.labelViewllnessText.AutoSize = true;
             this.labelViewllnessText.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelViewllnessText.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.labelViewllnessText.Location = new System.Drawing.Point(165, 38);
+            this.labelViewllnessText.Location = new System.Drawing.Point(165, 25);
             this.labelViewllnessText.Name = "labelViewllnessText";
             this.labelViewllnessText.Size = new System.Drawing.Size(524, 42);
             this.labelViewllnessText.TabIndex = 5;
@@ -351,6 +355,28 @@ namespace HospitalInformationManagementSystem
             this.labelPatientID.TabIndex = 138;
             this.labelPatientID.Text = "Patient ID:";
             // 
+            // labelErrorDisclaimerTextPart2
+            // 
+            this.labelErrorDisclaimerTextPart2.AutoSize = true;
+            this.labelErrorDisclaimerTextPart2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart2.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart2.Location = new System.Drawing.Point(223, 82);
+            this.labelErrorDisclaimerTextPart2.Name = "labelErrorDisclaimerTextPart2";
+            this.labelErrorDisclaimerTextPart2.Size = new System.Drawing.Size(372, 15);
+            this.labelErrorDisclaimerTextPart2.TabIndex = 132;
+            this.labelErrorDisclaimerTextPart2.Text = "number in the middle of the textbox it will comeback as an ERROR! ";
+            // 
+            // labelErrorDisclaimerTextPart1
+            // 
+            this.labelErrorDisclaimerTextPart1.AutoSize = true;
+            this.labelErrorDisclaimerTextPart1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorDisclaimerTextPart1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.labelErrorDisclaimerTextPart1.Location = new System.Drawing.Point(223, 67);
+            this.labelErrorDisclaimerTextPart1.Name = "labelErrorDisclaimerTextPart1";
+            this.labelErrorDisclaimerTextPart1.Size = new System.Drawing.Size(396, 15);
+            this.labelErrorDisclaimerTextPart1.TabIndex = 131;
+            this.labelErrorDisclaimerTextPart1.Text = "Note: Enter ID from the first available point in the textbox. If you enter a ";
+            // 
             // NurseViewSpecificIllness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,5 +449,7 @@ namespace HospitalInformationManagementSystem
         private System.Windows.Forms.Label labelIllnessType;
         private System.Windows.Forms.Label labelIllness;
         private System.Windows.Forms.Label labelPatientID;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart2;
+        private System.Windows.Forms.Label labelErrorDisclaimerTextPart1;
     }
 }

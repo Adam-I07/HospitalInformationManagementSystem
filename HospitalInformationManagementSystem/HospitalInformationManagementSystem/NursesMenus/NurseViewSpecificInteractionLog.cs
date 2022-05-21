@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using HospitalInformationManagementSystem.DoctorsMenus;
 
 namespace HospitalInformationManagementSystem
 {
     public partial class NurseViewSpecificInteractionLog : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-        public double maximumIDNumber;
+        InteractionLog interactionLog = new InteractionLog();
+        public List<string> idAvailable = new List<string>();
         public NurseViewSpecificInteractionLog()
         {
             InitializeComponent();
@@ -23,20 +22,22 @@ namespace HospitalInformationManagementSystem
 
         private void NurseViewSpecificInteractionLog_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand();
-            command.Connection = sqlConnection;
-            command.CommandText = "select max(LogID) from InteractionLog";
-
-            SqlDataAdapter sda = new SqlDataAdapter(command);
-            DataSet dataSet = new DataSet();
-            sda.Fill(dataSet);
-
-            maximumIDNumber = Convert.ToInt64(dataSet.Tables[0].Rows[0][0]);
-            sqlConnection.Close();
+            interactionLog.GetAllCurrentlogIDs();
+            idAvailable = interactionLog.currentExistingLogIDs;
         }
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
+            bool userExists = false;
+            String userIDInputted = Convert.ToString(textBoxLogID.Text);
+
+            for (int i = 0; i < idAvailable.Count; i++)
+            {
+                if (userIDInputted == idAvailable[i])
+                {
+                    userExists = true;
+                }
+            }
             if (textBoxLogID.Text == "")
             {
                 MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -44,28 +45,21 @@ namespace HospitalInformationManagementSystem
             else
             {
                 Double logIDInputted = Convert.ToDouble(textBoxLogID.Text);
-                if (logIDInputted > maximumIDNumber || logIDInputted <= 0)
+                if (userExists == false)
                 {
                     MessageBox.Show("The Log ID you have entered is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = sqlConnection;
-                    command.CommandText = "select * from InteractionLog where LogID = " + textBoxLogID.Text + "";
+                    interactionLog.logID = textBoxLogID.Text;
+                    interactionLog.GetInteractionLog();
 
-                    SqlDataAdapter sda = new SqlDataAdapter(command);
-                    DataSet dataSet = new DataSet();
-                    sda.Fill(dataSet);
-                    sqlConnection.Close();
-
-                    labelLogInIDInsert.Text = dataSet.Tables[0].Rows[0][1].ToString();
-                    labelStaffNameInsert.Text = dataSet.Tables[0].Rows[0][2].ToString();
-                    labelPatientIDInsert.Text = dataSet.Tables[0].Rows[0][3].ToString();
-                    labelDateInsert.Text = dataSet.Tables[0].Rows[0][4].ToString();
-                    labelShiftInsert.Text = dataSet.Tables[0].Rows[0][5].ToString();
-                    textBoxInteractionNotes.Text = dataSet.Tables[0].Rows[0][6].ToString();
+                    labelLogInIDInsert.Text = interactionLog.loginID;
+                    labelStaffNameInsert.Text = interactionLog.staffName;
+                    labelPatientIDInsert.Text = interactionLog.patientID;
+                    labelDateInsert.Text = interactionLog.date;
+                    labelShiftInsert.Text = interactionLog.shift;
+                    textBoxInteractionNotes.Text = interactionLog.interactionNotes;
 
                 }
             }
