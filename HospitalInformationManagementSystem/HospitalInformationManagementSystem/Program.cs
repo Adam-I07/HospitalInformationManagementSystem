@@ -17,7 +17,7 @@ namespace HospitalInformationManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NurseMainMenu()); 
+            Application.Run(new StartLoadingWindow()); 
         }
     }
 }

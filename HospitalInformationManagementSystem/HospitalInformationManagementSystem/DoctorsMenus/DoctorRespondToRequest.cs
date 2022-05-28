@@ -72,7 +72,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             {
                 requests.requestID = textBoxRequestID.Text;
                 requests.userID = labelUserIDInput.Text;
-                requests.requestDate = labelRequestDate.Text;
+                requests.requestDate = labelRequestDateInput.Text;
                 requests.requestStatus = comboBoxRequestStatus.Text;
                 requests.request = textBoxRequest.Text;
                 requests.requestResponse = textBoxRequestResponse.Text;
