@@ -40,7 +40,7 @@ namespace HospitalInformationManagementSystem.NursesMenus
 
             if (textBoxRequestID.Text == "")
             {
-                MessageBox.Show("Please enter a RequestID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Request ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

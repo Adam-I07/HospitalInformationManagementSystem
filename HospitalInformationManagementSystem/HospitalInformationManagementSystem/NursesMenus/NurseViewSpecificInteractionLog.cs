@@ -40,7 +40,7 @@ namespace HospitalInformationManagementSystem
             }
             if (textBoxLogID.Text == "")
             {
-                MessageBox.Show("Please enter a Patient ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter a Log ID to search!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
