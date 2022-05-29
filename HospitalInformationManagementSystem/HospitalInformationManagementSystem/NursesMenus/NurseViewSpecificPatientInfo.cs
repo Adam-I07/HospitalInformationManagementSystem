@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem
 {
     public partial class NurseViewSpecificPatientInfo : Form
     {
+        //Calls and assigns the PatientPersonalInformation class ready to use
         PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public double maximumIDNumber;
         public NurseViewSpecificPatientInfo()
@@ -20,11 +23,15 @@ namespace HospitalInformationManagementSystem
             InitializeComponent();
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void NurseViewSpecificPatientInfo_Load(object sender, EventArgs e)
         {
             patientPersonalDetails.GetAllCurrentPatientIDs();
             idAvailable = patientPersonalDetails.currentExistingIDs;
         }
+
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+        *gets all the data assosciated with that ID and sends it back which is then displayed for the user to see*/
 
         private void buttonFindID_Click(object sender, EventArgs e)
         {
@@ -73,6 +80,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+
+        //Clears all the fields ready to show new information
         private void buttonNewSearch_Click(object sender, EventArgs e)
         {
             textBoxPatientID.Text = "";
@@ -93,6 +102,9 @@ namespace HospitalInformationManagementSystem
             labelBloodTypeInput.Text = "";
         }
 
+
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

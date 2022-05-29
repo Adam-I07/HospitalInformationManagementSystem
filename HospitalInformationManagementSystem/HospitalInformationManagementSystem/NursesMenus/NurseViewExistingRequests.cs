@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace HospitalInformationManagementSystem.NursesMenus
 {
     public partial class NurseViewExistingRequests : Form
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        //Calls and assigns the Requests class ready to use
         Requests requests = new Requests();
 
         public NurseViewExistingRequests()
@@ -21,12 +20,14 @@ namespace HospitalInformationManagementSystem.NursesMenus
             InitializeComponent();
         }
 
+        //Gets all the current Requests from the Class and displays them in DataGridView for the user to see.
         private void NurseViewExistingRequests_Load(object sender, EventArgs e)
         {
             requests.LoadCurrentRequests();
             dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
         }
 
+        //Checks the input in the textbox to make sure it is not empty and sends the input to the Requests class and gets the information back which is displayed in the DataGridView to see
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (comboBoxRequestStatus.Text == "")
@@ -42,12 +43,14 @@ namespace HospitalInformationManagementSystem.NursesMenus
 
         }
 
+        //Resets the DataGridView to the original details that are loaded when the menu is first clicked.
         private void buttonReset_Click(object sender, EventArgs e)
         {
             requests.LoadCurrentRequests();
             dataGridViewRequestsView.DataSource = requests.currentRequests.Tables[0];
         }
 
+        //Displays the ViewSpecificRequest Window
         private void buttonViewSpecificRequest_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -55,6 +58,8 @@ namespace HospitalInformationManagementSystem.NursesMenus
             nurseViewSpecificRequest.Show();
         }
 
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

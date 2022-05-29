@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminAddNewUser : Form
     {
+        //Calls and assigns the UserLoginDetails class ready to use
         UserLoginDetails userLoginDetails = new UserLoginDetails();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public Int64 idNumber;
         public AdminAddNewUser()
@@ -20,6 +23,8 @@ namespace HospitalInformationManagementSystem
             InitializeComponent();
         }
 
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void labelGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -102,6 +107,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //When the window is first loaded the system gets all the current ID's in the database and assigns them to the id available list, which then assigns the next available ID the user can use
         private void AdminAddNewUser_Load(object sender, EventArgs e)
         {
             userLoginDetails.GetAllCurrentUserIDs();
@@ -120,6 +126,8 @@ namespace HospitalInformationManagementSystem
             labelUserIDCurrent.Text = idNumber.ToString();
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

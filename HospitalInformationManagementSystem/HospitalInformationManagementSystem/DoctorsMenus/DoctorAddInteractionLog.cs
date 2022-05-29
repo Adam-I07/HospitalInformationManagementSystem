@@ -13,7 +13,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorAddInteractionLog : Form
     {
+        //Calls and assigns the Interaction Log class ready to use
         InteractionLog interactionLog = new InteractionLog();
+
+        //local variables used within this form
         public Int64 idNumber;
         public List<string> idAvailable = new List<string>();
         public DoctorAddInteractionLog()
@@ -21,6 +24,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             InitializeComponent();
         }
 
+
+        /*When the window is first loaded the system gets all the current ID's in the database and assigns them to the id available list, which then assigns the next available ID the user can use
+        Also gets all the LogIn ID used and enters them into the combo box for User ID*/
         private void DoctorAddInteractionLog_Load(object sender, EventArgs e)
         {
             interactionLog.GetAllCurrentlogIDs();
@@ -48,6 +54,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             comboBoxLoginID.ValueMember = "LogInID";
         }
 
+
+        /*When the User clicks the Add button the system validates all the fields to make sure they are corrent.
+         * If the fields are correct they are sent to the class to add to the database. If this is all done successfully
+         * the user is returned back to the menu before*/
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             string date = textBoxDate.Text;
@@ -77,6 +87,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

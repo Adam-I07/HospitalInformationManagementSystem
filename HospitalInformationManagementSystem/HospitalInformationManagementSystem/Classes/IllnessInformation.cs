@@ -10,7 +10,9 @@ namespace HospitalInformationManagementSystem
 {
     class IllnessInformation
     {
+        //Connecting to the Database
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        /*All the private variables that will be used to store the values pulled from the User input are created here*/
         string _treatmentID;
         string _patientID;
         string _illness;
@@ -19,11 +21,14 @@ namespace HospitalInformationManagementSystem
         string _dateCheckedIn;
         string _dateCheckedOut;
         string _notes;
+
+        //local variables used within the class
         public DataSet currentIllnessInformation = new DataSet();
         public string userSelectedPatientID;
         public List<string> currentExistingTreatmentIDs = new List<string>();
         public DataTable currentExistingPatientIDs = new DataTable();
 
+        //Sets all the private variables to null ready to store values
         public IllnessInformation()
         {
             _treatmentID = "";
@@ -36,6 +41,7 @@ namespace HospitalInformationManagementSystem
             _notes = "";
         }
 
+        //Assigns the values of the private variables to local strings.
         public IllnessInformation(string treatmentID, string patientID, string illness, string illnessType, string treatmentStage, string dateCheckedIn, string dateCheckedOut, string notes)
         {
             _treatmentID = treatmentID;
@@ -48,6 +54,8 @@ namespace HospitalInformationManagementSystem
             _notes = notes;
         }
 
+        /*These get and set functions are assigned the private variables containing the values from the form
+        ready to use via public strings created below.*/
         public string treatmentID
         {
             get
@@ -137,6 +145,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //This function gets all the data stored within the IllnessInformation table in the database for the system to use and display
         public bool LoadCurrentDetails()
         {
             currentIllnessInformation.Clear();
@@ -151,6 +160,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets data from the database using a specfic input entered by the user
         public bool FilterIlnessInformation()
         {
             currentIllnessInformation.Clear();
@@ -162,6 +172,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Treatment ID used in the IllnessInformation Table in the database
         public bool GetAllCurrentTreatmentIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -178,6 +190,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Patient ID used in the PatientPersonalInformation Table in the database
         public bool GetAllCurrentPatientIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -190,6 +204,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Once the user has inputted new data to save this function will assign it to the database variables and send it to the database to save
         public string AddIllnessInformation()
         {
             SqlCommand command = new SqlCommand();
@@ -202,6 +217,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return "Successful";
         }
+
+        //Gets all the changes that the user wishes to make and sends it to the database in a query that will complete the change
         public bool EditIllnessInformation()
         {
             sqlConnection.Open();
@@ -212,6 +229,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets the IllnessInformation that the user requests from the database
         public bool GetIllnessInformation()
         {
 
@@ -233,6 +251,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets the Log the user wishes to delete and sends it to the database to complete the request
         public string DeleteIllnessInformation()
         {
             SqlCommand command = new SqlCommand();

@@ -16,8 +16,10 @@ namespace HospitalInformationManagementSystem
         {
             InitializeComponent();
         }
+        //Timer
         int timerBeginning = 0;
 
+        //Times the timer to tick for 500 seconds then displays the Login form menu
         private void timer1_Tick(object sender, EventArgs e)
         {
             timerBeginning += 1;
@@ -31,6 +33,7 @@ namespace HospitalInformationManagementSystem
                 this.Hide();
             }
         }
+        //Starts the timer as soon as the window is loaded
         private void StartLoadingWindow_Load(object sender, EventArgs e)
         {
             timer.Start();

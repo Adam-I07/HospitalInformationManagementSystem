@@ -17,7 +17,7 @@ namespace HospitalInformationManagementSystem
             InitializeComponent();
         }
 
-
+        //If the LogOut text or picture is selected the system will log the user out and display the Login page
         private void labelLogOutText_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -50,6 +50,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //If the login detail picture or text is clicked the AdminPasswordManagement Window will open
         private void pictureBoxLoginDetailsLogo_Click(object sender, EventArgs e)
         {
             this.Hide();

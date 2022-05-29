@@ -13,19 +13,26 @@ namespace HospitalInformationManagementSystem
 {
     public partial class NurseViewSpecificInteractionLog : Form
     {
+        //Calls and assigns the InteractionLog class ready to use
         InteractionLog interactionLog = new InteractionLog();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public NurseViewSpecificInteractionLog()
         {
             InitializeComponent();
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void NurseViewSpecificInteractionLog_Load(object sender, EventArgs e)
         {
             interactionLog.GetAllCurrentlogIDs();
             idAvailable = interactionLog.currentExistingLogIDs;
         }
 
+
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+        *gets all the data assosciated with that ID and sends it back which is then displayed for the user to see*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -65,6 +72,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Clears all the fields ready to show new information
         private void buttonNewSearch_Click(object sender, EventArgs e)
         {
             textBoxLogID.Text = "";
@@ -76,6 +84,8 @@ namespace HospitalInformationManagementSystem
             textBoxInteractionNotes.Text = "";
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

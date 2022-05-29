@@ -10,7 +10,9 @@ namespace HospitalInformationManagementSystem
 {
     class InteractionLog
     {
+        //Connecting to the Database
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+        /*All the private variables that will be used to store the values pulled from the User input are created here*/
         string _logID;
         string _loginID;
         string _staffName;
@@ -19,11 +21,14 @@ namespace HospitalInformationManagementSystem
         string _shift;
         string _interactionNotes;
         public string userSelectedPatientID;
+
+        //local variables used within the class
         public DataSet currentInteractionLogDetails = new DataSet();
         public List<string> currentExistingLogIDs = new List<string>();
         public DataTable currentExistingPatientIDs = new DataTable();
         public DataTable currentExistingLoginIDs = new DataTable();
 
+        //Sets all the private variables to null ready to store values
         public InteractionLog()
         {
             _logID = "";
@@ -34,6 +39,8 @@ namespace HospitalInformationManagementSystem
             _shift = "";
             _interactionNotes = "";
         }
+
+        //Assigns the values of the private variables to local strings.
         public InteractionLog(string logID, string loginID, string staffName, string patientID, string date, string shift, string interactionNotes)
         {
             _logID = logID;
@@ -44,6 +51,9 @@ namespace HospitalInformationManagementSystem
             _shift = shift;
             _interactionNotes = interactionNotes;
         }
+
+        /*These get and set functions are assigned the private variables containing the values from the form
+        ready to use via public strings created below.*/
         public string logID
         {
             get
@@ -121,6 +131,8 @@ namespace HospitalInformationManagementSystem
                 _interactionNotes = value;
             }
         }
+
+        //This function gets all the data stored within the InteractionLog table in the database for the system to use and display
         public bool LoadCurrentDetails()
         {
             currentInteractionLogDetails.Clear();
@@ -134,6 +146,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Patient ID used in the PatientPersonalInformation Table in the database
         public bool GetAllCurrentPatientIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -146,6 +160,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets data from the database using a specfic input entered by the user
         public bool FilterIlnessInformation()
         {
             currentInteractionLogDetails.Clear();
@@ -157,6 +173,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Log ID used in the InteractionLog Table in the database
         public bool GetAllCurrentlogIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -174,6 +192,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets all the current Login ID used in the LoginDetails Table in the database
         public bool GetAllCurrentLoginIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -187,6 +206,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Once the user has inputted new data to save this function will assign it to the database variables and send it to the database to save
         public string AddInteractionLog()
         {
             SqlCommand command = new SqlCommand();
@@ -200,6 +220,7 @@ namespace HospitalInformationManagementSystem
             return "Successful";
         }
 
+        //Gets the Log that the user requests from the database
         public bool GetInteractionLog()
         {
 
@@ -220,6 +241,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the changes that the user wishes to make and sends it to the database in a query that will complete the change
         public bool EditIllnessInformation()
         {
             sqlConnection.Open();
@@ -229,6 +252,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets the Log the user wishes to delete and sends it to the database to complete the request
         public string DeleteIlnteractionLog()
         {
             SqlCommand command = new SqlCommand();

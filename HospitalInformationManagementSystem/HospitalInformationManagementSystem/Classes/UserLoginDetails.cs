@@ -10,15 +10,21 @@ namespace HospitalInformationManagementSystem
 {
     class UserLoginDetails
     {
+        //Connecting to the Database
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+
+        /*All the private variables that will be used to store the values pulled from the User input are created here*/
         string _loginID;
         string _role;
         string _username;
         string _password;
+
+        //local variables used within the class
         public List<string> currentExistingIDs = new List<string>();
         public DataSet currentUserDetails = new DataSet();
         public string userAddedFilter;
 
+        //Sets all the private variables to null ready to store values
         public UserLoginDetails()
         {
             _loginID = "";
@@ -27,6 +33,7 @@ namespace HospitalInformationManagementSystem
             _password = "";
         }
 
+        //Assigns the values of the private variables to local strings.
         public UserLoginDetails(string loginID, string role, string username, string password)
         {
             _loginID = loginID;
@@ -35,6 +42,8 @@ namespace HospitalInformationManagementSystem
             _password = password;
         }
 
+        /*These get and set functions are assigned the private variables containing the values from the form
+        ready to use via public strings created below.*/
         public string loginID
         {
             get
@@ -81,6 +90,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //This function gets all the data stored within the LogInDetails table in the database for the system to use and display
         public bool LoadCurrentDetails()
         {
             currentUserDetails.Clear();
@@ -95,6 +105,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets data from the database using a specfic input entered by the user
         public bool FilterUserDetails()
         {
             currentUserDetails.Clear();
@@ -106,6 +117,9 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+
+        //Once the user has inputted new data to save this function will assign it to the database variables and send it to the database to save
         public string AddUser()
         {
             try
@@ -131,6 +145,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Gets all the changes that the user wishes to make and sends it to the database in a query that will complete the change
         public bool EditUser()
         {
             sqlConnection.Open();
@@ -141,6 +156,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets all the current Login ID used in the LogInDetails Table in the database
         public bool GetAllCurrentUserIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -158,7 +174,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
-
+        //Gets the LogInDetails that the user requests from the database
         public bool GetUserDetails()
         {
 
@@ -177,6 +193,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets the LogInDetails the user wishes to delete and sends it to the database to complete the request
         public string DeleteExistingUser()
         {
             SqlCommand command = new SqlCommand();

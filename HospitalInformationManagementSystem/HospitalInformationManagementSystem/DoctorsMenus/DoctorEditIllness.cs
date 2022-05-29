@@ -13,14 +13,18 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorEditIllness : Form
     {
-
+        //Calls and assigns the IllnessInformation class ready to use
         IllnessInformation illnessInformation = new IllnessInformation();
+        
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public DoctorEditIllness()
         {
             InitializeComponent();
         }
 
+        /*Gets all the current ID from the class and stores them in idAvailable list to use.
+        * Also gets the information to display in the combo boxes from the class.*/
         private void DoctorEditIllness_Load(object sender, EventArgs e)
         {
             illnessInformation.GetAllCurrentTreatmentIDs();
@@ -31,6 +35,9 @@ namespace HospitalInformationManagementSystem
             comboBoxPatientID.ValueMember = "PatientID";
         }
 
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+         * gets all the data assosciated with that ID and sends it back which is then displayed for the user to see
+         * and edit*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -70,6 +77,10 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+
+        /*Once the user has edited the information they wish and clicked the update button. The system validates the inputted fields
+         * and if successful sends them to the class to update. After doing that this window displays a messagebox letting the user know 
+         the information was updated successfully and clears all the fields ready for to edit again.*/
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             string checkedInDate = textBoxDateCheckedIn.Text;
@@ -121,6 +132,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void labelGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

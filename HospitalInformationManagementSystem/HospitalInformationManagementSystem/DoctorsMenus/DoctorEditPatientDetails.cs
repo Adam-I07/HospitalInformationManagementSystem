@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorEditPatientDetails : Form
     {
+        //Calls and assigns the PatientPersonalDetails class ready to use
         PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
+
+        //local variables used within this form
         public double maximumIDNumber;
         public List<string> idAvailable = new List<string>();
         public DoctorEditPatientDetails()
@@ -20,12 +23,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             InitializeComponent();
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void DoctorEditPatientDetails_Load(object sender, EventArgs e)
         {
             patientPersonalDetails.GetAllCurrentPatientIDs();
             idAvailable = patientPersonalDetails.currentExistingIDs;
         }
 
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+        * gets all the data assosciated with that ID and sends it back which is then displayed for the user to see
+        * and edit*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -72,6 +79,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+
+        /*Once the user has edited the information they wish and clicked the update button. The system validates the inputted fields
+         * and if successful sends them to the class to update. After doing that this window displays a messagebox letting the user know 
+         the information was updated successfully and clears all the fields ready for to edit again.*/
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             string nhsNumber = textBoxNHSNumber.Text;
@@ -147,6 +158,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

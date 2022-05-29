@@ -13,12 +13,17 @@ namespace HospitalInformationManagementSystem
 {
     public partial class LoginForm : Form
     {
+        //calls the login class
         Login login = new Login();
         public LoginForm()
         {
             InitializeComponent();
             textBoxPassword.UseSystemPasswordChar = true;
         }
+
+        /*When the user presses the login button the system validates to make sure the fields are filled in. If the fields are filled
+         * the system sends the credentials to the Login class to dealwith. Depending on the response will display an invalid details 
+         * message box or load the appropriate menu according to what role the user holds*/
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if(comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
@@ -63,6 +68,7 @@ namespace HospitalInformationManagementSystem
 
         }
 
+        //When the user presses the exit button a message box is displayed to make sure the user wants to exit, if they do it will close the application
         private void buttonExitApplication_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -77,6 +83,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+
+        //Shows the password field if this box is checked
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             if(checkBoxShowPassword.Checked == true)

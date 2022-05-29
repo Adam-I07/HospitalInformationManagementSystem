@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem
 {
     public partial class AdminEditUser : Form
     {
+        //Calls and assigns the UserLoginDetails class ready to use
         UserLoginDetails userLoginDetails = new UserLoginDetails();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
 
         public AdminEditUser()
@@ -20,6 +23,10 @@ namespace HospitalInformationManagementSystem
             InitializeComponent();
         }
 
+
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+         * gets all the data assosciated with that ID and sends it back which is then displayed for the user to see
+         * and edit*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -59,11 +66,17 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void AdminEditUser_Load(object sender, EventArgs e)
         {
             userLoginDetails.GetAllCurrentUserIDs();
             idAvailable = userLoginDetails.currentExistingIDs;
         }
+
+
+        /*Once the user has edited the information they wish and clicked the update button. The system validates the inputted fields
+         * and if successful sends them to the class to update. After doing that this window displays a messagebox letting the user know 
+         the information was updated successfully and clears all the fields ready for to edit again.*/
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             if (textBoxUserID.Text == "" || comboBoxRole.Text == "" || textBoxUsername.Text == "" || textBoxPassword.Text == "")
@@ -135,6 +148,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

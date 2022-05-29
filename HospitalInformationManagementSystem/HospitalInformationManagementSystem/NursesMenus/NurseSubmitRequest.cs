@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem.NursesMenus
 {
     public partial class NurseSubmitRequest : Form
     {
+        //Calls and assigns the Requests class ready to use
         Requests requests = new Requests();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public Int64 idNumber;
         public NurseSubmitRequest()
@@ -20,6 +23,9 @@ namespace HospitalInformationManagementSystem.NursesMenus
             InitializeComponent();
         }
 
+
+        /*When the window is first loaded the system gets all the current ID's in the database and assigns them to the id available list, which then assigns the next available ID the user can use
+        Also gets all the LogIn ID used and enters them into the combo box for User ID*/
         private void NurseSubmitRequest_Load(object sender, EventArgs e)
         {
             requests.GetAllCurrentRequestID();
@@ -42,6 +48,10 @@ namespace HospitalInformationManagementSystem.NursesMenus
             comboBoxUserID.ValueMember = "LogInID";
         }
 
+
+        /*When the User clicks the Submit button the system validates all the fields to make sure they are corrent.
+        * If the fields are correct they are sent to the class to add to the database. If this is all done successfully
+        * the user is returned back to the menu before*/
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
             if (comboBoxUserID.Text == "" || textBoxRequest.Text == "")
@@ -63,6 +73,9 @@ namespace HospitalInformationManagementSystem.NursesMenus
             }
         }
 
+
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+          this window is closed and the previous menu is displayed*/
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -94,6 +107,7 @@ namespace HospitalInformationManagementSystem.NursesMenus
                 this.Show();
             }
         }
+
 
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {

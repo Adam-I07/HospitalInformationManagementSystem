@@ -12,7 +12,10 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorViewSpecificRequest : Form
     {
+        //Calls and assigns the InteractionLog class ready to use
         Requests requests = new Requests();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
 
         public DoctorViewSpecificRequest()
@@ -20,12 +23,16 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             InitializeComponent();
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void DoctorViewSpecificRequest_Load(object sender, EventArgs e)
         {
             requests.GetAllCurrentRequestID();
             idAvailable = requests.currentExistingRequestIDs;
         }
 
+
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+        *gets all the data assosciated with that ID and sends it back which is then displayed for the user to see*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -62,6 +69,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+        //Clears all the fields ready to show new information
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -78,6 +86,8 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+         this window is closed and the previous menu is displayed*/
         private void labelGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;

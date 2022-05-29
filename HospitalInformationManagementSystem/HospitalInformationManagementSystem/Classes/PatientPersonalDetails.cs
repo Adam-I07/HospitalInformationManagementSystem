@@ -10,7 +10,10 @@ namespace HospitalInformationManagementSystem
 {
     class PatientPersonalDetails
     {
+        //Connecting to the Database
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+
+        /*All the private variables that will be used to store the values pulled from the User input are created here*/
         string _patientID;
         string _nhsNumber;
         string _firstName;
@@ -27,10 +30,13 @@ namespace HospitalInformationManagementSystem
         string _city;
         string _postcode;
         string _bloodType;
+
+        //local variables used within the class
         public List<string> currentExistingIDs = new List<string>();
         public DataSet currentPatientDetails = new DataSet();
         public string userFirstNameSearch;
 
+        //Sets all the private variables to null ready to store values
         public PatientPersonalDetails()
         {
             _patientID = "";
@@ -51,6 +57,7 @@ namespace HospitalInformationManagementSystem
             _bloodType = "";
         }
 
+        //Assigns the values of the private variables to local strings.
         public PatientPersonalDetails(string patientID, string nhsNumber, string firstName, string middleName, string lastName, string age, string gender, string dateOfBirth, string countryOfBirth, string email, string phoneNumber, string homeNumber, string address, string city, string postcode, string bloodType)
         {
             _patientID = patientID;
@@ -71,6 +78,8 @@ namespace HospitalInformationManagementSystem
             _bloodType = bloodType;
         }
 
+        /*These get and set functions are assigned the private variables containing the values from the form
+        ready to use via public strings created below.*/
         public string patientID
         {
             get
@@ -249,6 +258,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //This function gets all the data stored within the PateintPersonalInformation table in the database for the system to use and display
         public bool LoadCurrentDetails()
         {
             currentPatientDetails.Clear();
@@ -261,6 +271,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets data from the database using a specfic input entered by the user
         public bool FilterPatientDetails()
         {
             currentPatientDetails.Clear();
@@ -273,6 +285,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Patient ID used in the LogInDetails Table in the database
         public bool GetAllCurrentPatientIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -289,6 +303,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Once the user has inputted new data to save this function will assign it to the database variables and send it to the database to save
         public string AddPatient()
         {
             SqlCommand command = new SqlCommand();
@@ -301,6 +317,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return "Successful";
         }
+
+        //Gets the PatientPersonalInformation that the user requests from the database
         public bool GetPatientDetails()
         {
 
@@ -329,6 +347,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the changes that the user wishes to make and sends it to the database in a query that will complete the change
         public bool EditPatient()
         {
             sqlConnection.Open();
@@ -338,6 +358,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets the Patient ID of Patient the user wishes to delete and sends it to the database to complete the request
         public string DeleteExistingPatient()
         {
             SqlCommand command = new SqlCommand();

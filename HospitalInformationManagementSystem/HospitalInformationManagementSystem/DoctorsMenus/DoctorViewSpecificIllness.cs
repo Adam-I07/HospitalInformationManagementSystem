@@ -13,13 +13,17 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorViewSpecificIllness : Form
     {
+        //Calls and assigns the IllnessInformation class ready to use
         IllnessInformation illnessInformation = new IllnessInformation();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public DoctorViewSpecificIllness()
         {
             InitializeComponent();
         }
 
+        //Gets all the current ID from the class and stores them in idAvailable list to use
         private void DoctorViewSpecificIllness_Load(object sender, EventArgs e)
         {
             illnessInformation.GetAllCurrentTreatmentIDs();
@@ -27,6 +31,8 @@ namespace HospitalInformationManagementSystem
 
         }
 
+        /*Once the user presses Find the ID inputted is validates and sent to the class if successful. The class
+        * gets all the data assosciated with that ID and sends it back which is then displayed for the user to see*/
         private void buttonFindID_Click(object sender, EventArgs e)
         {
             bool userExists = false;
@@ -64,6 +70,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Clears all the fields ready to show new information
         private void buttonNewSearch_Click(object sender, EventArgs e)
         {
             textBoxTreatmentID.Text = "";
@@ -76,6 +83,10 @@ namespace HospitalInformationManagementSystem
             textBoxNotesInsert.Text = "";
         }
 
+
+
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -91,6 +102,7 @@ namespace HospitalInformationManagementSystem
                 this.Show();
             }
         }
+
 
         private void labelGoBack_Click(object sender, EventArgs e)
         {

@@ -10,18 +10,25 @@ namespace HospitalInformationManagementSystem
 {
     class Requests
     {
+        //Connecting to the Database
         SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-AG0H67T\SQLEXPRESS;Initial Catalog=HIMSDatabase;Integrated Security=True");
+
+        /*All the private variables that will be used to store the values pulled from the User input are created here*/
         string _requestID;
         string _userID;
         string _requestDate;
         string _requestStatus;
         string _request;
         string _requestResponse;
+
+        //local variables used within the class
         public DataSet currentRequests = new DataSet();
         public string userSelectedFilter;
         public List<String> currentExistingRequestIDs = new List<string>();
         public DataTable currentExistingLoginIDs = new DataTable();
 
+
+        //Sets all the private variables to null ready to store values
         public Requests()
         {
             _requestID = "";
@@ -32,6 +39,7 @@ namespace HospitalInformationManagementSystem
             _requestResponse = "";
         }
 
+        //Assigns the values of the private variables to local strings.
         public Requests(string requestID, string userID, string requestDate, string requestStatus, string request, string requestResponse)
         {
             _requestID = requestID;
@@ -41,6 +49,9 @@ namespace HospitalInformationManagementSystem
             _request = request;
             _requestResponse = requestResponse;
         }
+
+        /*These get and set functions are assigned the private variables containing the values from the form
+        ready to use via public strings created below.*/
         public string requestID
         {
             get
@@ -107,6 +118,8 @@ namespace HospitalInformationManagementSystem
                 _requestResponse = value;
             }
         }
+
+        //This function gets all the data stored within the Requests table in the database for the system to use and display
         public bool LoadCurrentRequests()
         {
             currentRequests.Clear();
@@ -120,6 +133,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets data from the database using a specfic input entered by the user
         public bool FilterIlnessInformation()
         {
             currentRequests.Clear();
@@ -131,6 +146,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Request ID used in the Requests Table in the database
         public bool GetAllCurrentRequestID()
         {
             SqlCommand command = new SqlCommand();
@@ -147,6 +164,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Once the user has inputted new data to save this function will assign it to the database variables and send it to the database to save
         public bool SubmitRequest()
         {
             string date = DateTime.UtcNow.ToString("dd-MM-yyyy");
@@ -163,6 +182,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets all the current Login ID used in the LogInDetails Table in the database
         public bool GetAllCurrentLoginIDs()
         {
             SqlCommand command = new SqlCommand();
@@ -175,6 +196,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets the Request that the user wants from the database
         public bool GetRequest()
         {
 
@@ -195,6 +218,7 @@ namespace HospitalInformationManagementSystem
             return true;
         }
 
+        //Gets the response the user enters and sends it to the database to save
         public bool RespondToRequest()
         {
             sqlConnection.Open();
@@ -204,6 +228,8 @@ namespace HospitalInformationManagementSystem
             sqlConnection.Close();
             return true;
         }
+
+        //Gets the Request the user wishes to delete and sends it to the database to delete
         public string DeleteRequest()
         {
             SqlCommand command = new SqlCommand();

@@ -12,13 +12,18 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
 {
     public partial class DoctorDeleteRequest : Form
     {
+        //Calls and assigns the Requests class ready to use
         Requests requests = new Requests();
+
+        //local variables used within this form
         public List<string> idAvailable = new List<string>();
         public DoctorDeleteRequest()
         {
             InitializeComponent();
         }
 
+        /*Gets all the current Requests from the Class and displays them in DataGridView for the user to see.
+         * While also getting all the current IDs used and stores them in the idAvailable list*/
         private void DoctorDeleteRequest_Load(object sender, EventArgs e)
         {
             requests.LoadCurrentRequests();
@@ -27,6 +32,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             idAvailable = requests.currentExistingRequestIDs;
         }
 
+
+        /*When the User presses the Delete button the system validates the ID. If it passes the validation the ID
+        * is sent to the class to delete. Once successfully deleted the system closes this window and displays the previous one*/
         private void buttonDeleteUser_Click(object sender, EventArgs e)
         {
             String userIDInputted = textBoxRequestID.Text.ToString();
@@ -62,6 +70,9 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
