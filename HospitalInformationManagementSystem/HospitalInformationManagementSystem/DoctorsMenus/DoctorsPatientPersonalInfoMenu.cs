@@ -14,13 +14,18 @@ namespace HospitalInformationManagementSystem
 {
     public partial class DoctorsPatientPersonalInfoMenu : Form
     {
+        //Calls and assigns the Requests class ready to use
         PatientPersonalDetails patientPersonalDetails = new PatientPersonalDetails();
+
+        //Local variables
         public List<string> currentPatientFirstName = new List<string>();
         public DoctorsPatientPersonalInfoMenu()
         {
             InitializeComponent();
         }
 
+        //Gets all the current Illness Information from the Class and displays them in DataGridView for the user to see.
+        //Also the data in the cell 1 of the DataGridView which is the Firstname column is stored in the currentPatientFirstName list.
         private void DoctorsPatientPersonalInfoMenu_Load(object sender, EventArgs e)
         {
             patientPersonalDetails.LoadCurrentDetails();
@@ -32,6 +37,8 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        /*The following functions do the same thing. They show a message box to the user to confirm they would like to go back. If they press yes
+        this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -64,6 +71,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Displays the AddPatient Form and closes this Form
         private void buttonAddNewPatient_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -71,6 +79,7 @@ namespace HospitalInformationManagementSystem
             doctorAddPatient.Show();
         }
 
+        //Displays the EditPatient Form and closes this Form
         private void buttonEditPatient_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -78,6 +87,7 @@ namespace HospitalInformationManagementSystem
             doctorEditPatientDetails.Show();
         }
 
+        //Displays the DeletePatientPersonalInformation Form and closes this Form
         private void buttonDeletePatient_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -85,6 +95,7 @@ namespace HospitalInformationManagementSystem
             doctorDeletePatientPersonalInfo.Show();
         }
 
+        //Displays the ViewSpecificPatient Form and closes this Form
         private void buttonViewPatient_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -92,6 +103,7 @@ namespace HospitalInformationManagementSystem
             doctorViewSpecificPatient.Show();
         }
 
+        //Checks the input in the textbox to make sure it is not empty and sends the input to the PatientPersonalInformation class and gets the information back which is displayed in the DataGridView to see
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             String firstNameInputted = textBoxSearchFirstName.Text.ToString().ToLower();
@@ -122,6 +134,7 @@ namespace HospitalInformationManagementSystem
             }
         }
 
+        //Resets the DataGridView to the original details that are loaded when the menu is first clicked.
         private void buttonReset_Click(object sender, EventArgs e)
         {
             currentPatientFirstName.Clear();

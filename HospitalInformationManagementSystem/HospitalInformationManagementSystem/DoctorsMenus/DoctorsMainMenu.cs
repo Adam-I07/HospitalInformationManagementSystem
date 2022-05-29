@@ -17,6 +17,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             InitializeComponent();
         }
 
+        //Displays a message box to confirm if they want to log out. If they select Yes the system logs them out and displays the login Form.
         private void pictureBoxLogOut_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
@@ -33,6 +34,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             }
         }
 
+        //The following picture and text act as buttons. When clicked opens the PatientPersonalInformation Menu and closes the Main Menu.
         private void pictureBoxPatientPersonalDetailsLogo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -54,6 +56,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             doctorsPatientPersonalInfoMenu.Show();
         }
 
+        //The following picture and text act as buttons. When clicked opens the IllnessInformation Menu and closes the Main Menu.
         private void labelIIlnessTextPart1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -75,6 +78,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             doctorIllnessMenu.Show();
         }
 
+        //The following picture and text act as buttons. When clicked opens the InteractionLog Menu and closes the Main Menu.
         private void pictureBoxInteractionLog_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -96,6 +100,7 @@ namespace HospitalInformationManagementSystem.DoctorsMenus
             doctorInteractionLogMenu.Show();
         }
 
+        //The following picture and text act as buttons. When clicked opens the Requests Menu and closes the Main Menu.
         private void pictureBoxRequests_Click(object sender, EventArgs e)
         {
             this.Hide();

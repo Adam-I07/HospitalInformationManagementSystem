@@ -16,6 +16,8 @@ namespace HospitalInformationManagementSystem.NursesMenus
         {
             InitializeComponent();
         }
+
+        //Opens the Submit Request Window
         private void buttonSubmitRequest_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -23,12 +25,17 @@ namespace HospitalInformationManagementSystem.NursesMenus
             nurseSubmitRequest.Show();
         }
 
+        //Opens the View Request Window
         private void buttonViewRequests_Click(object sender, EventArgs e)
         {
             this.Hide();
             NurseViewExistingRequests nurseViewExistingRequests = new NurseViewExistingRequests();
             nurseViewExistingRequests.Show();
         }
+
+
+        /*This functions shows a message box to the user to confirm they would like to go back. If they press yes
+            this window is closed and the previous menu is displayed*/
         private void pictureBoxGoBack_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult;
